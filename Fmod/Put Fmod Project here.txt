@@ -1,3 +1,0 @@
-Put the fmod project in this folder so it can appear in git.
-
-You can delete this file after, its just git will not track an empty folder so I had to put something in here
