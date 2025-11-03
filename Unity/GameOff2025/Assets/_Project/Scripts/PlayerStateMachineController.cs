@@ -26,7 +26,7 @@ namespace SubHorror
 
 			machine.Update();
 
-			Debug.Log(string.Join(" > ", machine.Root.PathToActiveChild()));
+			//Debug.Log(string.Join(" > ", machine.Root.PathToActiveChild()));
 		}
 	}
 

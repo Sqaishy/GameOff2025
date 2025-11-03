@@ -206,7 +206,7 @@ namespace SubHorror
 			{
 				context.jumpPressed = false;
 				Vector3 velocity = context.rigidbody.linearVelocity;
-				velocity.y = 10f;
+				velocity.y = 12f;
 				context.rigidbody.linearVelocity = velocity;
 			}
 		}
