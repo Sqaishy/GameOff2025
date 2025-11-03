@@ -1,23 +1,31 @@
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 
 namespace SubHorror
 {
-	public class StateMachineBuilder
+	public class StateMachineBuilder<T> where T : State
 	{
+		private StateMachine machine;
 		private State root;
 
 		private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic
 			| BindingFlags.FlattenHierarchy;
 
-		public StateMachineBuilder(State root)
+		public StateMachineBuilder(PlayerContext context)
 		{
-			this.root = root;
+			machine = new StateMachine();
+			root = Activator.CreateInstance(typeof(T), new object[]
+			{
+				machine,
+				context
+			}) as State;
+
+			machine.SetRoot(root);
 		}
 
 		public StateMachine Build()
 		{
-			StateMachine machine = new StateMachine(root);
 			Wire(root, machine, new HashSet<State>());
 			machine.Start();
 			return machine;

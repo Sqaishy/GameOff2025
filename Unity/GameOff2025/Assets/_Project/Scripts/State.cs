@@ -6,7 +6,7 @@ namespace SubHorror
 	public abstract class State
 	{
 		public StateMachine Machine { get; private set; }
-		public State Parent { get; private set; }
+		public State Parent { get; set; }
 		public State ActiveChild { get; set; }
 
 		public State(StateMachine machine, State parent = null)
@@ -56,6 +56,11 @@ namespace SubHorror
 			return current;
 		}
 
+		public State GetLowestActiveParent()
+		{
+			return Leaf().Parent;
+		}
+
 		public IEnumerable<State> PathToRoot()
 		{
 			for (State current = this; current is not null; current = current.Parent)
@@ -96,14 +101,20 @@ namespace SubHorror
 		public PlayerRoot(StateMachine machine, PlayerContext context) : base(machine)
 		{
 			Context = context;
-			Grounded = new Grounded(machine, this, context);
-			Airborne = new Airborne(machine, this, context);
+			Grounded = Machine.Factory.GetOrAdd(new Grounded(machine, this, context));
+			Airborne = Machine.Factory.GetOrAdd(new Airborne(machine, this, context));
 		}
 
 		protected override State GetInitialState() => Grounded;
 		protected override bool GetTransition(out State transitionState)
 		{
 			if (Context.isGrounded)
+			{
+				transitionState = null;
+				return false;
+			}
+
+			if (Context.isAirborne)
 			{
 				transitionState = null;
 				return false;
@@ -131,7 +142,7 @@ namespace SubHorror
 				return false;
 			}
 
-			transitionState = ((Grounded)Parent).Movement;
+			transitionState = Machine.Factory.GetState<Movement>();
 			return true;
 		}
 	}
@@ -154,7 +165,7 @@ namespace SubHorror
 				return false;
 			}
 
-			transitionState = ((Grounded)Parent).Idle;
+			transitionState = Machine.Factory.GetState<Idle>();
 			return true;
 		}
 
@@ -179,37 +190,47 @@ namespace SubHorror
 		{
 			this.context = context;
 
-			Idle = new Idle(machine, this, context);
-			Movement = new Movement(machine, this, context);
+			Idle = machine.Factory.GetOrAdd(new Idle(machine, this, context));
+			Movement = machine.Factory.GetOrAdd(new Movement(machine, this, context));
 		}
 
-		protected override State GetInitialState() => Idle;
-
-		protected override bool GetTransition(out State transitionState)
+		protected override State GetInitialState()
 		{
-			if (!context.jumpPressed)
+			Idle.Parent = this;
+			return Idle;
+		}
+
+		protected override void OnTick()
+		{
+			if (context.jumpPressed)
 			{
-				transitionState = null;
-				return false;
+				context.jumpPressed = false;
+				Vector3 velocity = context.rigidbody.linearVelocity;
+				velocity.y = 10f;
+				context.rigidbody.linearVelocity = velocity;
 			}
-
-			context.jumpPressed = false;
-			Vector3 velocity = context.rigidbody.linearVelocity;
-			velocity.y = 10f;
-			context.rigidbody.linearVelocity = velocity;
-
-			transitionState = ((PlayerRoot)Parent).Airborne;
-			return true;
 		}
 	}
 
 	public class Airborne : State
 	{
+		public Idle Idle { get; private set; }
+		public Movement Movement { get; private set; }
+
 		private PlayerContext context;
 
 		public Airborne(StateMachine machine, State parent, PlayerContext context) : base(machine, parent)
 		{
 			this.context = context;
+
+			Idle = machine.Factory.GetOrAdd(new Idle(machine, this, context));
+			Movement = machine.Factory.GetOrAdd(new Movement(machine, this, context));
+		}
+
+		protected override State GetInitialState()
+		{
+			Idle.Parent = this;
+			return Idle;
 		}
 
 		protected override bool GetTransition(out State transitionState)
@@ -220,8 +241,18 @@ namespace SubHorror
 				return false;
 			}
 
-			transitionState = ((PlayerRoot)Parent).Grounded;
+			transitionState = Machine.Factory.GetState<Grounded>();
 			return true;
+		}
+
+		protected override void OnEnter()
+		{
+			context.isAirborne = true;
+		}
+
+		protected override void OnExit()
+		{
+			context.isAirborne = false;
 		}
 	}
 }

@@ -17,7 +17,7 @@ namespace SubHorror
 		{
 			playerContext.rigidbody = GetComponent<Rigidbody>();
 
-			machine = new StateMachineBuilder(new PlayerRoot(null, playerContext)).Build();
+			machine = new StateMachineBuilder<PlayerRoot>(playerContext).Build();
 		}
 
 		private void Update()
@@ -35,6 +35,7 @@ namespace SubHorror
 	{
 		public Rigidbody rigidbody;
 		public bool isGrounded;
+		public bool isAirborne;
 		public bool jumpPressed;
 		public Vector2 movement;
 	}

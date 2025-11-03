@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,11 +7,7 @@ namespace SubHorror
 	public class StateMachine
 	{
 		public State Root { get; private set; }
-
-		public StateMachine(State root)
-		{
-			Root = root;
-		}
+		public StateFactory Factory { get; private set; } = new();
 
 		public void Start()
 		{
@@ -28,6 +23,9 @@ namespace SubHorror
 		{
 			if (from == to || from == null || to == null)
 				return;
+
+			if (from.Parent is not null && from.Parent != to.Parent)
+				to.Parent = from.Parent;
 
 			State commonAncestor = LowestCommonAncestor(from, to);
 
@@ -53,6 +51,11 @@ namespace SubHorror
 				if (aParents.Contains(current)) return current;
 
 			return null;
+		}
+
+		public void SetRoot(State root)
+		{
+			Root = root;
 		}
 	}
 }
