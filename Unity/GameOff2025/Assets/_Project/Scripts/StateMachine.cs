@@ -55,11 +55,4 @@ namespace SubHorror
 			return null;
 		}
 	}
-
-	[Serializable]
-	public class PlayerContext
-	{
-		public bool isGrounded;
-		public Vector2 movement;
-	}
 }

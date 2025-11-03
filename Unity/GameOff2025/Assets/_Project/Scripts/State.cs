@@ -125,7 +125,7 @@ namespace SubHorror
 
 		protected override bool GetTransition(out State transitionState)
 		{
-			if (Mathf.Abs(context.movement.x) < .01f)
+			if (Mathf.Abs(context.movement.x) < .01f && Mathf.Abs(context.movement.y) < .01f)
 			{
 				transitionState = null;
 				return false;
@@ -139,6 +139,7 @@ namespace SubHorror
 	public class Movement : State
 	{
 		private PlayerContext context;
+		private Vector3 movementDirection;
 
 		public Movement(StateMachine machine, State parent, PlayerContext context) : base(machine, parent)
 		{
@@ -147,7 +148,7 @@ namespace SubHorror
 
 		protected override bool GetTransition(out State transitionState)
 		{
-			if (Mathf.Abs(context.movement.x) > .01f)
+			if (Mathf.Abs(context.movement.x) > .01f || Mathf.Abs(context.movement.y) > .01f)
 			{
 				transitionState = null;
 				return false;
@@ -155,6 +156,15 @@ namespace SubHorror
 
 			transitionState = ((Grounded)Parent).Idle;
 			return true;
+		}
+
+		protected override void OnTick()
+		{
+			movementDirection = context.rigidbody.linearVelocity;
+			movementDirection.x = context.movement.x * 5f;
+			movementDirection.z = context.movement.y * 5f;
+			//TODO Movement speed is a fixed value, change this to a variable at some point
+			context.rigidbody.linearVelocity = movementDirection;
 		}
 	}
 
@@ -174,6 +184,23 @@ namespace SubHorror
 		}
 
 		protected override State GetInitialState() => Idle;
+
+		protected override bool GetTransition(out State transitionState)
+		{
+			if (!context.jumpPressed)
+			{
+				transitionState = null;
+				return false;
+			}
+
+			context.jumpPressed = false;
+			Vector3 velocity = context.rigidbody.linearVelocity;
+			velocity.y = 10f;
+			context.rigidbody.linearVelocity = velocity;
+
+			transitionState = ((PlayerRoot)Parent).Airborne;
+			return true;
+		}
 	}
 
 	public class Airborne : State
