@@ -16,6 +16,7 @@ namespace SubHorror
 		private void Awake()
 		{
 			playerContext.rigidbody = GetComponent<Rigidbody>();
+			playerContext.mainCamera = Camera.main;
 
 			machine = new StateMachineBuilder<PlayerRoot>(playerContext).Build();
 		}
@@ -33,6 +34,7 @@ namespace SubHorror
 	[Serializable]
 	public class PlayerContext
 	{
+		public Camera mainCamera;
 		public Rigidbody rigidbody;
 		public bool isGrounded;
 		public bool isAirborne;

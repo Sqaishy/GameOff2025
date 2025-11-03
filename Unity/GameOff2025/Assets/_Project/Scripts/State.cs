@@ -171,11 +171,19 @@ namespace SubHorror
 
 		protected override void OnTick()
 		{
-			movementDirection = context.rigidbody.linearVelocity;
-			movementDirection.x = context.movement.x * 5f;
-			movementDirection.z = context.movement.y * 5f;
 			//TODO Movement speed is a fixed value, change this to a variable at some point
+			movementDirection = MovementDirection() * 5f;
+			movementDirection.y = context.rigidbody.linearVelocity.y;
+
 			context.rigidbody.linearVelocity = movementDirection;
+		}
+
+		private Vector3 MovementDirection()
+		{
+			Vector3 cameraForward = (context.mainCamera.transform.forward).normalized;
+			Vector3 cameraRight = (context.mainCamera.transform.right).normalized;
+
+			return cameraForward * context.movement.y + cameraRight * context.movement.x;
 		}
 	}
 
