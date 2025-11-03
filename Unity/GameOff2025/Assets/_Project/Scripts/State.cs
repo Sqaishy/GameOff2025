@@ -176,6 +176,9 @@ namespace SubHorror
 			movementDirection.y = context.rigidbody.linearVelocity.y;
 
 			context.rigidbody.linearVelocity = movementDirection;
+
+			if (context.movement != Vector2.zero)
+				FaceMovementDirection(movementDirection);
 		}
 
 		private Vector3 MovementDirection()
@@ -184,6 +187,15 @@ namespace SubHorror
 			Vector3 cameraRight = (context.mainCamera.transform.right).normalized;
 
 			return cameraForward * context.movement.y + cameraRight * context.movement.x;
+		}
+
+		private void FaceMovementDirection(Vector3 movement)
+		{
+			movement.y = 0f;
+
+			context.rigidbody.MoveRotation(Quaternion.Lerp(context.rigidbody.rotation,
+				Quaternion.LookRotation(movement),
+				15f * Time.deltaTime));
 		}
 	}
 
