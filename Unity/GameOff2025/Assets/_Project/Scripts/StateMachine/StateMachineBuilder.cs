@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace SubHorror
+namespace SubHorror.States
 {
 	public class StateMachineBuilder<T> where T : State
 	{

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SubHorror
+namespace SubHorror.States
 {
 	public abstract class State
 	{

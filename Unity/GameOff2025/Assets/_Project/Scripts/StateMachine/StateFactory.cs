@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SubHorror
+namespace SubHorror.States
 {
 	public class StateFactory
 	{
