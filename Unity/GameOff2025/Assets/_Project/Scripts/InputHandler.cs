@@ -9,6 +9,7 @@ namespace SubHorror
 	public class InputHandler : MonoBehaviour
 	{
 		private PlayerContext playerContext;
+		private bool sprintToggle;
 
 		private void Awake()
 		{
@@ -18,6 +19,16 @@ namespace SubHorror
 		public void MovementInput(InputAction.CallbackContext context)
 		{
 			playerContext.movement = context.ReadValue<Vector2>();
+		}
+
+		public void SprintInput(InputAction.CallbackContext context)
+		{
+			if (!context.performed)
+				return;
+
+			sprintToggle = !sprintToggle;
+
+			playerContext.sprintPressed = sprintToggle;
 		}
 
 		public void JumpInput(InputAction.CallbackContext context)

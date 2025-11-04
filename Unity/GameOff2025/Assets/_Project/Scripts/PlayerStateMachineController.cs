@@ -39,6 +39,7 @@ namespace SubHorror
 		public bool isGrounded;
 		public bool isAirborne;
 		public bool jumpPressed;
+        public bool sprintPressed;
 		public Vector2 movement;
 	}
 }

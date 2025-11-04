@@ -172,7 +172,8 @@ namespace SubHorror
 		protected override void OnTick()
 		{
 			//TODO Movement speed is a fixed value, change this to a variable at some point
-			movementDirection = MovementDirection() * 5f;
+			movementDirection = MovementDirection();
+			movementDirection *= context.sprintPressed ? 8f : 5f;
 			movementDirection.y = context.rigidbody.linearVelocity.y;
 
 			context.rigidbody.linearVelocity = movementDirection;
