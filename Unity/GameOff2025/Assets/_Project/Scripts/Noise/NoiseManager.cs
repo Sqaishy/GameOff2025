@@ -27,7 +27,10 @@ namespace SubHorror.Noise
 
 			for (int i = activeNoiseSet.Count - 1; i >= 0; i--)
 			{
-				activeNoiseSet[i].RemainingDuration -= Time.deltaTime;
+				if (activeNoiseSet[i].RemainingDelay > 0f)
+					activeNoiseSet[i].RemainingDelay -= Time.deltaTime;
+				else
+					activeNoiseSet[i].RemainingDuration -= Time.deltaTime;
 
 				if (activeNoiseSet[i].RemainingDuration <= 0)
 				{
@@ -60,8 +63,6 @@ namespace SubHorror.Noise
 			if (!activeNoiseSet.Contains(activeNoise))
 				activeNoiseSet.Add(activeNoise);
 
-
-			//If you are down here it means there is an active noise playing so you want to reset it
 			activeNoise.Reset();
 		}
 
@@ -74,7 +75,7 @@ namespace SubHorror.Noise
 				if (!kvp.Value.Active)
 					continue;
 
-				sum += kvp.Key.NoiseLevel;
+				sum += kvp.Value.CurrentSoundLevel;
 			}
 
 			return sum;
@@ -96,20 +97,29 @@ namespace SubHorror.Noise
 	public class ActiveNoise
 	{
 		public NoiseSettings NoiseSettings { get; private set; }
+		public float RemainingDelay { get; set; }
 		public float RemainingDuration { get; set; }
 		public bool Active { get; set; }
+		public float CurrentSoundLevel => CalculateSoundLevel();
 
 		public ActiveNoise(NoiseSettings noiseSettings)
 		{
 			NoiseSettings = noiseSettings;
-			RemainingDuration = noiseSettings.Delay + noiseSettings.Duration;
-			Active = true;
 		}
 
 		public void Reset()
 		{
-			RemainingDuration = NoiseSettings.Delay + NoiseSettings.Duration;
+			RemainingDelay = NoiseSettings.Delay;
+			RemainingDuration = NoiseSettings.Duration;
 			Active = true;
+		}
+
+		private float CalculateSoundLevel()
+		{
+			float noiseInterpolation = NoiseSettings.NoiseFalloff.Evaluate(
+				RemainingDuration / NoiseSettings.Duration);
+
+			return NoiseSettings.NoiseLevel * noiseInterpolation;
 		}
 	}
 }
