@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dae6d2ada444562ac9db1da200d73ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emitter: {fileID: 1529776448}
+  emitter: {fileID: 1453548741}
   noiseSlider: {fileID: 1446914004}
 --- !u!1 &911953028
 GameObject:
@@ -1095,9 +1095,11 @@ GameObject:
   - component: {fileID: 1453548734}
   - component: {fileID: 1453548740}
   - component: {fileID: 1453548737}
+  - component: {fileID: 1453548742}
   - component: {fileID: 1453548739}
   - component: {fileID: 1453548732}
   - component: {fileID: 1453548738}
+  - component: {fileID: 1453548741}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1125,6 +1127,8 @@ MonoBehaviour:
   playerContext:
     mainCamera: {fileID: 0}
     rigidbody: {fileID: 0}
+    noiseEmitter: {fileID: 0}
+    movementNoiseSettings: {fileID: 11400000, guid: 989ba76fb2dc1bb44ab048ef521da161, type: 2}
     isGrounded: 1
     isAirborne: 0
     jumpPressed: 0
@@ -1344,6 +1348,40 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1453548741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453548731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0f349183abbdf47817cfa84207d9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1453548742
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453548731}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aebba930bda2cff43bc90d4711d26bfa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1507030602
 GameObject:
   m_ObjectHideFlags: 0

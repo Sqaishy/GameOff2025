@@ -1,4 +1,5 @@
 using System;
+using SubHorror.Noise;
 using SubHorror.States;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ namespace SubHorror
 		private void Awake()
 		{
 			playerContext.rigidbody = GetComponent<Rigidbody>();
+			playerContext.noiseEmitter = GetComponent<NoiseEmitter>();
+			playerContext.animator = GetComponent<Animator>();
 			playerContext.mainCamera = Camera.main;
 
 			machine = new StateMachineBuilder<PlayerRoot>(playerContext).Build();
@@ -37,6 +40,9 @@ namespace SubHorror
 	{
 		public Camera mainCamera;
 		public Rigidbody rigidbody;
+		public Animator animator;
+		public NoiseEmitter noiseEmitter;
+		public NoiseSettings movementNoiseSettings;
 		public bool isGrounded;
 		public bool isAirborne;
 		public bool jumpPressed;

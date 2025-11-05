@@ -169,6 +169,12 @@ namespace SubHorror.States
 			return true;
 		}
 
+		protected override void OnEnter()
+		{
+			context.noiseEmitter.PlayNoise(context.movementNoiseSettings);
+			context.animator.SetBool("IsMoving", true);
+		}
+
 		protected override void OnTick()
 		{
 			//TODO Movement speed is a fixed value, change this to a variable at some point
@@ -177,6 +183,11 @@ namespace SubHorror.States
 			movementDirection.y = context.rigidbody.linearVelocity.y;
 
 			context.rigidbody.linearVelocity = movementDirection;
+		}
+
+		protected override void OnExit()
+		{
+			context.animator.SetBool("IsMoving", false);
 		}
 
 		private Vector3 MovementDirection()
