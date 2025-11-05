@@ -68,6 +68,9 @@ namespace SubHorror.Noise
 
 		public float GetNoiseLevel(NoiseEmitter noiseEmitter)
 		{
+			if (!activeNoises.ContainsKey(noiseEmitter))
+				return 0f;
+
 			float sum = 0;
 
 			foreach (KeyValuePair<NoiseSettings, ActiveNoise> kvp in activeNoises[noiseEmitter])
