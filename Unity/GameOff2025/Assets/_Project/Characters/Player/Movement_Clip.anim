@@ -176,7 +176,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.5
-    functionName: PlayNoise
+    functionName: EmitNoise
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 989ba76fb2dc1bb44ab048ef521da161, type: 2}
     floatParameter: 0

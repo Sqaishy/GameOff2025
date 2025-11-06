@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using SubHorror.Noise;
 using UnityEngine;
 
 namespace SubHorror.States
@@ -171,6 +172,9 @@ namespace SubHorror.States
 
 		protected override void OnEnter()
 		{
+			/*NoiseSettings modifiedNoise = context.movementNoiseSettings.NoiseModifier.GetModifiedValue(
+				new MovementNoiseModifier(context.sprintPressed));*/
+
 			context.noiseEmitter.PlayNoise(context.movementNoiseSettings);
 			context.animator.SetBool("IsMoving", true);
 		}

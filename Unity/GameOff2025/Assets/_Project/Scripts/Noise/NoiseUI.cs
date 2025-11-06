@@ -12,7 +12,7 @@ namespace SubHorror.Noise.UI
 
 		private void Update()
 		{
-			noiseSlider.value = emitter.TotalNoiseLevel();
+			noiseSlider.value = emitter.TotalNoiseLevelCombined();
 		}
 	}
 }

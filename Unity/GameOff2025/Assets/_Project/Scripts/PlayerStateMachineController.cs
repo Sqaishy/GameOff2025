@@ -18,7 +18,7 @@ namespace SubHorror
 		private void Awake()
 		{
 			playerContext.rigidbody = GetComponent<Rigidbody>();
-			playerContext.noiseEmitter = GetComponent<NoiseEmitter>();
+			playerContext.noiseEmitter = GetComponentInChildren<NoiseEmitter>();
 			playerContext.animator = GetComponent<Animator>();
 			playerContext.mainCamera = Camera.main;
 

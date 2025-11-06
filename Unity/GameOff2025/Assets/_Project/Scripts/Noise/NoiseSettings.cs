@@ -21,5 +21,60 @@ namespace SubHorror.Noise
 		public float Duration => duration;
 		public AnimationCurve NoiseFalloff => noiseFalloff;
 		public AnimationCurve FalloffRange => falloffRange;
+
+		public NoiseLevelModifier NoiseModifier => new NoiseLevelModifier(this);
+
+		public class NoiseLevelModifier
+		{
+			private float originalValue;
+			private float modifiedValue;
+			private NoiseSettings noiseSettings;
+
+			public NoiseLevelModifier(NoiseSettings noiseSettings)
+			{
+				this.noiseSettings = noiseSettings;
+				originalValue = noiseSettings.NoiseLevel;
+				modifiedValue = noiseSettings.NoiseLevel;
+			}
+
+			public NoiseSettings GetModifiedValue(FloatModifier modifier)
+			{
+				noiseSettings.noiseLevel = modifier.Modify(modifiedValue);
+				return noiseSettings;
+			}
+		}
+	}
+
+	public class NoiseModifier
+	{
+		public NoiseSettings NoiseSettings { get; private set; }
+		public float SoundLevel { get; set; }
+		public float Delay { get; set; }
+		public float Duration { get; set; }
+
+		public NoiseModifier(NoiseSettings noiseSettings)
+		{
+			NoiseSettings = noiseSettings;
+		}
+	}
+
+	public abstract class FloatModifier
+	{
+		public abstract float Modify(float input);
+	}
+
+	public class MovementNoiseModifier : FloatModifier
+	{
+		private bool isSprinting;
+
+		public MovementNoiseModifier(bool isSprinting)
+		{
+			this.isSprinting = isSprinting;
+		}
+
+		public override float Modify(float input)
+		{
+			return isSprinting ? input * 2f : input;
+		}
 	}
 }

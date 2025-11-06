@@ -21,7 +21,6 @@ namespace SubHorror.Noise
 
 		private void Update()
 		{
-			//This is where you want to go over the list of all active noises and run them
 			if (activeNoiseSet.Count == 0)
 				return;
 
@@ -42,18 +41,12 @@ namespace SubHorror.Noise
 
 		public void PlayNoise(NoiseEmitter noiseEmitter, NoiseSettings noiseSettings)
 		{
-			//Check if noise trying to play already exists as an active noise
-			//If not create it
-
-			//If cant get noise emitter from dictionary create the element
-			//If it doesn't exist it means this noise emitter is not making any noise
 			if (!activeNoises.TryGetValue(noiseEmitter, out Dictionary<NoiseSettings, ActiveNoise> noise))
 			{
 				noise = new Dictionary<NoiseSettings, ActiveNoise>();
 				activeNoises.Add(noiseEmitter, noise);
 			}
 
-			//If you cant get the active noise then create it
 			if (!noise.TryGetValue(noiseSettings, out ActiveNoise activeNoise))
 			{
 				activeNoise = new ActiveNoise(noiseSettings);
@@ -66,6 +59,11 @@ namespace SubHorror.Noise
 			activeNoise.Reset();
 		}
 
+		/// <summary>
+		/// Gets all the noises that the noises emitter is making and adds them together
+		/// </summary>
+		/// <param name="noiseEmitter">The emitter making the noises</param>
+		/// <returns>All noises summed together</returns>
 		public float GetNoiseLevel(NoiseEmitter noiseEmitter)
 		{
 			if (!activeNoises.ContainsKey(noiseEmitter))
@@ -84,6 +82,11 @@ namespace SubHorror.Noise
 			return sum;
 		}
 
+		/// <summary>
+		/// Stop all noises coming from the noise emitter
+		/// </summary>
+		///  <remarks>Useful when destroying objects</remarks>
+		/// <param name="noiseEmitter">The noise emitter making the noises</param>
 		public void StopNoises(NoiseEmitter noiseEmitter)
 		{
 			//If the noise emitter is destroyed you want to stop playing any noises

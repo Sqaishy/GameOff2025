@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a67d26903ba346ef87c36b985ec2d2b1, type: 3}
   m_Name: Test_Noise
   m_EditorClassIdentifier: 
-  noiseLevel: 15
+  noiseLevel: 50
   delay: 1
   duration: 3
   noiseFalloff:
