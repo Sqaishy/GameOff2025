@@ -39,6 +39,11 @@ namespace SubHorror.Noise
 			//Maybe also play some sound particles at the noise location
 		}
 
+		public void PlayNoise(INoise noise)
+		{
+			NoiseManager.Instance.PlayNoise(this, noise);
+		}
+
 		/// <returns>The total noise level this emitter is making</returns>
 		/// <remarks>
 		/// To get the noise level including nearby emitters use <see cref="TotalNoiseLevelCombined"/>

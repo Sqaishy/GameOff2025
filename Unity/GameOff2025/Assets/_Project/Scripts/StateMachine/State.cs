@@ -151,11 +151,13 @@ namespace SubHorror.States
 	public class Movement : State
 	{
 		private PlayerContext context;
+		private ToggleNoise movementNoise;
 		private Vector3 movementDirection;
 
 		public Movement(StateMachine machine, State parent, PlayerContext context) : base(machine, parent)
 		{
 			this.context = context;
+			movementNoise = new ToggleNoise(context.noiseEmitter, context.movementNoiseSettings);
 		}
 
 		protected override bool GetTransition(out State transitionState)
@@ -175,7 +177,10 @@ namespace SubHorror.States
 			/*NoiseSettings modifiedNoise = context.movementNoiseSettings.NoiseModifier.GetModifiedValue(
 				new MovementNoiseModifier(context.sprintPressed));*/
 
-			context.noiseEmitter.PlayNoise(context.movementNoiseSettings);
+			//context.noiseEmitter.PlayNoise(context.movementNoiseSettings);
+			movementNoise.ResetNoise();
+			context.noiseEmitter.PlayNoise(movementNoise);
+			movementNoise.NoisePlaying(true);
 			context.animator.SetBool("IsMoving", true);
 		}
 
@@ -191,6 +196,7 @@ namespace SubHorror.States
 
 		protected override void OnExit()
 		{
+			movementNoise.NoisePlaying(false);
 			context.animator.SetBool("IsMoving", false);
 		}
 

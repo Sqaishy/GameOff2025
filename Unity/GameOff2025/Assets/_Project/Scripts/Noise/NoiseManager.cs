@@ -10,6 +10,8 @@ namespace SubHorror.Noise
 
 		private Dictionary<NoiseEmitter, Dictionary<NoiseSettings, ActiveNoise>> activeNoises = new();
 		private List<ActiveNoise> activeNoiseSet = new();
+		private Dictionary<NoiseEmitter, List<INoise>> activeNoisesDic = new();
+		private List<INoise> noises = new();
 
 		private void Awake()
 		{
@@ -21,21 +23,15 @@ namespace SubHorror.Noise
 
 		private void Update()
 		{
-			if (activeNoiseSet.Count == 0)
+			if (noises.Count == 0)
 				return;
 
-			for (int i = activeNoiseSet.Count - 1; i >= 0; i--)
+			for (int i = noises.Count - 1; i >= 0; i--)
 			{
-				if (activeNoiseSet[i].RemainingDelay > 0f)
-					activeNoiseSet[i].RemainingDelay -= Time.deltaTime;
-				else
-					activeNoiseSet[i].RemainingDuration -= Time.deltaTime;
+				noises[i].ReduceNoise();
 
-				if (activeNoiseSet[i].RemainingDuration <= 0)
-				{
-					activeNoiseSet[i].Active = false;
-					activeNoiseSet.RemoveAt(i);
-				}
+				if (!noises[i].NoiseActive)
+					RemoveActiveNoise(noises[i]);
 			}
 		}
 
@@ -59,25 +55,35 @@ namespace SubHorror.Noise
 			activeNoise.Reset();
 		}
 
+		public void PlayNoise(NoiseEmitter noiseEmitter, INoise noise)
+		{
+			if (!activeNoisesDic.TryGetValue(noiseEmitter, out List<INoise> noisesList))
+			{
+				noisesList = new List<INoise>();
+				activeNoisesDic.Add(noiseEmitter, noisesList);
+			}
+
+			if (noisesList.Contains(noise))
+				return;
+
+			noisesList.Add(noise);
+			noises.Add(noise);
+		}
+
 		/// <summary>
-		/// Gets all the noises that the noises emitter is making and adds them together
+		/// Gets all the noises that the noise emitter is making and adds them together
 		/// </summary>
 		/// <param name="noiseEmitter">The emitter making the noises</param>
 		/// <returns>All noises summed together</returns>
 		public float GetNoiseLevel(NoiseEmitter noiseEmitter)
 		{
-			if (!activeNoises.ContainsKey(noiseEmitter))
+			if (!activeNoisesDic.ContainsKey(noiseEmitter))
 				return 0f;
 
-			float sum = 0;
+			float sum = 0f;
 
-			foreach (KeyValuePair<NoiseSettings, ActiveNoise> kvp in activeNoises[noiseEmitter])
-			{
-				if (!kvp.Value.Active)
-					continue;
-
-				sum += kvp.Value.CurrentSoundLevel;
-			}
+			foreach (INoise noise in activeNoisesDic[noiseEmitter])
+				sum += noise.CurrentNoiseLevel();
 
 			return sum;
 		}
@@ -97,6 +103,18 @@ namespace SubHorror.Noise
 				activeNoiseSet.Remove(kvp.Value);
 
 			activeNoises.Remove(noiseEmitter);
+		}
+
+		private void RemoveActiveNoise(INoise noise)
+		{
+			NoiseEmitter emitter = noise.NoiseEmitter;
+
+			activeNoisesDic[emitter].Remove(noise);
+
+			if (activeNoisesDic[emitter].Count == 0)
+				activeNoisesDic.Remove(emitter);
+
+			noises.Remove(noise);
 		}
 	}
 

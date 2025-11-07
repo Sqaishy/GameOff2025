@@ -9,11 +9,20 @@ public class NoiseEmitterTest : MonoBehaviour
 
     private const float NoiseTime = 1.5f;
     private NoiseEmitter noiseEmitter;
+    private ToggleNoise radioNoise;
     private float currentTime;
 
     private void Awake()
     {
         noiseEmitter = GetComponent<NoiseEmitter>();
+        radioNoise = new ToggleNoise(noiseEmitter, noiseSettings);
+        radioNoise.ResetNoise();
+        radioNoise.NoisePlaying(playNoise);
+    }
+
+    private void Start()
+    {
+        noiseEmitter.PlayNoise(radioNoise);
     }
 
     private void Update()
@@ -22,7 +31,6 @@ public class NoiseEmitterTest : MonoBehaviour
 
         if (currentTime >= NoiseTime && playNoise)
         {
-            noiseEmitter.PlayNoise(noiseSettings);
             Debug.Log($"Total noise for {name} - {noiseEmitter.TotalNoiseLevel()}db");
             currentTime = 0;
         }
