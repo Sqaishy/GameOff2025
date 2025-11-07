@@ -13,14 +13,29 @@ namespace SubHorror.Noise
 		[SerializeField] private float duration;
 		[Tooltip("Interpolates the sound level over the duration based on the noise falloff")]
 		[SerializeField] private AnimationCurve noiseFalloff;
-		[Tooltip("Controls how the noise level is interpolated over a distance")]
-		[SerializeField] private AnimationCurve falloffRange;
 
 		public float NoiseLevel => noiseLevel;
 		public float Delay => delay;
 		public float Duration => duration;
 		public AnimationCurve NoiseFalloff => noiseFalloff;
-		public AnimationCurve FalloffRange => falloffRange;
+
+		public static NoiseSettings Create(float noiseLevel, float delay, float duration,
+			AnimationCurve noiseFalloff)
+		{
+			NoiseSettings createSettings = CreateInstance<NoiseSettings>();
+			createSettings.noiseLevel = noiseLevel;
+			createSettings.delay = delay;
+			createSettings.duration = duration;
+			createSettings.noiseFalloff = noiseFalloff;
+
+			return createSettings;
+		}
+
+		public static NoiseSettings Create(float noiseLevel, float delay, float duration)
+		{
+			return Create(noiseLevel, delay, duration,
+				AnimationCurve.Linear(0, 0, 1, 1));
+		}
 
 		public NoiseLevelModifier NoiseModifier => new NoiseLevelModifier(this);
 

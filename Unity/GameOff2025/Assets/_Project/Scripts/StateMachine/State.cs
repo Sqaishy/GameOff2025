@@ -121,6 +121,11 @@ namespace SubHorror.States
 				return false;
 			}
 
+			SingleNoise jumpNoise = new SingleNoise(Context.noiseEmitter, NoiseSettings.Create(
+				15f, .2f, 1f));
+
+			Context.noiseEmitter.PlayNoise(jumpNoise);
+
 			transitionState = Airborne;
 			return true;
 		}
@@ -178,9 +183,7 @@ namespace SubHorror.States
 				new MovementNoiseModifier(context.sprintPressed));*/
 
 			//context.noiseEmitter.PlayNoise(context.movementNoiseSettings);
-			movementNoise.ResetNoise();
-			context.noiseEmitter.PlayNoise(movementNoise);
-			movementNoise.NoisePlaying(true);
+			movementNoise.Play();
 			context.animator.SetBool("IsMoving", true);
 		}
 
@@ -270,6 +273,11 @@ namespace SubHorror.States
 				transitionState = null;
 				return false;
 			}
+
+			SingleNoise landNoise = new SingleNoise(context.noiseEmitter, NoiseSettings.Create(
+				25f, .2f, 1f));
+
+			context.noiseEmitter.PlayNoise(landNoise);
 
 			transitionState = Machine.Factory.GetState<Grounded>();
 			return true;

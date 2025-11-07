@@ -21,6 +21,13 @@ namespace SubHorror.Noise
 			NoiseSettings = noiseSettings;
 		}
 
+		public void Play()
+		{
+			ResetNoise();
+			isPlaying = true;
+			NoiseEmitter.PlayNoise(this);
+		}
+
 		public void NoisePlaying(bool toggle) => isPlaying = toggle;
 
 		public void ResetNoise()

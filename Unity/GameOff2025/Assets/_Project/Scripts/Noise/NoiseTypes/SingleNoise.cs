@@ -18,6 +18,9 @@ namespace SubHorror.Noise
 		{
 			NoiseEmitter = noiseEmitter;
 			NoiseSettings = noiseSettings;
+
+			remainingDelay = NoiseSettings.Delay;
+			remainingDuration = NoiseSettings.Duration;
 		}
 
 		public void ReduceNoise()
