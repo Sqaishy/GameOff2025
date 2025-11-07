@@ -1218,7 +1218,14 @@ MonoBehaviour:
     rigidbody: {fileID: 0}
     animator: {fileID: 0}
     noiseEmitter: {fileID: 0}
-    movementNoiseSettings: {fileID: 11400000, guid: 989ba76fb2dc1bb44ab048ef521da161, type: 2}
+    movementSettings:
+      walkSpeed: 5
+      sprintSpeed: 8
+      movementNoiseSettings: {fileID: 11400000, guid: 989ba76fb2dc1bb44ab048ef521da161, type: 2}
+      sprintNoiseMultiplier: 2
+      jumpSpeed: 12
+      jumpNoiseSettings: {fileID: 11400000, guid: 116f608eb137ddd439063b8b5c748cfd, type: 2}
+      landingNoiseSettings: {fileID: 11400000, guid: 25ebd4f04042cc943ad68c9588b6e45f, type: 2}
     isGrounded: 1
     isAirborne: 0
     jumpPressed: 0

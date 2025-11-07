@@ -3,6 +3,7 @@ namespace SubHorror.Noise
 	public class NoiseDecorator<T> : INoise where T : INoise
 	{
 		public float NoiseLevel { get; set; }
+		public float NoiseMultiplier { get; set; }
 		public float Delay { get; set; }
 		public float Duration { get; set; }
 		public NoiseEmitter NoiseEmitter { get; }
@@ -22,7 +23,7 @@ namespace SubHorror.Noise
 
 		public float CurrentNoiseLevel()
 		{
-			return Noise.CurrentNoiseLevel() + NoiseLevel;
+			return (Noise.CurrentNoiseLevel() + NoiseLevel) * NoiseMultiplier;
 		}
 	}
 }

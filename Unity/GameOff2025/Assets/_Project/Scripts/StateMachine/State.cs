@@ -123,8 +123,7 @@ namespace SubHorror.States
 				return false;
 			}
 
-			SingleNoise jumpNoise = new SingleNoise(Context.noiseEmitter, NoiseSettings.Create(
-				15f, .2f, 1f));
+			SingleNoise jumpNoise = new SingleNoise(Context.noiseEmitter, Context.movementSettings.jumpNoiseSettings);
 
 			Context.noiseEmitter.PlayNoise(jumpNoise);
 
@@ -165,7 +164,7 @@ namespace SubHorror.States
 		{
 			this.context = context;
 			movementNoise = new NoiseDecorator<ToggleNoise>(new ToggleNoise(context.noiseEmitter,
-				context.movementNoiseSettings));
+				context.movementSettings.movementNoiseSettings));
 		}
 
 		protected override bool GetTransition(out State transitionState)
@@ -196,10 +195,12 @@ namespace SubHorror.States
 		{
 			//TODO Movement speed is a fixed value, change this to a variable at some point
 			movementDirection = MovementDirection();
-			movementDirection *= context.sprintPressed ? 8f : 5f;
+			movementDirection *= context.sprintPressed ? context.movementSettings.sprintSpeed
+				: context.movementSettings.walkSpeed;
 			movementDirection.y = context.rigidbody.linearVelocity.y;
 
-			movementNoise.NoiseLevel = context.sprintPressed ? 15f : 0;
+			movementNoise.NoiseMultiplier = context.sprintPressed ? context.movementSettings.sprintNoiseMultiplier
+				: 1f;
 
 			context.rigidbody.linearVelocity = movementDirection;
 		}
@@ -246,7 +247,7 @@ namespace SubHorror.States
 			{
 				context.jumpPressed = false;
 				Vector3 velocity = context.rigidbody.linearVelocity;
-				velocity.y = 12f;
+				velocity.y = context.movementSettings.jumpSpeed;
 				context.rigidbody.linearVelocity = velocity;
 			}
 		}
@@ -281,8 +282,7 @@ namespace SubHorror.States
 				return false;
 			}
 
-			SingleNoise landNoise = new SingleNoise(context.noiseEmitter, NoiseSettings.Create(
-				25f, .2f, 1f));
+			SingleNoise landNoise = new SingleNoise(context.noiseEmitter, context.movementSettings.landingNoiseSettings);
 
 			context.noiseEmitter.PlayNoise(landNoise);
 
