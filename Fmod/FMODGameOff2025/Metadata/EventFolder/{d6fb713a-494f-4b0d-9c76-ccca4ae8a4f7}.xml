@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{d6fb713a-494f-4b0d-9c76-ccca4ae8a4f7}">
+		<property name="name">
+			<value>EngineShutdown</value>
+		</property>
+		<relationship name="folder">
+			<destination>{27716300-0778-434f-b16e-3a268b19c1bc}</destination>
+		</relationship>
+	</object>
+</objects>
