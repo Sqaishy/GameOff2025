@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace SubHorror.Noise
@@ -31,14 +30,7 @@ namespace SubHorror.Noise
 		/// <summary>
 		/// Play a noise through this emitter
 		/// </summary>
-		/// <param name="noiseSettings">Controls how the noise is handled</param>
-		public void PlayNoise(NoiseSettings noiseSettings)
-		{
-			NoiseManager.Instance.PlayNoise(this, noiseSettings);
-
-			//Maybe also play some sound particles at the noise location
-		}
-
+		/// <param name="noise">The noise to be played</param>
 		public void PlayNoise(INoise noise)
 		{
 			NoiseManager.Instance.PlayNoise(this, noise);

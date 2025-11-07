@@ -8,8 +8,6 @@ namespace SubHorror.Noise
 	{
 		public static NoiseManager Instance { get; private set; }
 
-		private Dictionary<NoiseEmitter, Dictionary<NoiseSettings, ActiveNoise>> activeNoises = new();
-		private List<ActiveNoise> activeNoiseSet = new();
 		private Dictionary<NoiseEmitter, List<INoise>> activeNoisesDic = new();
 		private List<INoise> noises = new();
 
@@ -33,26 +31,6 @@ namespace SubHorror.Noise
 				if (!noises[i].NoiseActive)
 					RemoveActiveNoise(noises[i]);
 			}
-		}
-
-		public void PlayNoise(NoiseEmitter noiseEmitter, NoiseSettings noiseSettings)
-		{
-			if (!activeNoises.TryGetValue(noiseEmitter, out Dictionary<NoiseSettings, ActiveNoise> noise))
-			{
-				noise = new Dictionary<NoiseSettings, ActiveNoise>();
-				activeNoises.Add(noiseEmitter, noise);
-			}
-
-			if (!noise.TryGetValue(noiseSettings, out ActiveNoise activeNoise))
-			{
-				activeNoise = new ActiveNoise(noiseSettings);
-				noise[noiseSettings] = activeNoise;
-			}
-
-			if (!activeNoiseSet.Contains(activeNoise))
-				activeNoiseSet.Add(activeNoise);
-
-			activeNoise.Reset();
 		}
 
 		public void PlayNoise(NoiseEmitter noiseEmitter, INoise noise)
@@ -95,14 +73,13 @@ namespace SubHorror.Noise
 		/// <param name="noiseEmitter">The noise emitter making the noises</param>
 		public void StopNoises(NoiseEmitter noiseEmitter)
 		{
-			//If the noise emitter is destroyed you want to stop playing any noises
-			if (!activeNoises.TryGetValue(noiseEmitter, out Dictionary<NoiseSettings, ActiveNoise> noise))
+			if (!activeNoisesDic.TryGetValue(noiseEmitter, out List<INoise> noisesList))
 				return;
 
-			foreach (KeyValuePair<NoiseSettings,ActiveNoise> kvp in noise)
-				activeNoiseSet.Remove(kvp.Value);
+			foreach (INoise noise in noisesList)
+				noises.Remove(noise);
 
-			activeNoises.Remove(noiseEmitter);
+			activeNoisesDic.Remove(noiseEmitter);
 		}
 
 		private void RemoveActiveNoise(INoise noise)
@@ -115,35 +92,6 @@ namespace SubHorror.Noise
 				activeNoisesDic.Remove(emitter);
 
 			noises.Remove(noise);
-		}
-	}
-
-	public class ActiveNoise
-	{
-		public NoiseSettings NoiseSettings { get; private set; }
-		public float RemainingDelay { get; set; }
-		public float RemainingDuration { get; set; }
-		public bool Active { get; set; }
-		public float CurrentSoundLevel => CalculateSoundLevel();
-
-		public ActiveNoise(NoiseSettings noiseSettings)
-		{
-			NoiseSettings = noiseSettings;
-		}
-
-		public void Reset()
-		{
-			RemainingDelay = NoiseSettings.Delay;
-			RemainingDuration = NoiseSettings.Duration;
-			Active = true;
-		}
-
-		private float CalculateSoundLevel()
-		{
-			float noiseInterpolation = NoiseSettings.NoiseFalloff.Evaluate(
-				RemainingDuration / NoiseSettings.Duration);
-
-			return NoiseSettings.NoiseLevel * noiseInterpolation;
 		}
 	}
 }
