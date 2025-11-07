@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using SubHorror.Noise;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace SubHorror.States
 {
@@ -120,6 +123,10 @@ namespace SubHorror.States
 				return false;
 			}
 
+			SingleNoise jumpNoise = new SingleNoise(Context.noiseEmitter, Context.movementSettings.jumpNoiseSettings);
+
+			Context.noiseEmitter.PlayNoise(jumpNoise);
+
 			transitionState = Airborne;
 			return true;
 		}
@@ -150,11 +157,14 @@ namespace SubHorror.States
 	public class Movement : State
 	{
 		private PlayerContext context;
+		private NoiseDecorator<ToggleNoise> movementNoise;
 		private Vector3 movementDirection;
 
 		public Movement(StateMachine machine, State parent, PlayerContext context) : base(machine, parent)
 		{
 			this.context = context;
+			movementNoise = new NoiseDecorator<ToggleNoise>(new ToggleNoise(context.noiseEmitter,
+				context.movementSettings.movementNoiseSettings));
 		}
 
 		protected override bool GetTransition(out State transitionState)
@@ -169,14 +179,36 @@ namespace SubHorror.States
 			return true;
 		}
 
+		protected override void OnEnter()
+		{
+			/*NoiseSettings modifiedNoise = context.movementNoiseSettings.NoiseModifier.GetModifiedValue(
+				new MovementNoiseModifier(context.sprintPressed));*/
+
+			//movementNoise.Noise.Play();
+			movementNoise.Noise.ResetNoise();
+			movementNoise.Noise.NoisePlaying(true);
+			context.noiseEmitter.PlayNoise(movementNoise);
+			context.animator.SetBool("IsMoving", true);
+		}
+
 		protected override void OnTick()
 		{
 			//TODO Movement speed is a fixed value, change this to a variable at some point
 			movementDirection = MovementDirection();
-			movementDirection *= context.sprintPressed ? 8f : 5f;
+			movementDirection *= context.sprintPressed ? context.movementSettings.sprintSpeed
+				: context.movementSettings.walkSpeed;
 			movementDirection.y = context.rigidbody.linearVelocity.y;
 
+			movementNoise.NoiseMultiplier = context.sprintPressed ? context.movementSettings.sprintNoiseMultiplier
+				: 1f;
+
 			context.rigidbody.linearVelocity = movementDirection;
+		}
+
+		protected override void OnExit()
+		{
+			movementNoise.Noise.NoisePlaying(false);
+			context.animator.SetBool("IsMoving", false);
 		}
 
 		private Vector3 MovementDirection()
@@ -215,7 +247,7 @@ namespace SubHorror.States
 			{
 				context.jumpPressed = false;
 				Vector3 velocity = context.rigidbody.linearVelocity;
-				velocity.y = 12f;
+				velocity.y = context.movementSettings.jumpSpeed;
 				context.rigidbody.linearVelocity = velocity;
 			}
 		}
@@ -249,6 +281,10 @@ namespace SubHorror.States
 				transitionState = null;
 				return false;
 			}
+
+			SingleNoise landNoise = new SingleNoise(context.noiseEmitter, context.movementSettings.landingNoiseSettings);
+
+			context.noiseEmitter.PlayNoise(landNoise);
 
 			transitionState = Machine.Factory.GetState<Grounded>();
 			return true;

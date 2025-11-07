@@ -1,4 +1,5 @@
 using System;
+using SubHorror.Noise;
 using SubHorror.States;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ namespace SubHorror
 		private void Awake()
 		{
 			playerContext.rigidbody = GetComponent<Rigidbody>();
+			playerContext.noiseEmitter = GetComponentInChildren<NoiseEmitter>();
+			playerContext.animator = GetComponent<Animator>();
 			playerContext.mainCamera = Camera.main;
 
 			machine = new StateMachineBuilder<PlayerRoot>(playerContext).Build();
@@ -35,12 +38,30 @@ namespace SubHorror
 	[Serializable]
 	public class PlayerContext
 	{
+		[Header("References")]
 		public Camera mainCamera;
 		public Rigidbody rigidbody;
+		public Animator animator;
+		public NoiseEmitter noiseEmitter;
+		[Header("Movement")]
+		public PlayerMovementSettings movementSettings;
+		[Header("Values")]
 		public bool isGrounded;
 		public bool isAirborne;
 		public bool jumpPressed;
         public bool sprintPressed;
 		public Vector2 movement;
+	}
+
+	[Serializable]
+	public struct PlayerMovementSettings
+	{
+		public float walkSpeed;
+		public float sprintSpeed;
+		public NoiseSettings movementNoiseSettings;
+		public float sprintNoiseMultiplier;
+		public float jumpSpeed;
+		public NoiseSettings jumpNoiseSettings;
+		public NoiseSettings landingNoiseSettings;
 	}
 }
