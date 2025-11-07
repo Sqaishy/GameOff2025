@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using SubHorror.Noise;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace SubHorror.States
 {
@@ -156,13 +158,14 @@ namespace SubHorror.States
 	public class Movement : State
 	{
 		private PlayerContext context;
-		private ToggleNoise movementNoise;
+		private NoiseDecorator<ToggleNoise> movementNoise;
 		private Vector3 movementDirection;
 
 		public Movement(StateMachine machine, State parent, PlayerContext context) : base(machine, parent)
 		{
 			this.context = context;
-			movementNoise = new ToggleNoise(context.noiseEmitter, context.movementNoiseSettings);
+			movementNoise = new NoiseDecorator<ToggleNoise>(new ToggleNoise(context.noiseEmitter,
+				context.movementNoiseSettings));
 		}
 
 		protected override bool GetTransition(out State transitionState)
@@ -182,8 +185,10 @@ namespace SubHorror.States
 			/*NoiseSettings modifiedNoise = context.movementNoiseSettings.NoiseModifier.GetModifiedValue(
 				new MovementNoiseModifier(context.sprintPressed));*/
 
-			//context.noiseEmitter.PlayNoise(context.movementNoiseSettings);
-			movementNoise.Play();
+			//movementNoise.Noise.Play();
+			movementNoise.Noise.ResetNoise();
+			movementNoise.Noise.NoisePlaying(true);
+			context.noiseEmitter.PlayNoise(movementNoise);
 			context.animator.SetBool("IsMoving", true);
 		}
 
@@ -194,12 +199,14 @@ namespace SubHorror.States
 			movementDirection *= context.sprintPressed ? 8f : 5f;
 			movementDirection.y = context.rigidbody.linearVelocity.y;
 
+			movementNoise.NoiseLevel = context.sprintPressed ? 15f : 0;
+
 			context.rigidbody.linearVelocity = movementDirection;
 		}
 
 		protected override void OnExit()
 		{
-			movementNoise.NoisePlaying(false);
+			movementNoise.Noise.NoisePlaying(false);
 			context.animator.SetBool("IsMoving", false);
 		}
 
