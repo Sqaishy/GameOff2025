@@ -17,6 +17,7 @@ namespace SubHorror.Monster
 			this.context = context;
 			follow = machine.Factory.GetOrAdd(new Follow(machine, this, context));
 			machine.Factory.GetOrAdd(new MonsterIdle(machine, this, context));
+			machine.Factory.GetOrAdd(new Rage(machine, this, context));
 			checkNoiseTime = context.checkNoiseInterval;
 		}
 
@@ -30,6 +31,12 @@ namespace SubHorror.Monster
 				context.agent.isStopped = true;
 
 				transitionState = Machine.Factory.GetState<MonsterIdle>();
+				return true;
+			}
+
+			if (context.loudestNoiseLevel > context.gameDifficulty.MaxNoiseThreshold && !context.enraged)
+			{
+				transitionState = Machine.Factory.GetState<Rage>();
 				return true;
 			}
 
@@ -57,6 +64,7 @@ namespace SubHorror.Monster
 				return;
 
 			context.loudestEmitter = NoiseEmitter.GetLoudestNoiseEmitter();
+			context.loudestNoiseLevel = context.loudestEmitter.TotalNoiseLevelCombined();
 			checkNoiseTime = 0;
 		}
 

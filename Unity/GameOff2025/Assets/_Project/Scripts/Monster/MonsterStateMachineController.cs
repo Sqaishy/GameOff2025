@@ -42,9 +42,22 @@ namespace SubHorror.Monster
 		public float maxSpeedMultiplier;
 		[Tooltip("Controls how quickly the movement speed ramps between min and max multiplier")]
 		public AnimationCurve movementSpeedRamp;
+		[Header("Rage Settings")]
+		public float rageMovementSpeed;
+		[Tooltip("How far object the monster is chasing has to be before the monster can exit rage")]
+		public float exitRageDistance;
+		[Tooltip("When exiting rage start a cooldown to prevent the monster from re-entering rage " +
+		         "straight away")]
+		public float rageCooldown;
+		[Tooltip("The minimum time the monster has to be in rage before it can exit")]
+		public float minRageTime;
+		[Tooltip("How long the noise emitter has to be outside of the rage distance to escape")]
+		public float rageEscapeTime;
 		[Header("Extras")]
+		public GameDifficulty gameDifficulty;
 		[Tooltip("How often the monster checks for the loudest noise in seconds")]
 		public float checkNoiseInterval;
+		public float loudestNoiseLevel;
 		public float forceIdleTime;
 		[Header("Values")]
 		public bool enraged;

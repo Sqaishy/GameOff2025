@@ -1095,7 +1095,14 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    rageMovementSpeed: 9
+    exitRageDistance: 6
+    rageCooldown: 8
+    minRageTime: 4
+    rageEscapeTime: 3
+    gameDifficulty: {fileID: 11400000, guid: f5a88f38a367b604094c58061994462d, type: 2}
     checkNoiseInterval: 2
+    loudestNoiseLevel: 0
     forceIdleTime: 45
     enraged: 0
     hasLOS: 0
