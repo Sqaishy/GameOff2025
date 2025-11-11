@@ -497,6 +497,7 @@ GameObject:
   - component: {fileID: 618165272}
   - component: {fileID: 618165271}
   - component: {fileID: 618165270}
+  - component: {fileID: 618165274}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -593,6 +594,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 56.121, z: 0}
+--- !u!114 &618165274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618165269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &793716211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,9 +1068,35 @@ MonoBehaviour:
   monsterContext:
     agent: {fileID: 0}
     loudestEmitter: {fileID: 0}
-    movementSpeed: 11.79
+    movementSpeed: 1.5
+    minSpeedMultiplier: 1
+    maxSpeedMultiplier: 5
+    movementSpeedRamp:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     checkNoiseInterval: 2
-    forceIdleTime: 2
+    forceIdleTime: 45
     enraged: 0
     hasLOS: 0
 --- !u!1 &1293765096
@@ -1200,7 +1247,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -2071,6 +2118,7 @@ GameObject:
   - component: {fileID: 1656684913}
   - component: {fileID: 1656684912}
   - component: {fileID: 1656684916}
+  - component: {fileID: 1656684917}
   m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
@@ -2182,7 +2230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
   m_AgentTypeID: 0
-  m_CollectObjects: 0
+  m_CollectObjects: 3
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
@@ -2200,6 +2248,26 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 65eba9ff63acc2f4fa70104128f2d714, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &1656684917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656684911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &1815654491
 GameObject:
   m_ObjectHideFlags: 0

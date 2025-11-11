@@ -29,11 +29,24 @@ namespace SubHorror.Monster
 	[Serializable]
 	public class MonsterContext : IStateContext
 	{
+		[Header("References")]
 		public NavMeshAgent agent;
 		public NoiseEmitter loudestEmitter;
+		[Header("Movement")]
 		public float movementSpeed;
+		[Tooltip("The minimum movement speed multiplier of this monster based on the noise level" +
+		         "\nMovement Speed * Multiplier")]
+		public float minSpeedMultiplier = 1f;
+		[Tooltip("The maximum movement speed multiplier of this monster based on the noise level" +
+		         "\nMovement Speed * Multiplier")]
+		public float maxSpeedMultiplier;
+		[Tooltip("Controls how quickly the movement speed ramps between min and max multiplier")]
+		public AnimationCurve movementSpeedRamp;
+		[Header("Extras")]
+		[Tooltip("How often the monster checks for the loudest noise in seconds")]
 		public float checkNoiseInterval;
 		public float forceIdleTime;
+		[Header("Values")]
 		public bool enraged;
 		public bool hasLOS;
 	}

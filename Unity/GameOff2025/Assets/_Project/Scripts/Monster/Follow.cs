@@ -1,5 +1,6 @@
 using SubHorror.Noise;
 using SubHorror.States;
+using UnityEngine;
 
 namespace SubHorror.Monster
 {
@@ -40,6 +41,14 @@ namespace SubHorror.Monster
 				return;
 
 			context.agent.SetDestination(previousEmitter.transform.position);
+
+			float noiseLevel = previousEmitter.TotalNoiseLevelCombined();
+			//TODO Replace the 'noiseLevel / 100f' by a difficulty value at some point for more control
+			float movementRamp = context.movementSpeedRamp.Evaluate(noiseLevel / 100f);
+
+			float speedMultiplier = Mathf.Lerp(context.minSpeedMultiplier, context.maxSpeedMultiplier,
+				movementRamp);
+			context.agent.speed = context.movementSpeed * speedMultiplier;
 		}
 	}
 }
