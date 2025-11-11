@@ -2001,7 +2001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3ba82d7c3a54b49a062d391adafd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playNoise: 1
+  playNoise: 0
   noiseSettings: {fileID: 11400000, guid: ad83cdd417d0d69498916e37acc4e937, type: 2}
 --- !u!1 &1651455237
 GameObject:

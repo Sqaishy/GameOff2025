@@ -64,7 +64,8 @@ namespace SubHorror.Monster
 				return;
 
 			context.loudestEmitter = NoiseEmitter.GetLoudestNoiseEmitter();
-			context.loudestNoiseLevel = context.loudestEmitter.TotalNoiseLevelCombined();
+			if (context.loudestEmitter)
+				context.loudestNoiseLevel = context.loudestEmitter.TotalNoiseLevelCombined();
 			checkNoiseTime = 0;
 		}
 

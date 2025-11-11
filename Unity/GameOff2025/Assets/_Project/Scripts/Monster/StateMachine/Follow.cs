@@ -24,7 +24,7 @@ namespace SubHorror.Monster
 		{
 			RecalculatePath();
 
-			if (previousEmitter == context.loudestEmitter)
+			if (previousEmitter && previousEmitter == context.loudestEmitter)
 				return;
 
 			previousEmitter = context.loudestEmitter;
