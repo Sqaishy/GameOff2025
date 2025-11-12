@@ -36,7 +36,7 @@ namespace SubHorror
 	}
 
 	[Serializable]
-	public class PlayerContext
+	public class PlayerContext : IStateContext
 	{
 		[Header("References")]
 		public Camera mainCamera;
@@ -52,6 +52,8 @@ namespace SubHorror
         public bool sprintPressed;
 		public Vector2 movement;
 	}
+
+	public interface IStateContext { }
 
 	[Serializable]
 	public struct PlayerMovementSettings

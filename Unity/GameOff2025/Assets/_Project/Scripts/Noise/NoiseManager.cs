@@ -67,6 +67,32 @@ namespace SubHorror.Noise
 		}
 
 		/// <summary>
+		/// Gets the
+		/// </summary>
+		/// <returns></returns>
+		public NoiseEmitter GetLoudestNoiseEmitter()
+		{
+			if (activeNoisesDic.Count == 0)
+				return null;
+
+			NoiseEmitter loudestEmitter = null;
+			float noiseLevel = 0f;
+
+			foreach (KeyValuePair<NoiseEmitter,List<INoise>> keyValuePair in activeNoisesDic)
+			{
+				float noiseToCompare = GetNoiseLevel(keyValuePair.Key);
+
+				if (noiseToCompare <= noiseLevel)
+					continue;
+
+				loudestEmitter = keyValuePair.Key;
+				noiseLevel = noiseToCompare;
+			}
+
+			return loudestEmitter;
+		}
+
+		/// <summary>
 		/// Stop all noises coming from the noise emitter
 		/// </summary>
 		///  <remarks>Useful when destroying objects</remarks>

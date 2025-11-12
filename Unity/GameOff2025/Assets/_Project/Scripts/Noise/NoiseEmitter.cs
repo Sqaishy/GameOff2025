@@ -27,6 +27,8 @@ namespace SubHorror.Noise
 				nearbyEmitters.Remove(noiseEmitter);
 		}
 
+		public static NoiseEmitter GetLoudestNoiseEmitter() => NoiseManager.Instance.GetLoudestNoiseEmitter();
+
 		/// <summary>
 		/// Play a noise through this emitter
 		/// </summary>
