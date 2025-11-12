@@ -12,7 +12,7 @@ namespace SubHorror.States
 		private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic
 			| BindingFlags.FlattenHierarchy;
 
-		public StateMachineBuilder(PlayerContext context)
+		public StateMachineBuilder(IStateContext context)
 		{
 			machine = new StateMachine();
 			root = Activator.CreateInstance(typeof(T), new object[]
