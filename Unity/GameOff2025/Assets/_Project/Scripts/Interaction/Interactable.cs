@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace SubHorror.Interaction
 {
@@ -9,13 +8,13 @@ namespace SubHorror.Interaction
 	{
 		[SerializeField] private List<ContextInteractable> contexts = new();
 
-		private Dictionary<InteractorContext, List<ContextAction>> contextActions = new();
+		private Dictionary<InteractorContext, ContextAction> contextActions = new();
 
 		[Serializable]
 		public struct ContextInteractable
 		{
 			public InteractorContext interactorContext;
-			public List<ContextAction> actions;
+			public ContextAction action;
 		}
 
 		public bool CanInteract()
@@ -25,8 +24,7 @@ namespace SubHorror.Interaction
 
 		public void Interact(GameObject interactor, InteractorContext context)
 		{
-			foreach (ContextAction action in contextActions[context])
-				action.Execute(interactor, gameObject);
+			Debug.Log($"{interactor.name}-{context.name} is interacting with {name}");
 		}
 
 		public void ResetInteraction()
@@ -36,35 +34,15 @@ namespace SubHorror.Interaction
 
 		public void OnBeforeSerialize()
 		{
-			contexts.Clear();
+			contextActions.Clear();
 
-			foreach (KeyValuePair<InteractorContext,List<ContextAction>> kvp in contextActions)
-			{
-				contexts.Add(new ContextInteractable()
-				{
-					interactorContext = kvp.Key,
-					actions = kvp.Value
-				});
-			}
+			foreach (ContextInteractable contextInteractable in contexts)
+				contextActions.Add(contextInteractable.interactorContext, contextInteractable.action);
 		}
 
 		public void OnAfterDeserialize()
 		{
-			contextActions.Clear();
 
-			for (var index = 0; index < contexts.Count; index++)
-			{
-				ContextInteractable contextInteractable = contexts[index];
-
-				if (!contextInteractable.interactorContext || contextInteractable.actions == null
-				                                           || contextInteractable.actions.Count == 0)
-				{
-					Debug.LogWarning($"Context at index {index} has missing variables, it will be ignored", gameObject);
-					continue;
-				}
-
-				contextActions.Add(contextInteractable.interactorContext, contextInteractable.actions);
-			}
 		}
 	}
 }

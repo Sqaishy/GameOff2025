@@ -7,13 +7,7 @@ namespace SubHorror.Interaction
 	{
 		[SerializeField] private InteractorContext context;
 
-		/// <summary>
-		/// Called when the interactor trigger enters an IInteractable
-		/// </summary>
 		public event Action OnEnterInteractable;
-		/// <summary>
-		/// Called when the interactor trigger exits an IInteractable
-		/// </summary>
 		public event Action OnExitInteractable;
 
 		private IInteractable currentInteractable;
@@ -37,21 +31,12 @@ namespace SubHorror.Interaction
 			OnExitInteractable?.Invoke();
 		}
 
-		/// <summary>
-		/// Interact with the current IInteractable that you have triggered with
-		/// </summary>
-		/// <remarks>
-		/// If no there is no interactable or the interactable has not changed, no interaction happens
-		/// </remarks>
 		public void Interact()
 		{
 			if (currentInteractable == null)
 				return;
 
-			/*if (previousInteractable == currentInteractable)
-				return;*/
-
-			if (!currentInteractable.CanInteract())
+			if (previousInteractable == currentInteractable)
 				return;
 
 			previousInteractable?.ResetInteraction();
