@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{bcdb8a65-53dc-4a68-8853-48dbf823d9e2}">
+		<property name="assetPath">
+			<value>Monster breathe-003.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.2881632653061228</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{815a74e8-82fe-4476-b5e3-e3e057084a12}</destination>
+		</relationship>
+	</object>
+</objects>

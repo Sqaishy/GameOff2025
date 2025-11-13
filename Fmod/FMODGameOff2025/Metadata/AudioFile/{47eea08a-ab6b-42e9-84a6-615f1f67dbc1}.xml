@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{47eea08a-ab6b-42e9-84a6-615f1f67dbc1}">
+		<property name="assetPath">
+			<value>Monster click-001.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.27265306122449</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{815a74e8-82fe-4476-b5e3-e3e057084a12}</destination>
+		</relationship>
+	</object>
+</objects>

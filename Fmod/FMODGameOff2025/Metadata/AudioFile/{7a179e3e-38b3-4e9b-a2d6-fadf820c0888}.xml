@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{7a179e3e-38b3-4e9b-a2d6-fadf820c0888}">
+		<property name="assetPath">
+			<value>Hammer Hit 4.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.966530612244898</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{815a74e8-82fe-4476-b5e3-e3e057084a12}</destination>
+		</relationship>
+	</object>
+</objects>
