@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{8691880b-3bc2-4245-8066-bef36a57125b}">
 		<property name="color">
-			<value>Red</value>
+			<value>Yellow</value>
 		</property>
 		<property name="name">
 			<value>FootstepsMetal</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{0c4bc0b8-ccf9-4da9-93a8-f8798d2ddc93}</destination>
@@ -56,17 +56,24 @@
 			<destination>{c4c2e8aa-7f8b-43b7-95c6-bf016652879c}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{a1ac7311-e493-447f-ba99-e0f9bca7bb52}</destination>
+			<destination>{f6c90377-6418-4128-adf3-cda7da8914f9}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{4c68147c-3ceb-4824-8326-489c1183c579}" />
 	<object class="MarkerTrack" id="{160813d8-6fe8-4e1b-b5ba-aca06482b980}" />
 	<object class="GroupTrack" id="{84b26ea8-7813-422d-99bb-cd2a793a68d3}">
+		<relationship name="modules">
+			<destination>{9a2950ee-d7cc-4e34-aff6-28973a53ed6a}</destination>
+		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{a7c469ec-249b-45c5-b29b-2933e485db24}</destination>
 		</relationship>
 	</object>
-	<object class="Timeline" id="{c03bb11b-a2c5-4819-b6b6-68124224db86}" />
+	<object class="Timeline" id="{c03bb11b-a2c5-4819-b6b6-68124224db86}">
+		<relationship name="modules">
+			<destination>{9a2950ee-d7cc-4e34-aff6-28973a53ed6a}</destination>
+		</relationship>
+	</object>
 	<object class="EventMixerMaster" id="{10b3926c-79c1-4c73-82a2-ab7f0b6102e9}">
 		<relationship name="effectChain">
 			<destination>{aa657a66-c7dc-46c3-b2ef-697f5cbaf0df}</destination>
@@ -84,6 +91,21 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{c4c2e8aa-7f8b-43b7-95c6-bf016652879c}" />
+	<object class="MultiSound" id="{9a2950ee-d7cc-4e34-aff6-28973a53ed6a}">
+		<property name="length">
+			<value>0.57469387755102042</value>
+		</property>
+		<property name="playlistMode">
+			<value>1</value>
+		</property>
+		<relationship name="sounds">
+			<destination>{32563bcf-8212-40e9-a4b0-132729f22944}</destination>
+			<destination>{11249758-0132-4771-aedc-585b622bd1be}</destination>
+			<destination>{6f71d107-b285-4fa4-93d3-94e247c5c414}</destination>
+			<destination>{75bdc80c-3f5c-454c-bde7-6a462f9ecd59}</destination>
+			<destination>{8e080667-703b-4adb-8c84-e1a2a7917385}</destination>
+		</relationship>
+	</object>
 	<object class="EventMixerGroup" id="{a7c469ec-249b-45c5-b29b-2933e485db24}">
 		<property name="name">
 			<value>Audio 1</value>
@@ -105,6 +127,31 @@
 	</object>
 	<object class="MixerBusPanner" id="{7cd46fb0-ba61-4acd-9343-4f0c06454d77}" />
 	<object class="MixerBusFader" id="{1408bb87-0bfd-43e9-9af3-905d02052b86}" />
+	<object class="SingleSound" id="{32563bcf-8212-40e9-a4b0-132729f22944}">
+		<relationship name="audioFile">
+			<destination>{d778e1db-c339-44ae-b30f-356afaf5d994}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{11249758-0132-4771-aedc-585b622bd1be}">
+		<relationship name="audioFile">
+			<destination>{a23a003f-4332-441b-a62c-2109e21a4b02}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{6f71d107-b285-4fa4-93d3-94e247c5c414}">
+		<relationship name="audioFile">
+			<destination>{a46145ca-4641-4f5f-9a06-fb7b90593794}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{75bdc80c-3f5c-454c-bde7-6a462f9ecd59}">
+		<relationship name="audioFile">
+			<destination>{f3df566e-39a5-4225-9d95-8e039d28801a}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{8e080667-703b-4adb-8c84-e1a2a7917385}">
+		<relationship name="audioFile">
+			<destination>{34d42dd3-9d79-4578-9ad5-34d79578e671}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{f33fa97d-ac11-45e1-9de2-69bf81fb38ff}">
 		<relationship name="effects">
 			<destination>{a3df606f-8e58-4ea2-b6ac-212006b7df22}</destination>

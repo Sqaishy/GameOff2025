@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{23c50de0-b0d0-4017-83ef-67409d733c82}">
+		<property name="assetPath">
+			<value>Lights fix.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.0081632653061225</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{815a74e8-82fe-4476-b5e3-e3e057084a12}</destination>
+		</relationship>
+	</object>
+</objects>
