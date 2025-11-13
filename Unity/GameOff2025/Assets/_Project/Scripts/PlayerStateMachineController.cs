@@ -62,6 +62,7 @@ namespace SubHorror
 		public float sprintSpeed;
 		public NoiseSettings movementNoiseSettings;
 		public float sprintNoiseMultiplier;
+		public float rotationSpeed;
 		public float jumpSpeed;
 		public NoiseSettings jumpNoiseSettings;
 		public NoiseSettings landingNoiseSettings;
