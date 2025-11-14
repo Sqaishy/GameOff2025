@@ -29,5 +29,14 @@ namespace SubHorror.Tasks
 	{
 		public GameObject spawnObject;
 		public Transform spawnLocation;
+
+		public override ObjectiveData Clone()
+		{
+			return new SpawnData()
+			{
+				spawnObject = spawnObject,
+				spawnLocation = spawnLocation,
+			};
+		}
 	}
 }

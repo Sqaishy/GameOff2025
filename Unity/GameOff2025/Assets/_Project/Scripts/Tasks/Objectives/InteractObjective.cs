@@ -1,0 +1,51 @@
+using System;
+using UnityEngine;
+
+namespace SubHorror.Tasks
+{
+	[CreateAssetMenu(menuName = "Sub Horror/Tasks/Objectives/Interact Objective")]
+	public class InteractObjective : Objective<InteractData>
+	{
+		private bool interacted;
+
+		public override Task.Status Enter()
+		{
+			Debug.Log($"Interactable is null {objectiveData.interactable == null}");
+
+			objectiveData.interactable.OnInteracted += Interact;
+
+			return Task.Status.Running;
+		}
+
+		public override Task.Status Process()
+		{
+			return interacted ? Task.Status.Success : Task.Status.Running;
+		}
+
+		public override void Exit()
+		{
+			objectiveData.interactable.OnInteracted -= Interact;
+
+			interacted = false;
+		}
+
+		private void Interact()
+		{
+			interacted = true;
+		}
+	}
+
+	[Serializable]
+	public class InteractData : ObjectiveData
+	{
+		public ObjectiveInteractable interactable;
+
+		public override ObjectiveData Clone()
+		{
+			return new InteractData()
+			{
+				interactable = interactable
+			};
+		}
+	}
+}

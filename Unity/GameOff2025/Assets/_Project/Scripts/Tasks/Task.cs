@@ -7,9 +7,11 @@ namespace SubHorror.Tasks
 	[CreateAssetMenu(menuName = "Sub Horror/Tasks/Task")]
 	public class Task : ScriptableObject, ICloneable
 	{
+		[SerializeField] private string taskName;
 		[SerializeField] private List<Objective> objectives = new();
 
 		public event Action OnTaskUpdated;
+		public string TaskName => taskName;
 
 		private int currentObjective;
 		/// <summary>
@@ -29,6 +31,9 @@ namespace SubHorror.Tasks
 
 			if (childStatus != Status.Success)
 				return childStatus;
+
+			if (currentObjective + 1 >= objectives.Count)
+				return Status.Success;
 
 			return IncrementObjective();
 		}

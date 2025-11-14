@@ -5,8 +5,8 @@ using UnityEngine.UIElements;
 
 namespace SubHorror.Tasks
 {
-	[CustomEditor(typeof(ObjectiveInteractable))]
-	public class ObjectiveInteractableEditor : Editor
+	[CustomEditor(typeof(ObjectiveHolder))]
+	public class ObjectiveHolderEditor : Editor
 	{
 		public override VisualElement CreateInspectorGUI()
 		{

@@ -1,45 +1,24 @@
-using System;
-using SubHorror.Interaction;
 using UnityEngine;
 
 namespace SubHorror.Tasks
 {
-	public class ObjectiveInteractable : MonoBehaviour, IInteractable
+	/// <summary>
+	/// For when the objective just needs to exist in the scene to access references but not be interactable
+	/// </summary>
+	public class ObjectiveHolder : MonoBehaviour
 	{
 		[SerializeReference] private Objective objective;
 		[SerializeReference] private ObjectiveData objectiveData;
 
-		public event Action OnInteracted;
-
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 
 		[SerializeField, HideInInspector] private Objective previousObjective;
 
-		#endif
-
-		private void Awake()
-		{
-			objective.OverrideDataType(objectiveData);
-		}
-
-		public bool CanInteract()
-		{
-			return true;
-		}
-
-		public void Interact(GameObject interactor, InteractorContext context)
-		{
-			OnInteracted?.Invoke();
-		}
-
-		public void ResetInteraction()
-		{
-
-		}
+#endif
 
 		#region Editor Validation
 
-		#if UNITY_EDITOR
+#if UNITY_EDITOR
 
 		private void OnValidate()
 		{
@@ -58,14 +37,14 @@ namespace SubHorror.Tasks
 			if (previousObjective != objective)
 			{
 				previousObjective = objective;
-				objectiveData = (objective.ObjectiveDataType as ObjectiveData)?.Clone();
+				objectiveData = objective.ObjectiveDataType as ObjectiveData;
 			}
 		}
 
 		[ContextMenu("Reset Objective Data")]
 		private void ResetObjectiveData()
 		{
-			objectiveData = (objective.ObjectiveDataType as ObjectiveData)?.Clone();
+			objectiveData = objective.ObjectiveDataType as ObjectiveData;
 
 			Debug.Log($"Resetting Objective Data to {objectiveData}");
 		}
