@@ -507,8 +507,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 321579543}
-  - component: {fileID: 321579542}
   - component: {fileID: 321579544}
+  - component: {fileID: 321579545}
   m_Layer: 0
   m_Name: Objective
   m_TagString: Untagged
@@ -516,22 +516,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &321579542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321579541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 264eee0a68b94c699dd6d815a8dd6dba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contexts:
-  - interactorContext: {fileID: 11400000, guid: 6343f043395172c45b9055a1672f1e84, type: 2}
-    actions:
-    - {fileID: 11400000, guid: 831ef24c92a54354da8c6d5778880dc6, type: 2}
 --- !u!4 &321579543
 Transform:
   m_ObjectHideFlags: 0
@@ -569,6 +553,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &321579545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321579541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75320060b85c4cb68900299d8b4a9332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objective: {fileID: 11400000, guid: 069f24052a65e6a4cb0d7f86742cf3fc, type: 2}
+  objectiveData:
+    rid: 6958021068866977961
+  previousObjective: {fileID: 11400000, guid: 069f24052a65e6a4cb0d7f86742cf3fc, type: 2}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6958021068866977961
+      type: {class: LocationData, ns: SubHorror.Tasks, asm: Assembly-CSharp}
+      data:
+        location: {fileID: 321579543}
 --- !u!1 &345864825
 GameObject:
   m_ObjectHideFlags: 0

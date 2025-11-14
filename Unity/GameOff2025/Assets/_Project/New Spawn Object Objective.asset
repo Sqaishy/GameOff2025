@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b89fa644bea4b55a4ab1147490f409d, type: 3}
-  m_Name: New Location Objective
+  m_Script: {fileID: 11500000, guid: a2326c78a77f4cefb7d6e66a4eb5832b, type: 3}
+  m_Name: New Spawn Object Objective
   m_EditorClassIdentifier: 
   useTimer: 0
   timerDuration: 0
   objectiveText: 
   objectiveData:
-    location: {fileID: 0}
+    spawnObject: {fileID: 6712303249878915723, guid: 728fcf3af6189e647a2b6c50f80250f8, type: 3}
+    spawnLocation: {fileID: 0}

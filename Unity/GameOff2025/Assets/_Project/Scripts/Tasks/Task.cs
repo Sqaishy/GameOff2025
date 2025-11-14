@@ -12,9 +12,14 @@ namespace SubHorror.Tasks
 		public event Action OnTaskUpdated;
 
 		private int currentObjective;
+		/// <summary>
+		/// The GameObject that currently owns this task
+		/// </summary>
+		private GameObject taskOwner;
 
-		public Status Start()
+		public Status Enter(GameObject owner)
 		{
+			taskOwner = owner;
 			return StartObjective();
 		}
 
@@ -35,7 +40,8 @@ namespace SubHorror.Tasks
 
 		private Status StartObjective()
 		{
-			Status childStatus = objectives[currentObjective].Start();
+			objectives[currentObjective].Owner = taskOwner;
+			Status childStatus = objectives[currentObjective].Enter();
 
 			OnTaskUpdated?.Invoke();
 
