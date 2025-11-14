@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b89fa644bea4b55a4ab1147490f409d, type: 3}
-  m_Name: New Location Objective
+  m_Script: {fileID: 11500000, guid: 1cbb0f6711a349b5b473acfbdde904b1, type: 3}
+  m_Name: New Log Consequence
   m_EditorClassIdentifier: 
-  useTimer: 1
-  timerDuration: 3
-  objectiveText: 
-  objectiveData:
-    location: {fileID: 0}
-    distanceToLocation: 2

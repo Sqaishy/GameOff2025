@@ -37,14 +37,14 @@ namespace SubHorror.Tasks
 			if (previousObjective != objective)
 			{
 				previousObjective = objective;
-				objectiveData = objective.ObjectiveDataType as ObjectiveData;
+				objectiveData = (objective.ObjectiveDataType as ObjectiveData)?.Clone();
 			}
 		}
 
 		[ContextMenu("Reset Objective Data")]
 		private void ResetObjectiveData()
 		{
-			objectiveData = objective.ObjectiveDataType as ObjectiveData;
+			objectiveData = (objective.ObjectiveDataType as ObjectiveData)?.Clone();
 
 			Debug.Log($"Resetting Objective Data to {objectiveData}");
 		}

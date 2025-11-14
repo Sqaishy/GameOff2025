@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: New Wait Objective
   m_EditorClassIdentifier: 
   useTimer: 1
-  timerDuration: 4
+  timerDuration: 2
   objectiveText: 

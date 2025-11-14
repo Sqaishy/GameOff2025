@@ -10,8 +10,6 @@ namespace SubHorror.Tasks
 
 		public override Task.Status Enter()
 		{
-			Debug.Log($"Interactable is null {objectiveData.interactable == null}");
-
 			objectiveData.interactable.OnInteracted += Interact;
 
 			return Task.Status.Running;
@@ -19,6 +17,11 @@ namespace SubHorror.Tasks
 
 		public override Task.Status Process()
 		{
+			if (useTimer && currentTime >= timerDuration)
+				return Task.Status.Failure;
+
+			currentTime += Time.deltaTime;
+
 			return interacted ? Task.Status.Success : Task.Status.Running;
 		}
 

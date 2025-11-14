@@ -10,6 +10,7 @@ namespace SubHorror.Tasks
 		[Tooltip("If use timer is true the objective will be timed")]
 		[SerializeField] protected bool useTimer;
 		[Tooltip("The timed duration of this objective in seconds")]
+		[Min(0f)]
 		[SerializeField] protected float timerDuration;
 		[Tooltip("A description of the objective to show in UI")]
 		[SerializeField] private string objectiveText;
@@ -41,6 +42,11 @@ namespace SubHorror.Tasks
 		public float GetObjectiveRemainingTime() => useTimer ? timerDuration - currentTime : -1f;
 
 		public virtual string DisplayObjectiveText() => objectiveText;
+
+		private void OnValidate()
+		{
+			useTimer = timerDuration > 0;
+		}
 	}
 
 	public abstract class Objective<T> : Objective where T : ObjectiveData

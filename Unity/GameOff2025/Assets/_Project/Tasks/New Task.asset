@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskName: Objective to complete
   objectives:
-  - {fileID: 11400000, guid: 484e9415f7a330c4f824bc9823092805, type: 2}
   - {fileID: 11400000, guid: 069f24052a65e6a4cb0d7f86742cf3fc, type: 2}
+  - {fileID: 11400000, guid: 484e9415f7a330c4f824bc9823092805, type: 2}
   - {fileID: 11400000, guid: 72a364fb7428cf640a9542cdf1ae0108, type: 2}
+  consequenceApplication: 1
+  consequence: {fileID: 11400000, guid: cc91a98ed796afa48bb51c5033e6deae, type: 2}
