@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93bf6bf23164247bd9e2ad9410d7646, type: 3}
   m_Name: New Task
   m_EditorClassIdentifier: 
-  taskName: Objective to complete
+  taskName: Awesome test task
   objectives:
   - {fileID: 11400000, guid: 069f24052a65e6a4cb0d7f86742cf3fc, type: 2}
   - {fileID: 11400000, guid: 484e9415f7a330c4f824bc9823092805, type: 2}

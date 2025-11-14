@@ -568,12 +568,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objective: {fileID: 11400000, guid: 069f24052a65e6a4cb0d7f86742cf3fc, type: 2}
   objectiveData:
-    rid: 6958021068866978001
+    rid: 6958021068866978103
   previousObjective: {fileID: 11400000, guid: 069f24052a65e6a4cb0d7f86742cf3fc, type: 2}
   references:
     version: 2
     RefIds:
-    - rid: 6958021068866978001
+    - rid: 6958021068866978103
       type: {class: LocationData, ns: SubHorror.Tasks, asm: Assembly-CSharp}
       data:
         location: {fileID: 321579543}
@@ -592,12 +592,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objective: {fileID: 11400000, guid: 72a364fb7428cf640a9542cdf1ae0108, type: 2}
   objectiveData:
-    rid: 6958021068866978049
+    rid: 6958021068866978106
   previousObjective: {fileID: 11400000, guid: 72a364fb7428cf640a9542cdf1ae0108, type: 2}
   references:
     version: 2
     RefIds:
-    - rid: 6958021068866978049
+    - rid: 6958021068866978106
       type: {class: InteractData, ns: SubHorror.Tasks, asm: Assembly-CSharp}
       data:
         interactable: {fileID: 321579546}

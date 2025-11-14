@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace SubHorror.Tasks
@@ -15,6 +16,11 @@ namespace SubHorror.Tasks
 		[SerializeField, HideInInspector] private Objective previousObjective;
 
 #endif
+
+		private void Awake()
+		{
+			objective.OverrideDataType(objectiveData);
+		}
 
 		#region Editor Validation
 

@@ -59,7 +59,7 @@ namespace SubHorror.Tasks
 		public override void OverrideDataType(object newDataType)
 		{
 			if (newDataType is not T castedType)
-				throw new ConstraintException($"{nameof(newDataType)} {newDataType.GetType()} does not match the type of {typeof(T)}");
+				throw new InvalidCastException($"{nameof(newDataType)} {newDataType.GetType()} does not match the type of {typeof(T)}");
 
 			objectiveData = castedType;
 		}
