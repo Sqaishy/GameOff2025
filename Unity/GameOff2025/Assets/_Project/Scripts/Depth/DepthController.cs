@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SubHorror.Depth
 {
@@ -9,9 +10,11 @@ namespace SubHorror.Depth
 		[Tooltip("How many milestones the depth should have, at each milestone an event shoots out so " +
 		         "objects can react to it" +
 		         "\nMilestone depths are calculated as starting depth / depthMilestone (1000/10 = 100 meters")]
-		[SerializeField] private float depthMilestone;
+		[SerializeField] private float depthMilestones;
 
-		public event Action OnDepthMilestone;
+		public static event Action OnDepthMilestone;
+		public float DepthMilestones => depthMilestones;
+		public float CurrentDepth => currentDepth;
 
 		private float milestone;
 		private float depthPerSecond;
@@ -20,7 +23,7 @@ namespace SubHorror.Depth
 
 		private void Awake()
 		{
-			milestone = difficulty.StartingDepth / depthMilestone;
+			milestone = difficulty.StartingDepth / depthMilestones;
 			depthPerSecond = difficulty.StartingDepth / (difficulty.SurfaceTime * 60f);
 			currentDepth = difficulty.StartingDepth;
 			currentMilestone = currentDepth - milestone;
@@ -33,8 +36,6 @@ namespace SubHorror.Depth
 
 			currentDepth -= depthPerSecond * Time.deltaTime;
 
-			Debug.Log($"Current Depth: {currentDepth:N0}m");
-
 			if (currentDepth <= currentMilestone)
 			{
 				currentMilestone -= milestone;
@@ -43,5 +44,10 @@ namespace SubHorror.Depth
 				OnDepthMilestone?.Invoke();
 			}
 		}
+
+		/// <returns>
+		/// The current depth as a percentage between 0 and 1
+		/// </returns>
+		public float GetDepthPercentage01() => currentDepth / difficulty.StartingDepth;
 	}
 }
