@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 /**
 * This class handles the Teleportation of the Player between two points. Mostly used for transitioning in the submarine.
 */
@@ -21,7 +22,7 @@ public class LevelTransition : MonoBehaviour
         {
             Debug.Log("Player entered Teleporter... Waiting 3 seconds.");
         }
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Creature") && (other.GetComponent<PlayerInput>() != null))
         {
             StartCoroutine(delayedTeleport(other.gameObject));
         }
@@ -29,7 +30,7 @@ public class LevelTransition : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Creature") && (other.GetComponent<PlayerInput>() != null))
         {
             StopAllCoroutines();
         }
