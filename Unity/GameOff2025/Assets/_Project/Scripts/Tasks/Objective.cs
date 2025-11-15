@@ -13,7 +13,7 @@ namespace SubHorror.Tasks
 		[Min(0f)]
 		[SerializeField] protected float timerDuration;
 		[Tooltip("A description of the objective to show in UI")]
-		[SerializeField] private string objectiveText;
+		[SerializeField] protected string objectiveText;
 
 		public virtual object ObjectiveDataType => objectiveDataType;
 		/// <summary>

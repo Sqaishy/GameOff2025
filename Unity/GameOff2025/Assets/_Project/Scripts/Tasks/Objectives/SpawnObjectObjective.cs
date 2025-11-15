@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace SubHorror.Tasks
 {
@@ -15,13 +16,17 @@ namespace SubHorror.Tasks
 
 		public override Task.Status Process()
 		{
-			return Task.Status.Running;
+			Instantiate(objectiveData.spawnObject, objectiveData.spawnLocation.position, Quaternion.identity);
+			return Task.Status.Success;
 		}
 
 		public override void Exit()
 		{
 
 		}
+
+		public override string DisplayObjectiveText() =>
+			string.Format(objectiveText, objectiveData.spawnObject.name, objectiveData.spawnLocation.name);
 	}
 
 	[Serializable]

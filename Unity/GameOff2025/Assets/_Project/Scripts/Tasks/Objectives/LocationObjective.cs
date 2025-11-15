@@ -6,9 +6,10 @@ namespace SubHorror.Tasks
 	[CreateAssetMenu(menuName = "Sub Horror/Tasks/Objectives/Location Objective")]
 	public class LocationObjective : Objective<LocationData>
 	{
+		private float distance;
+
 		public override Task.Status Enter()
 		{
-			Debug.Log($"Location {objectiveData.location.name}: {objectiveData.location.position}");
 			ResetObjective();
 
 			return Task.Status.Running;
@@ -19,8 +20,10 @@ namespace SubHorror.Tasks
 			if (useTimer && currentTime >= timerDuration)
 				return Task.Status.Failure;
 
+			Debug.Log(DisplayObjectiveText());
+
 			currentTime += Time.deltaTime;
-			float distance = Vector3.Distance(Owner.transform.position, objectiveData.location.position);
+			distance = Vector3.Distance(Owner.transform.position, objectiveData.location.position);
 
 			if (distance < objectiveData.distanceToLocation)
 				return Task.Status.Success;
@@ -32,6 +35,9 @@ namespace SubHorror.Tasks
 		{
 
 		}
+
+		public override string DisplayObjectiveText() =>
+			string.Format(objectiveText, distance.ToString("N0"), objectiveData.location.name);
 	}
 
 	[Serializable]

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useTimer: 1
   timerDuration: 2
-  objectiveText: 
+  objectiveText: Wait {0} seconds

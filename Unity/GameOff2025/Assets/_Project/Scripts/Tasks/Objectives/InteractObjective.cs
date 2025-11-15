@@ -32,6 +32,9 @@ namespace SubHorror.Tasks
 			interacted = false;
 		}
 
+		public override string DisplayObjectiveText() =>
+			string.Format(objectiveText, objectiveData.interactable.name);
+
 		private void Interact()
 		{
 			interacted = true;

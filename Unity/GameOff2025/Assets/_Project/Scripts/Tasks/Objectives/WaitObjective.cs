@@ -9,16 +9,18 @@ namespace SubHorror.Tasks
 		public override Task.Status Enter()
 		{
 			Debug.Log($"Wait time {timerDuration} seconds");
-			ResetObjective();
+			currentTime = timerDuration;
 
 			return Task.Status.Running;
 		}
 
 		public override Task.Status Process()
 		{
-			currentTime += Time.deltaTime;
+			currentTime -= Time.deltaTime;
 
-			if (currentTime >= timerDuration)
+			Debug.Log(DisplayObjectiveText());
+
+			if (currentTime <= 0)
 				return Task.Status.Success;
 
 			return Task.Status.Running;
@@ -28,6 +30,9 @@ namespace SubHorror.Tasks
 		{
 
 		}
+
+		public override string DisplayObjectiveText() =>
+			string.Format(objectiveText, currentTime.ToString("F1"));
 
 		private void OnValidate()
 		{

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b89fa644bea4b55a4ab1147490f409d, type: 3}
   m_Name: New Location Objective
   m_EditorClassIdentifier: 
-  useTimer: 1
-  timerDuration: 3
-  objectiveText: 
+  useTimer: 0
+  timerDuration: 0
+  objectiveText: Go {0}m to reach {1}
   objectiveData:
     location: {fileID: 0}
     distanceToLocation: 2
