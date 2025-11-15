@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: GameDifficulty
   m_EditorClassIdentifier: 
   maxNoiseThreshold: 75
+  startingDepth: 1000
+  surfaceTime: 1
