@@ -39,3 +39,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  audioEvent:
+    Guid:
+      Data1: 604373798
+      Data2: 1154822272
+      Data3: -1007391314
+      Data4: 2002057480
+    Path: event:/SFX/Player/FallMetal
