@@ -13,9 +13,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; }
 
     [Header("FMOD Buses (paths must match your FMOD project)")]
-    [SerializeField] private string bgmBusPath = "bus:/BGM";
-    [SerializeField] private string sfxBusPath = "bus:/SFX";
-    [SerializeField] private string ambBusPath = "bus:/AMB";
+    [SerializeField] private string bgmBusPath = "bus:/Master/BGM";
+    [SerializeField] private string sfxBusPath = "bus:/Master/SFX";
+    [SerializeField] private string ambBusPath = "bus:/Master/AMB";
     [SerializeField] private string masterBusPath = "bus:/Master";
 
 
