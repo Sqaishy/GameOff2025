@@ -20,8 +20,6 @@ namespace SubHorror.Tasks
 			if (useTimer && currentTime >= timerDuration)
 				return Task.Status.Failure;
 
-			Debug.Log(DisplayObjectiveText());
-
 			currentTime += Time.deltaTime;
 			distance = Vector3.Distance(Owner.transform.position, objectiveData.location.position);
 

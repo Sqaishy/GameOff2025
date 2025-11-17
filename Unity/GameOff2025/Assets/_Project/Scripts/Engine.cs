@@ -1,21 +1,41 @@
+using System;
 using System.Collections;
 using SubHorror.Interaction;
+using SubHorror.Noise;
 using UnityEngine;
 
 namespace SubHorror
 {
 	public class Engine : MonoBehaviour, IInteractable
 	{
+		[SerializeField] private NoiseSettings noiseSettings;
+
 		private Coroutine repairCoroutine;
+		private NoiseEmitter noiseEmitter;
+		private ToggleNoise engineNoise;
 		private GameObject interactor;
 		private float repairTime;
 		private float distanceToRepair;
 		private float currentRepairTime;
 
+		private void Awake()
+		{
+			noiseEmitter = GetComponent<NoiseEmitter>();
+			engineNoise = new ToggleNoise(noiseEmitter, noiseSettings);
+		}
+
 		public void Initialize(float repairTime, float distanceToRepair)
 		{
 			this.repairTime = repairTime;
 			this.distanceToRepair = distanceToRepair;
+		}
+
+		/// <returns>
+		/// Gets the repair progress between 0 and 100
+		/// </returns>
+		public float GetRepairProgress()
+		{
+			return (currentRepairTime / repairTime) * 100;
 		}
 
 		public bool EngineFixed()
@@ -34,6 +54,9 @@ namespace SubHorror
 
 			this.interactor = interactor;
 
+			if (repairCoroutine == null)
+				engineNoise.Play();
+
 			repairCoroutine ??= StartCoroutine(RepairEngine());
 		}
 
@@ -48,12 +71,11 @@ namespace SubHorror
 			{
 				currentRepairTime += Time.deltaTime;
 
-				Debug.Log($"Repair time: {currentRepairTime:N0}");
-
 				//Do some distance check to see if the interactor is close enough to the engine
 				if (InteractorTooFarFromEngine())
 				{
 					repairCoroutine = null;
+					engineNoise.ResetNoise();
 					yield break;
 				}
 

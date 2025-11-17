@@ -26,6 +26,9 @@ namespace SubHorror.Tasks
 		{
 
 		}
+
+		public override string DisplayObjectiveText() =>
+			string.Format(objectiveText, objectiveData.engine.GetRepairProgress().ToString("N1"));
 	}
 
 	[Serializable]

@@ -6,7 +6,8 @@ namespace SubHorror.Tasks
 {
 	public class TaskHandler : MonoBehaviour
 	{
-		public event Action OnObjectiveChanged;
+		public event Action<Task> OnObjectiveChanged;
+		public event Action<Task> OnTaskCompleted;
 		public List<Task> ActiveTasks => activeTasks;
 
 		private List<Task> activeTasks = new();
@@ -34,8 +35,8 @@ namespace SubHorror.Tasks
 		public void AddTask(Task newTask)
 		{
 			activeTasks.Add(newTask);
-			newTask.Enter(gameObject);
 			newTask.OnTaskUpdated += OnTaskUpdated;
+			newTask.Enter(gameObject);
 		}
 
 		private void RemoveTask(Task task)
@@ -43,11 +44,13 @@ namespace SubHorror.Tasks
 			activeTasks.Remove(task);
 			task.Exit();
 			task.OnTaskUpdated -= OnTaskUpdated;
+
+			OnTaskCompleted?.Invoke(task);
 		}
 
-		private void OnTaskUpdated()
+		private void OnTaskUpdated(Task task)
 		{
-			OnObjectiveChanged?.Invoke();
+			OnObjectiveChanged?.Invoke(task);
 		}
 	}
 }

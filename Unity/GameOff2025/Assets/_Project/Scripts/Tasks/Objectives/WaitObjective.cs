@@ -18,8 +18,6 @@ namespace SubHorror.Tasks
 		{
 			currentTime -= Time.deltaTime;
 
-			Debug.Log(DisplayObjectiveText());
-
 			if (currentTime <= 0)
 				return Task.Status.Success;
 

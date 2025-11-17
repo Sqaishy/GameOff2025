@@ -17,10 +17,11 @@ namespace SubHorror.Tasks
 		[Tooltip("On task success perform this action if any is defined")]
 		[SerializeField] private Consequence successAction;
 
-		public event Action OnTaskUpdated;
+		public event Action<Task> OnTaskUpdated;
 		public string TaskName => taskName;
+		public Objective CurrentObjective => objectives[currentObjectiveIndex];
 
-		private int currentObjective;
+		private int currentObjectiveIndex;
 		/// <summary>
 		/// The GameObject that currently owns this task
 		/// </summary>
@@ -42,12 +43,12 @@ namespace SubHorror.Tasks
 
 		public Status Process()
 		{
-			currentChildStatus = objectives[currentObjective].Process();
+			currentChildStatus = objectives[currentObjectiveIndex].Process();
 
 			if (currentChildStatus != Status.Success)
 				return currentChildStatus;
 
-			if (currentObjective + 1 >= objectives.Count)
+			if (currentObjectiveIndex + 1 >= objectives.Count)
 				return Status.Success;
 
 			return IncrementObjective();
@@ -55,7 +56,7 @@ namespace SubHorror.Tasks
 
 		public void Exit()
 		{
-			objectives[currentObjective].Exit();
+			objectives[currentObjectiveIndex].Exit();
 
 			if (consequenceApplication == ConsequenceApplication.End && currentChildStatus == Status.Failure)
 			{
@@ -69,22 +70,22 @@ namespace SubHorror.Tasks
 
 		private Status StartObjective()
 		{
-			objectives[currentObjective].Owner = taskOwner;
-			Status childStatus = objectives[currentObjective].Enter();
+			objectives[currentObjectiveIndex].Owner = taskOwner;
+			Status childStatus = objectives[currentObjectiveIndex].Enter();
 
-			OnTaskUpdated?.Invoke();
+			OnTaskUpdated?.Invoke(this);
 
 			return childStatus switch
 			{
-				Status.Success => currentObjective >= objectives.Count - 1 ? Status.Success : IncrementObjective(),
+				Status.Success => currentObjectiveIndex >= objectives.Count - 1 ? Status.Success : IncrementObjective(),
 				_ => childStatus
 			};
 		}
 
 		private Status IncrementObjective()
 		{
-			objectives[currentObjective].Exit();
-			currentObjective++;
+			objectives[currentObjectiveIndex].Exit();
+			currentObjectiveIndex++;
 			return StartObjective();
 		}
 

@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useTimer: 0
   timerDuration: 0
-  objectiveText: 
+  objectiveText: Pickup Hammer
   objectiveData:
     interactable: {fileID: 0}
+    actions:
+    - {fileID: 11400000, guid: b73b9b929c1683b4f90aeb25840a8025, type: 2}
