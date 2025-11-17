@@ -3,11 +3,13 @@ using SubHorror.Depth;
 using SubHorror.Interaction;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace SubHorror
 {
 	public class Hatch : MonoBehaviour, IInteractable
 	{
+		[SerializeField] private InteractorContext interactorContext;
 		[SerializeField] private UnityEvent onHatchUnlocked;
 		[SerializeField] private UnityEvent onHatchInteracted;
 
@@ -30,6 +32,9 @@ namespace SubHorror
 
 		public void Interact(GameObject interactor, InteractorContext context)
 		{
+			if (context != interactorContext)
+				return;
+
 			onHatchInteracted?.Invoke();
 		}
 

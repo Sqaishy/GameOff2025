@@ -4098,6 +4098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14ba6d70465da141b38d34f02dcd905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactorContext: {fileID: 11400000, guid: 6343f043395172c45b9055a1672f1e84, type: 2}
   onHatchUnlocked:
     m_PersistentCalls:
       m_Calls: []
