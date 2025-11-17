@@ -1,4 +1,5 @@
 using System;
+using SubHorror.Interaction;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -34,6 +35,11 @@ namespace SubHorror
 		public void JumpInput(InputAction.CallbackContext context)
 		{
 			playerContext.jumpPressed = context.performed;
+		}
+
+		public void InteractInput(InputAction.CallbackContext context)
+		{
+			GetComponentInChildren<Interactor>().Interact();
 		}
 	}
 }

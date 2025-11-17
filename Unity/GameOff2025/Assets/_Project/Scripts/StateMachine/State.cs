@@ -130,6 +130,21 @@ namespace SubHorror.States
 			transitionState = Airborne;
 			return true;
 		}
+
+		protected override void OnTick()
+		{
+			FaceCameraDirection();
+		}
+
+		private void FaceCameraDirection()
+		{
+			Vector3 cameraForward = Context.mainCamera.transform.forward;
+			cameraForward.y = 0f;
+
+			Context.rigidbody.MoveRotation(Quaternion.Lerp(Context.rigidbody.rotation,
+				Quaternion.LookRotation(cameraForward),
+				Context.movementSettings.rotationSpeed * Time.deltaTime));
+		}
 	}
 
 	public class Idle : State
@@ -193,7 +208,6 @@ namespace SubHorror.States
 
 		protected override void OnTick()
 		{
-			//TODO Movement speed is a fixed value, change this to a variable at some point
 			movementDirection = MovementDirection();
 			movementDirection *= context.sprintPressed ? context.movementSettings.sprintSpeed
 				: context.movementSettings.walkSpeed;
