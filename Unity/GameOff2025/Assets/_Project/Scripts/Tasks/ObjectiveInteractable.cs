@@ -6,6 +6,7 @@ namespace SubHorror.Tasks
 {
 	public class ObjectiveInteractable : MonoBehaviour, IInteractable
 	{
+		[SerializeField] private InteractorContext interactorContext;
 		[SerializeReference] private Objective objective;
 		[SerializeReference] private ObjectiveData objectiveData;
 
@@ -29,6 +30,9 @@ namespace SubHorror.Tasks
 
 		public void Interact(GameObject interactor, InteractorContext context)
 		{
+			if (context != interactorContext)
+				return;
+
 			OnInteracted?.Invoke();
 		}
 
