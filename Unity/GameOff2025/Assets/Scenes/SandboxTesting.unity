@@ -648,6 +648,8 @@ MonoBehaviour:
       type: {class: InteractData, ns: SubHorror.Tasks, asm: Assembly-CSharp}
       data:
         interactable: {fileID: 321579546}
+        actions:
+        - {fileID: 11400000, guid: b73b9b929c1683b4f90aeb25840a8025, type: 2}
 --- !u!1 &345864825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2781,6 +2783,7 @@ GameObject:
   - component: {fileID: 1453548732}
   - component: {fileID: 1453548738}
   - component: {fileID: 1453548743}
+  - component: {fileID: 1453548744}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2894,6 +2897,7 @@ Transform:
   - {fileID: 919285140}
   - {fileID: 848268493}
   - {fileID: 123801563}
+  - {fileID: 2067151557}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1453548737
@@ -3090,6 +3094,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c824693f4fc08746b5ed82401652f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1453548744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453548731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce860499460345b89bcda4bac24b2e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handSlot: {fileID: 2067151557}
 --- !u!1 &1507030602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4207,6 +4224,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2067151556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2067151557}
+  m_Layer: 0
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2067151557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067151556}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7, y: 0, z: 0.946}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1453548736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2118847035
 GameObject:

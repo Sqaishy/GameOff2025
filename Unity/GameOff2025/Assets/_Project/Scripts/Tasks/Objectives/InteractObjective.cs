@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using SubHorror.Interaction;
 using UnityEngine;
 
 namespace SubHorror.Tasks
@@ -38,6 +40,9 @@ namespace SubHorror.Tasks
 		private void Interact()
 		{
 			interacted = true;
+
+			foreach (ContextAction action in objectiveData.actions)
+				action.Execute(Owner, objectiveData.interactable.gameObject);
 		}
 	}
 
@@ -45,12 +50,14 @@ namespace SubHorror.Tasks
 	public class InteractData : ObjectiveData
 	{
 		public ObjectiveInteractable interactable;
+		public List<ContextAction> actions;
 
 		public override ObjectiveData Clone()
 		{
 			return new InteractData()
 			{
-				interactable = interactable
+				interactable = interactable,
+				actions = actions
 			};
 		}
 	}
