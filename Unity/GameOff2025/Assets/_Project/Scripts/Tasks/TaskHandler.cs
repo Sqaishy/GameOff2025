@@ -7,6 +7,7 @@ namespace SubHorror.Tasks
 	public class TaskHandler : MonoBehaviour
 	{
 		public event Action OnObjectiveChanged;
+		public List<Task> ActiveTasks => activeTasks;
 
 		private List<Task> activeTasks = new();
 
