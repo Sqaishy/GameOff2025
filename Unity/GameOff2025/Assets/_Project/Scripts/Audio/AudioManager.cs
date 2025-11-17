@@ -16,10 +16,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private string bgmBusPath = "bus:/BGM";
     [SerializeField] private string sfxBusPath = "bus:/SFX";
     [SerializeField] private string ambBusPath = "bus:/AMB";
+    [SerializeField] private string masterBusPath = "bus:/Master";
+
 
 
 
     // FMOD objects
+    private Bus masterBus;
     private Bus bgmBus;
     private Bus sfxBus;
     private Bus ambBus;
@@ -33,7 +36,7 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         // Singleton pattern
-        if (Instance != null && Instance != this)
+        if (Instance != null)
         {
             Destroy(gameObject);
             return;
@@ -50,13 +53,13 @@ public class AudioManager : MonoBehaviour
         ambBus = RuntimeManager.GetBus(ambBusPath);
 
         // Subscribe to sceneLoaded to auto-clean looped SFX
-       // HELP    SceneManager.sceneLoaded += OnSceneLoaded;
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDestroy()
     {
         // Unsubscribe event
-        //  HELP    SceneManager.sceneLoaded -= OnSceneLoaded;
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
 
         // Stop and release bgm/amb and loops to be safe
         StopAndReleaseSafe(bgmInstance);
@@ -194,6 +197,11 @@ public class AudioManager : MonoBehaviour
     // Bus control (amplitude/volume)
     // -----------------------
     /// <summary>Set BGM bus volume (linear 0..1)</summary>
+    public void SetMasterVolume(float linear0to1)
+    {
+        linear0to1 = Mathf.Clamp01(linear0to1);
+        masterBus.setVolume(linear0to1);
+    }
     public void SetBGMVolume(float linear0to1)
     {
         linear0to1 = Mathf.Clamp01(linear0to1);
