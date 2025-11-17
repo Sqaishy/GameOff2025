@@ -636,6 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75320060b85c4cb68900299d8b4a9332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactorContext: {fileID: 11400000, guid: 6343f043395172c45b9055a1672f1e84, type: 2}
   objective: {fileID: 11400000, guid: 72a364fb7428cf640a9542cdf1ae0108, type: 2}
   objectiveData:
     rid: 6958021068866978106

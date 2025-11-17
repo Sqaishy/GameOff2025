@@ -12,9 +12,11 @@ namespace SubHorror.Tasks
 		{
 			VisualElement root = new VisualElement();
 
+			SerializedProperty contextProperty = serializedObject.FindProperty("interactorContext");
 			SerializedProperty objectiveProperty = serializedObject.FindProperty("objective");
 			SerializedProperty dataProperty = serializedObject.FindProperty("objectiveData");
 
+			root.Add(new PropertyField(contextProperty));
 			root.Add(new PropertyField(objectiveProperty));
 
 			AddObjectiveData(dataProperty, root);

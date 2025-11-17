@@ -14,6 +14,8 @@ namespace SubHorror.Tasks
 		         "\nEnd -> Only applies the consequence if the task has failed")]
 		[SerializeField] private ConsequenceApplication consequenceApplication;
 		[SerializeField] private Consequence consequence;
+		[Tooltip("On task success perform this action if any is defined")]
+		[SerializeField] private Consequence successAction;
 
 		public event Action OnTaskUpdated;
 		public string TaskName => taskName;
@@ -60,6 +62,9 @@ namespace SubHorror.Tasks
 				//Apply the consequence that is defined
 				consequence.Apply(this);
 			}
+
+			if (currentChildStatus == Status.Success && successAction)
+				successAction.Apply(this);
 		}
 
 		private Status StartObjective()
