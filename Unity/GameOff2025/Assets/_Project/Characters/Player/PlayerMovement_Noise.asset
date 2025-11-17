@@ -39,3 +39,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  audioEvent:
+    Guid:
+      Data1: -2037282805
+      Data2: 1111833538
+      Data3: -205625728
+      Data4: 1527928682
+    Path: event:/SFX/Player/FootstepsMetal
