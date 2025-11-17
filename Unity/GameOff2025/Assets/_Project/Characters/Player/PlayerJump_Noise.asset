@@ -39,3 +39,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  audioEvent:
+    Guid:
+      Data1: -951991147
+      Data2: 1213482862
+      Data3: 846330529
+      Data4: 2146737133
+    Path: event:/SFX/Player/JumpMetal

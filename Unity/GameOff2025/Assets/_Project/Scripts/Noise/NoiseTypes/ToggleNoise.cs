@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 namespace SubHorror.Noise
@@ -11,6 +13,7 @@ namespace SubHorror.Noise
 		public bool NoiseActive => isPlaying || remainingDuration > 0;
 
 		private NoiseSettings NoiseSettings { get; }
+		private EventInstance audioInstance;
 		private bool isPlaying;
 		private float remainingDelay;
 		private float remainingDuration;
@@ -19,16 +22,25 @@ namespace SubHorror.Noise
 		{
 			NoiseEmitter = noiseEmitter;
 			NoiseSettings = noiseSettings;
+			audioInstance = RuntimeManager.CreateInstance(NoiseSettings.AudioEvent);
 		}
 
 		public void Play()
 		{
 			ResetNoise();
-			isPlaying = true;
+			NoisePlaying(true);
 			NoiseEmitter.PlayNoise(this);
 		}
 
-		public void NoisePlaying(bool toggle) => isPlaying = toggle;
+		public void NoisePlaying(bool toggle)
+		{
+			isPlaying = toggle;
+
+			if (isPlaying)
+				audioInstance.start();
+			else
+				AudioManager.Instance.StopLoop(audioInstance);
+		}
 
 		public void ResetNoise()
 		{

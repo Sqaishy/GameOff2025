@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 namespace SubHorror.Noise
@@ -21,6 +23,8 @@ namespace SubHorror.Noise
 
 			remainingDelay = NoiseSettings.Delay;
 			remainingDuration = NoiseSettings.Duration;
+
+			RuntimeManager.PlayOneShot(NoiseSettings.AudioEvent);
 		}
 
 		public void ReduceNoise()

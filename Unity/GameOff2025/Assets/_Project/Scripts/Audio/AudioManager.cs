@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private string masterBusPath = "bus:/Master";
 
 
+    private Dictionary<EventReference, EventInstance> events = new();
 
 
     // FMOD objects
@@ -45,7 +46,7 @@ public class AudioManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-      
+
 
         // Cache buses
         bgmBus = RuntimeManager.GetBus(bgmBusPath);
@@ -106,6 +107,7 @@ public class AudioManager : MonoBehaviour
     public EventInstance PlayLoop3DAtPosition(EventReference sfxEvent, Vector3 position)
     {
         if (sfxEvent.IsNull) return default;
+        events[sfxEvent] = RuntimeManager.CreateInstance(sfxEvent);
         var inst = RuntimeManager.CreateInstance(sfxEvent);
         inst.set3DAttributes(RuntimeUtils.To3DAttributes(position));
         inst.start();
@@ -130,7 +132,7 @@ public class AudioManager : MonoBehaviour
         if (!instance.isValid()) return;
 
         instance.stop(immediate ? FMOD.Studio.STOP_MODE.IMMEDIATE : FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        instance.release();
+        //instance.release();
         activeLoops.Remove(instance);
     }
 

@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 namespace SubHorror.Noise
@@ -13,20 +15,23 @@ namespace SubHorror.Noise
 		[SerializeField] private float duration;
 		[Tooltip("Interpolates the sound level over the duration based on the noise falloff")]
 		[SerializeField] private AnimationCurve noiseFalloff;
+        [SerializeField] private EventReference audioEvent;
 
 		public float NoiseLevel => noiseLevel;
 		public float Delay => delay;
 		public float Duration => duration;
 		public AnimationCurve NoiseFalloff => noiseFalloff;
+		public EventReference AudioEvent => audioEvent;
 
 		public static NoiseSettings Create(float noiseLevel, float delay, float duration,
-			AnimationCurve noiseFalloff)
+			AnimationCurve noiseFalloff, EventReference audioEvent = default)
 		{
 			NoiseSettings createSettings = CreateInstance<NoiseSettings>();
 			createSettings.noiseLevel = noiseLevel;
 			createSettings.delay = delay;
 			createSettings.duration = duration;
 			createSettings.noiseFalloff = noiseFalloff;
+			createSettings.audioEvent = audioEvent;
 
 			return createSettings;
 		}
