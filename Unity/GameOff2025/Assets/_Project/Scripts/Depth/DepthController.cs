@@ -23,6 +23,7 @@ namespace SubHorror.Depth
 		private float milestone;
 		private float currentDepth;
 		private float currentMilestone;
+		private bool canMove = true;
 
 		private void Awake()
 		{
@@ -38,7 +39,7 @@ namespace SubHorror.Depth
 
 		private void Update()
 		{
-			if (currentDepth <= 0f)
+			if (currentDepth <= 0f || !canMove)
 				return;
 
 			for (int i = depthContributors.Count - 1; i >= 0; i--)
@@ -72,6 +73,11 @@ namespace SubHorror.Depth
 		public void AddDepth(IDepth depthContributor)
 		{
 			depthContributors.Add(depthContributor);
+		}
+
+		public void ToggleClimb(bool canClimb)
+		{
+			canMove = canClimb;
 		}
 
 		private void RemoveDepth(IDepth depthContributor)

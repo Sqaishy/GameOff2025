@@ -21,5 +21,10 @@ namespace SubHorror.Depth
 		{
 			_instance.controller.AddDepth(depthContributor);
 		}
+
+		public static void ToggleDepthClimb(bool canMove)
+		{
+			_instance.controller.ToggleClimb(canMove);
+		}
 	}
 }

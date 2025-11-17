@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SubHorror.Tasks
 {
-	[CreateAssetMenu(menuName = "Sub Horror/Tasks/Consequences/Depth Consequence")]
+	[CreateAssetMenu(menuName = "Sub Horror/Tasks/Consequences/Depth/Reduce Depth Consequence")]
 	public class DepthConsequence : Consequence
 	{
 		[Tooltip("As this is a consequence you most likely want the depth to reduce. Don't need to put " +
