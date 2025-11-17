@@ -15,16 +15,12 @@ public class MainMenuController : MonoBehaviour
     private SceneManager _sceneManager;
     [SerializeField] private List<Button> _hoverableButtons;
     [SerializeField] private bool _debugMode = false;
-    private AudioSource _audioSource_mainMenu;
-    [SerializeField] List<AudioClip> _uiHoveringSfx;
-    [SerializeField] List<AudioClip> _uiClickingSfx;
     UserSettings _userSettings;
 
     void Start()
     {
         _userSettings = new UserSettings();
         _sceneManager = GetComponent<SceneManager>();
-        _audioSource_mainMenu = GetComponent<AudioSource>();
         InitializeDefaultUserPrefs(_userSettings);
         InitializeHoverableButtons(_hoverableButtons);
     }
@@ -72,26 +68,10 @@ public class MainMenuController : MonoBehaviour
     }
     public void PlayClickingSound()
     {
-        // todo: to be implemented
-        if (_uiClickingSfx.Count > 0)
-        {
-            int result = Random.Range(0, _uiClickingSfx.Count);
-            _audioSource_mainMenu.PlayOneShot(_uiClickingSfx[result]);
-        } else
-        {
-            Debug.LogError("Error - ClickingClips List is empty.");
-        }
+        AudioManager.Instance.PlayOneShot2D(FMODEvents.Instance.menuClick);
     }
     public void PlayHoveringSound()
     {
-        // todo: to be implemented
-        if (_uiHoveringSfx.Count > 0)
-        {
-            int result = Random.Range(0, _uiHoveringSfx.Count);
-            _audioSource_mainMenu.PlayOneShot(_uiHoveringSfx[result]);
-        } else
-        {
-            Debug.LogError("Error - HoveringClips List is empty.");
-        }
+        AudioManager.Instance.PlayOneShot2D(FMODEvents.Instance.menuHover);
     }
 }
