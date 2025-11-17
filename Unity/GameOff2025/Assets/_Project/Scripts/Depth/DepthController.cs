@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -17,17 +18,22 @@ namespace SubHorror.Depth
 		public float DepthMilestones => depthMilestones;
 		public float CurrentDepth => currentDepth;
 
+		private Depth depthHandler;
+		private List<IDepth> depthContributors = new();
 		private float milestone;
-		private float depthPerSecond;
 		private float currentDepth;
 		private float currentMilestone;
 
 		private void Awake()
 		{
+			depthHandler = new Depth(this);
+
 			milestone = difficulty.StartingDepth / depthMilestones;
-			depthPerSecond = difficulty.StartingDepth / (difficulty.SurfaceTime * 60f);
 			currentDepth = difficulty.StartingDepth;
 			currentMilestone = currentDepth - milestone;
+
+			depthContributors.Add(new InfiniteDepth(
+				difficulty.StartingDepth / (difficulty.SurfaceTime * 60f)));
 		}
 
 		private void Update()
@@ -35,7 +41,16 @@ namespace SubHorror.Depth
 			if (currentDepth <= 0f)
 				return;
 
-			currentDepth -= depthPerSecond * Time.deltaTime;
+			for (int i = depthContributors.Count - 1; i >= 0; i--)
+			{
+				IDepth depthContributor = depthContributors[i];
+
+				currentDepth = Mathf.Clamp(currentDepth - depthContributor.DepthContribution(),
+					0f, difficulty.StartingDepth);
+
+				if (!depthContributor.Active)
+					RemoveDepth(depthContributor);
+			}
 
 			if (currentDepth > currentMilestone)
 				return;
@@ -53,5 +68,15 @@ namespace SubHorror.Depth
 		/// The current depth as a percentage between 0 and 1
 		/// </returns>
 		public float GetDepthPercentage01() => currentDepth / difficulty.StartingDepth;
+
+		public void AddDepth(IDepth depthContributor)
+		{
+			depthContributors.Add(depthContributor);
+		}
+
+		private void RemoveDepth(IDepth depthContributor)
+		{
+			depthContributors.Remove(depthContributor);
+		}
 	}
 }
