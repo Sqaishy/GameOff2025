@@ -51,6 +51,9 @@ namespace SubHorror.Interaction
 			if (previousInteractable == currentInteractable)
 				return;
 
+			if (!currentInteractable.CanInteract())
+				return;
+
 			previousInteractable?.ResetInteraction();
 			currentInteractable.Interact(gameObject, context);
 			previousInteractable = currentInteractable;

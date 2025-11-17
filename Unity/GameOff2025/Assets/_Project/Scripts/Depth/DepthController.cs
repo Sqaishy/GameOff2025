@@ -13,6 +13,7 @@ namespace SubHorror.Depth
 		[SerializeField] private float depthMilestones;
 
 		public static event Action OnDepthMilestone;
+		public static event Action OnReachedSurface;
 		public float DepthMilestones => depthMilestones;
 		public float CurrentDepth => currentDepth;
 
@@ -36,13 +37,16 @@ namespace SubHorror.Depth
 
 			currentDepth -= depthPerSecond * Time.deltaTime;
 
-			if (currentDepth <= currentMilestone)
-			{
-				currentMilestone -= milestone;
+			if (currentDepth > currentMilestone)
+				return;
 
-				Debug.Log($"Depth milestone reached, new milestone {currentMilestone:N0}");
-				OnDepthMilestone?.Invoke();
-			}
+			currentMilestone -= milestone;
+
+			Debug.Log($"Depth milestone reached, new milestone {currentMilestone:N0}");
+			OnDepthMilestone?.Invoke();
+
+			if (currentDepth <= 0f)
+				OnReachedSurface?.Invoke();
 		}
 
 		/// <returns>
