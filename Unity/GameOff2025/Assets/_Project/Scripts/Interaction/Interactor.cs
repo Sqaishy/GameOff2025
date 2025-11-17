@@ -48,8 +48,8 @@ namespace SubHorror.Interaction
 			if (currentInteractable == null)
 				return;
 
-			if (previousInteractable == currentInteractable)
-				return;
+			/*if (previousInteractable == currentInteractable)
+				return;*/
 
 			if (!currentInteractable.CanInteract())
 				return;
