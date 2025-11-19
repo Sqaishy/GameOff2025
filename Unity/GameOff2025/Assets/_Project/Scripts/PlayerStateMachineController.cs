@@ -19,7 +19,7 @@ namespace SubHorror
 		{
 			playerContext.rigidbody = GetComponent<Rigidbody>();
 			playerContext.noiseEmitter = GetComponentInChildren<NoiseEmitter>();
-			playerContext.animator = GetComponent<Animator>();
+			playerContext.animator = GetComponentInChildren<Animator>();
 			playerContext.mainCamera = Camera.main;
 
 			machine = new StateMachineBuilder<PlayerRoot>(playerContext).Build();
