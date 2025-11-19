@@ -11,4 +11,8 @@ public class GameOverUI : MonoBehaviour
 	}
 
 	public void ShowGameOverUI() => background.SetActive(true);
+
+	public void PlayAgain() => MenuExtensions.ReloadActiveScene();
+
+	public void TransitionToScene(int sceneIndex) => MenuExtensions.LoadScene(sceneIndex);
 }

@@ -16,5 +16,9 @@ namespace SubHorror
 		{
 			winPanel.SetActive(true);
 		}
+
+		public void PlayAgain() => MenuExtensions.ReloadActiveScene();
+
+		public void TransitionToScene(int sceneIndex) => MenuExtensions.LoadScene(sceneIndex);
 	}
 }
