@@ -1344,9 +1344,65 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchUnlocked.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchInteracted.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
       propertyPath: onHatchUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1760126916}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
       objectReference: {fileID: 1832616855}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddTask
+      objectReference: {fileID: 0}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowWinUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SubHorror.Tasks.TaskHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SubHorror.GameWinUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 8acdf26a6b77a9c45b098ef7803c9f1b, type: 2}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: SubHorror.Tasks.Task, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
+      propertyPath: onHatchInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1924898828465033605, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.84
@@ -1468,6 +1524,10 @@ PrefabInstance:
     - target: {fileID: 3226660924783284491, guid: 69e851e02ab41df4abe5be3f03327d8b, type: 3}
       propertyPath: m_Name
       value: Managers
+      objectReference: {fileID: 0}
+    - target: {fileID: 5970649942150895508, guid: 69e851e02ab41df4abe5be3f03327d8b, type: 3}
+      propertyPath: depthMilestones
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6106836354875172861, guid: 69e851e02ab41df4abe5be3f03327d8b, type: 3}
       propertyPath: m_LocalPosition.x
