@@ -49,6 +49,8 @@ namespace SubHorror.Interaction
 			}
 
 			FindFirstObjectByType<GameOverUI>().ShowGameOverUI();
+
+			interactor.transform.root.gameObject.SetActive(false);
 		}
 	}
 }
