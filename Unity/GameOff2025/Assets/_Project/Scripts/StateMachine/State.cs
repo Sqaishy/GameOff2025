@@ -138,8 +138,6 @@ namespace SubHorror.States
 
 		private void FaceCameraDirection()
 		{
-			Debug.Log("Face Camera Direction Called");
-
 			Vector3 cameraForward = Context.mainCamera.transform.forward;
 			cameraForward.y = 0f;
 
