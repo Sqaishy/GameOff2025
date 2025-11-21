@@ -21,20 +21,19 @@ namespace SubHorror.Interaction
 			//Fade to a game over screen
 
 			target.transform.root.GetComponent<InputHandler>().enabled = false;
-			target.transform.root.GetComponentInChildren<CinemachinePanTilt>().enabled = false;
+			CinemachineCamera camera = FindFirstObjectByType<CinemachineCamera>();
+			camera.GetComponent<CinemachinePanTilt>().enabled = false;
 
 			interactor.GetComponent<MonoBehaviour>().StartCoroutine(
-				GameOverSequence(interactor, target));
+				GameOverSequence(interactor, target, camera));
 		}
 
-		private IEnumerator GameOverSequence(GameObject interactor, GameObject target)
+		private IEnumerator GameOverSequence(GameObject interactor, GameObject target, CinemachineCamera camera)
 		{
 			Vector3 lookPosition = interactor.transform.position - target.transform.position;
 			lookPosition.y = 0f;
 
 			Quaternion targetRotation = Quaternion.LookRotation(lookPosition);
-
-			CinemachineCamera camera = target.transform.root.GetComponentInChildren<CinemachineCamera>();
 
 			float currentRotationTime = 0f;
 

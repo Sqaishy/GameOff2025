@@ -20,7 +20,7 @@ namespace SubHorror
 
 		private void Awake()
 		{
-			noiseEmitter = GetComponent<NoiseEmitter>();
+			noiseEmitter = GetComponentInChildren<NoiseEmitter>();
 			engineNoise = new ToggleNoise(noiseEmitter, noiseSettings);
 		}
 
