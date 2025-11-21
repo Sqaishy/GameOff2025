@@ -43,6 +43,8 @@ namespace SubHorror
 			return currentRepairTime >= repairTime;
 		}
 
+		public void ResetEngine() => currentRepairTime = 0;
+
 		public bool CanInteract()
 		{
 			return true;

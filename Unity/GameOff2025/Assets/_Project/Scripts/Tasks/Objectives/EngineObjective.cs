@@ -24,7 +24,7 @@ namespace SubHorror.Tasks
 
 		public override void Exit()
 		{
-
+			objectiveData.engine.ResetEngine();
 		}
 
 		public override string DisplayObjectiveText() =>
