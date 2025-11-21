@@ -65,6 +65,11 @@ namespace SubHorror.Depth
 				OnReachedSurface?.Invoke();
 		}
 
+		private void OnDestroy()
+		{
+			depthHandler?.Dispose();
+		}
+
 		/// <returns>
 		/// The current depth as a percentage between 0 and 1
 		/// </returns>
