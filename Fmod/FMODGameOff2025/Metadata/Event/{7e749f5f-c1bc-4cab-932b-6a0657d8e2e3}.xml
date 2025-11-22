@@ -109,6 +109,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{19db2ab0-1f87-4565-8ba6-19ae61ce7204}">
+		<property name="volume">
+			<value>-2.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -167,9 +170,15 @@
 	<object class="MixerBusEffectChain" id="{0b23efd3-079c-4b01-a8ba-e68560fc64bb}">
 		<relationship name="effects">
 			<destination>{d78b0c80-1bdc-4c41-8bb0-66a8c4bf83d7}</destination>
+			<destination>{d050d850-e5c3-46ca-9905-6f6a107de351}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{98d42a7e-c9c1-4bf8-a1eb-36c452b8ec38}" />
 	<object class="MixerBusFader" id="{94c986af-869f-4a29-8632-62fc42d047d2}" />
 	<object class="MixerBusFader" id="{d78b0c80-1bdc-4c41-8bb0-66a8c4bf83d7}" />
+	<object class="DistortionEffect" id="{d050d850-e5c3-46ca-9905-6f6a107de351}">
+		<property name="level">
+			<value>0.174999997</value>
+		</property>
+	</object>
 </objects>
