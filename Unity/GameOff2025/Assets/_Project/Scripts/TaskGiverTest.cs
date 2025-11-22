@@ -7,7 +7,7 @@ public class TaskGiverTest : MonoBehaviour
 	[SerializeField] private Task taskToGive;
 	[SerializeField] private TaskHandler taskHandler;
 
-	private void Awake()
+	private void Start()
 	{
 		taskHandler.AddTask((Task)taskToGive.Clone());
 	}
