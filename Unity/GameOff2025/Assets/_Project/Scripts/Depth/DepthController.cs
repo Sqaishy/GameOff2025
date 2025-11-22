@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using SubHorror.Core;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace SubHorror.Depth
 {
-	public class DepthController : MonoBehaviour
+	public class DepthController : MonoBehaviour, IGameStart
 	{
 		[SerializeField] private GameDifficulty difficulty;
 		[Tooltip("How many milestones the depth should have, at each milestone an event shoots out so " +
@@ -32,14 +33,14 @@ namespace SubHorror.Depth
 			milestone = difficulty.StartingDepth / depthMilestones;
 			currentDepth = difficulty.StartingDepth;
 			currentMilestone = currentDepth - milestone;
-
-			depthContributors.Add(new InfiniteDepth(
-				difficulty.StartingDepth / (difficulty.SurfaceTime * 60f)));
 		}
 
 		private void Update()
 		{
 			if (currentDepth <= 0f || !canMove)
+				return;
+
+			if (depthContributors.Count == 0)
 				return;
 
 			for (int i = depthContributors.Count - 1; i >= 0; i--)
@@ -88,6 +89,12 @@ namespace SubHorror.Depth
 		private void RemoveDepth(IDepth depthContributor)
 		{
 			depthContributors.Remove(depthContributor);
+		}
+
+		public void GameStart()
+		{
+			depthContributors.Add(new InfiniteDepth(
+				difficulty.StartingDepth / (difficulty.SurfaceTime * 60f)));
 		}
 	}
 }
