@@ -82,13 +82,14 @@ GameObject:
   m_Component:
   - component: {fileID: 7292495669191259294}
   - component: {fileID: 4233776389534543013}
+  - component: {fileID: 6524536522297603270}
   - component: {fileID: 242695187807493614}
   - component: {fileID: 8660212128370777064}
   - component: {fileID: 8462988482238789954}
   - component: {fileID: 8671920739209825796}
   m_Layer: 0
   m_Name: FP_PlayerController
-  m_TagString: Untagged
+  m_TagString: Creature
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,6 +137,29 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!136 &6524536522297603270
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398532167263875750}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &242695187807493614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +427,6 @@ GameObject:
   - component: {fileID: 6199363502881600999}
   - component: {fileID: 1209463610960390252}
   - component: {fileID: 1591497104450852167}
-  - component: {fileID: 7224273646594412343}
   - component: {fileID: 7521991392497741026}
   m_Layer: 0
   m_Name: Player
@@ -485,29 +508,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7224273646594412343
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7457186410011068626}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &7521991392497741026
 Animator:
   serializedVersion: 7

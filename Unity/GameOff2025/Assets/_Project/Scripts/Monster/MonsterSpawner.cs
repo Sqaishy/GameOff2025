@@ -6,10 +6,14 @@ namespace SubHorror.Monster
 	public class MonsterSpawner : MonoBehaviour, IGameStart
 	{
 		[SerializeField] private MonsterStateMachineController monster;
-		
+
+		private MonsterStateMachineController spawnedMonster;
+
+		public void DisableMonster() => spawnedMonster.gameObject.SetActive(false);
+
 		public void GameStart()
 		{
-			Instantiate(monster, transform.position, Quaternion.identity);
+			spawnedMonster = Instantiate(monster, transform.position, Quaternion.identity);
 		}
 	}
 }

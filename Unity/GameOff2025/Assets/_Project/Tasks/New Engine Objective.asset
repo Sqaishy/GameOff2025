@@ -16,6 +16,6 @@ MonoBehaviour:
   timerDuration: 0
   objectiveText: Engine fixed {0}%
   objectiveData:
-    repairTime: 10
+    repairTime: 3
     distanceToRepair: 3
     engine: {fileID: 0}

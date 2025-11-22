@@ -242,6 +242,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8757384161191107785, guid: 8beb4b2ac3c4e5a409be82fdc6a4c17b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -317,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b1044e4ed78500841bbcf8cdb80aec5a, type: 2}
     - target: {fileID: 4498611052262250626, guid: 2d5081e316762db42be78be3b479f926, type: 3}
       propertyPath: objectiveData
-      value: 6958021250939879515
+      value: 6958021250939879543
       objectReference: {fileID: 0}
     - target: {fileID: 4498611052262250626, guid: 2d5081e316762db42be78be3b479f926, type: 3}
       propertyPath: previousObjective
@@ -332,6 +336,10 @@ PrefabInstance:
       value: Assembly-CSharp SubHorror.Tasks.LocationData
       objectReference: {fileID: 0}
     - target: {fileID: 4498611052262250626, guid: 2d5081e316762db42be78be3b479f926, type: 3}
+      propertyPath: 'managedReferences[6958021250939879543]'
+      value: Assembly-CSharp SubHorror.Tasks.LocationData
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498611052262250626, guid: 2d5081e316762db42be78be3b479f926, type: 3}
       propertyPath: managedReferences[6958021227665686668].location
       value: 
       objectReference: {fileID: 1924898828465033605}
@@ -340,11 +348,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4498611052262250626, guid: 2d5081e316762db42be78be3b479f926, type: 3}
+      propertyPath: managedReferences[6958021250939879543].location
+      value: 
+      objectReference: {fileID: 1924898828465033605}
+    - target: {fileID: 4498611052262250626, guid: 2d5081e316762db42be78be3b479f926, type: 3}
       propertyPath: managedReferences[6958021227665686668].distanceToLocation
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4498611052262250626, guid: 2d5081e316762db42be78be3b479f926, type: 3}
       propertyPath: managedReferences[6958021250939879515].distanceToLocation
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498611052262250626, guid: 2d5081e316762db42be78be3b479f926, type: 3}
+      propertyPath: managedReferences[6958021250939879543].distanceToLocation
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5229265645184281864, guid: 2d5081e316762db42be78be3b479f926, type: 3}

@@ -39,6 +39,16 @@ namespace SubHorror.Tasks
 			newTask.Enter(gameObject);
 		}
 
+		/// <summary>
+		/// Adds a task and clones it before adding to the task handler
+		/// </summary>
+		/// <param name="newTask"></param>
+		public void AddTaskClone(Task newTask)
+		{
+			Task clone = (Task)newTask.Clone();
+			AddTask(clone);
+		}
+
 		private void RemoveTask(Task task)
 		{
 			activeTasks.Remove(task);
