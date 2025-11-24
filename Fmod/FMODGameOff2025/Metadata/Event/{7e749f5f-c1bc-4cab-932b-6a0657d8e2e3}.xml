@@ -95,11 +95,11 @@
 		<property name="length">
 			<value>11.467755102040817</value>
 		</property>
+		<property name="name" />
 		<property name="playlistMode">
 			<value>1</value>
 		</property>
 		<relationship name="sounds">
-			<destination>{9e9787c4-c449-4e7c-9210-f1bc31bb49c1}</destination>
 			<destination>{a538e386-3ab8-41e5-b65d-1d4aae7c6857}</destination>
 			<destination>{6d98e149-7509-4814-8834-0c94a33da311}</destination>
 			<destination>{d61ad2e5-dcc9-4062-a0aa-09b9c79964cc}</destination>
@@ -132,11 +132,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{a281c991-82c6-4c9b-92b3-36fefcdf9114}" />
 	<object class="MixerBusFader" id="{845c13af-5791-4e97-9190-39877b1371da}" />
-	<object class="SingleSound" id="{9e9787c4-c449-4e7c-9210-f1bc31bb49c1}">
-		<relationship name="audioFile">
-			<destination>{3047ddc0-23a1-4159-9128-4de7342d5cfb}</destination>
-		</relationship>
-	</object>
 	<object class="SingleSound" id="{a538e386-3ab8-41e5-b65d-1d4aae7c6857}">
 		<relationship name="audioFile">
 			<destination>{02b0358a-acf1-411f-9da2-2ab4b5bc5158}</destination>
