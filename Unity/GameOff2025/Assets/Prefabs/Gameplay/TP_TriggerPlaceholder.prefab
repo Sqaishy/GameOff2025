@@ -30,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 7.03, y: -0.392, z: -23.011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7817014241958326998}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5933827660761086627
@@ -68,3 +69,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactorContext: {fileID: 11400000, guid: 6343f043395172c45b9055a1672f1e84, type: 2}
   destination: {fileID: 0}
+  monsterDestination: {fileID: 7817014241958326998}
+  monsterSpawner: {fileID: 0}
+--- !u!1 &5233350349555047842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7817014241958326998}
+  m_Layer: 0
+  m_Name: Monster Destination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7817014241958326998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5233350349555047842}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.4, y: -0.943, z: -38.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4716290393583671161}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
