@@ -1,4 +1,5 @@
 using System;
+using SubHorror;
 using UnityEngine;
 
 public class GameOverUI : MonoBehaviour
@@ -10,7 +11,12 @@ public class GameOverUI : MonoBehaviour
 		background.SetActive(false);
 	}
 
-	public void ShowGameOverUI() => background.SetActive(true);
+	public void ShowGameOverUI()
+	{
+		background.SetActive(true);
+
+		InputHandler.EnableCursor();
+	}
 
 	public void PlayAgain() => MenuExtensions.ReloadActiveScene();
 

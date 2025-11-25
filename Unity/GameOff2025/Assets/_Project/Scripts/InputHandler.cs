@@ -15,6 +15,8 @@ namespace SubHorror
 		private void Awake()
 		{
 			playerContext = GetComponent<PlayerStateMachineController>().PlayerContext;
+
+			DisableCursor();
 		}
 
 		public void MovementInput(InputAction.CallbackContext context)
@@ -40,6 +42,18 @@ namespace SubHorror
 		public void InteractInput(InputAction.CallbackContext context)
 		{
 			GetComponentInChildren<Interactor>().Interact();
+		}
+
+		public static void EnableCursor()
+		{
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
+		}
+
+		public static void DisableCursor()
+		{
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Locked;
 		}
 	}
 }

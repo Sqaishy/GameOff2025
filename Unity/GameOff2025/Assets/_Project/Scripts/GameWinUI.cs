@@ -15,6 +15,8 @@ namespace SubHorror
 		public void ShowWinUI()
 		{
 			winPanel.SetActive(true);
+
+			InputHandler.EnableCursor();
 		}
 
 		public void PlayAgain() => MenuExtensions.ReloadActiveScene();
