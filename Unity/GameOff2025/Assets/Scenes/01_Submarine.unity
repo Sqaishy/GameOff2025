@@ -20216,7 +20216,7 @@ GameObject:
   - component: {fileID: 3469287836685929341}
   - component: {fileID: 3469287836685929343}
   - component: {fileID: 3469287836685929342}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SubmarineTopHull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
