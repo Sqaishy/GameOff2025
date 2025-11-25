@@ -20,7 +20,7 @@ namespace SubHorror
 
 		private void Awake()
 		{
-			noiseEmitter = GetComponent<NoiseEmitter>();
+			noiseEmitter = GetComponentInChildren<NoiseEmitter>();
 			engineNoise = new ToggleNoise(noiseEmitter, noiseSettings);
 		}
 
@@ -42,6 +42,8 @@ namespace SubHorror
 		{
 			return currentRepairTime >= repairTime;
 		}
+
+		public void ResetEngine() => currentRepairTime = 0;
 
 		public bool CanInteract()
 		{

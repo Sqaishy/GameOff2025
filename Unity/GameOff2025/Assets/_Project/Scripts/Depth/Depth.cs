@@ -2,7 +2,7 @@ using System;
 
 namespace SubHorror.Depth
 {
-	public class Depth
+	public class Depth : IDisposable
 	{
 		private static Depth _instance;
 		private DepthController controller;
@@ -25,6 +25,11 @@ namespace SubHorror.Depth
 		public static void ToggleDepthClimb(bool canMove)
 		{
 			_instance.controller.ToggleClimb(canMove);
+		}
+
+		public void Dispose()
+		{
+			_instance = null;
 		}
 	}
 }
