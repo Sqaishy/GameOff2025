@@ -20,6 +20,7 @@ namespace SubHorror.Tasks
 		public event Action<Task> OnTaskUpdated;
 		public string TaskName => taskName;
 		public Objective CurrentObjective => objectives[currentObjectiveIndex];
+		public GameObject TaskOwner => taskOwner;
 
 		private int currentObjectiveIndex;
 		/// <summary>

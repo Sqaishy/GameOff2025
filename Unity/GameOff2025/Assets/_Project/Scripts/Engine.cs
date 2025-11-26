@@ -24,6 +24,11 @@ namespace SubHorror
 			engineNoise = new ToggleNoise(noiseEmitter, noiseSettings);
 		}
 
+		private void OnDestroy()
+		{
+			engineNoise.Dispose();
+		}
+
 		public void Initialize(float repairTime, float distanceToRepair)
 		{
 			this.repairTime = repairTime;

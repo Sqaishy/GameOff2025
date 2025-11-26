@@ -1,7 +1,10 @@
 using System.Collections;
+using FMOD.Studio;
+using FMODUnity;
 using SubHorror.Noise;
 using SubHorror.States;
 using UnityEngine;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace SubHorror.Monster
 {
@@ -18,6 +21,7 @@ namespace SubHorror.Monster
 		public Rage(StateMachine machine, State parent, MonsterContext context) : base(machine, parent)
 		{
 			this.context = context;
+			context.movementSoundInstance = RuntimeManager.CreateInstance(context.movementSound);
 		}
 
 		protected override bool GetTransition(out State transitionState)
@@ -43,6 +47,11 @@ namespace SubHorror.Monster
 				context.agent.transform.position);
 
 			minRageTime = Mathf.Log(distanceToEmitter) + context.minRageTime;
+
+			RuntimeManager.PlayOneShotAttached(context.monsterAudio, context.agent.gameObject);
+			context.movementSoundInstance.start();
+			RuntimeManager.AttachInstanceToGameObject(context.movementSoundInstance, context.agent.gameObject);
+			RuntimeManager.PlayOneShotAttached(context.rageSound, context.agent.gameObject);
 		}
 
 		protected override void OnTick()
@@ -96,6 +105,8 @@ namespace SubHorror.Monster
 			canLeaveRage = false;
 			currentRageTime = 0;
 			context.agent.GetComponent<MonoBehaviour>().StartCoroutine(RageCooldown());
+
+			context.movementSoundInstance.stop(STOP_MODE.ALLOWFADEOUT);
 		}
 
 		private IEnumerator RageCooldown()

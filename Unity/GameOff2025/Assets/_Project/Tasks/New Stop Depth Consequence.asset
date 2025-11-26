@@ -13,3 +13,10 @@ MonoBehaviour:
   m_Name: New Stop Depth Consequence
   m_EditorClassIdentifier: 
   stopClimb: 1
+  engineShutdown:
+    Guid:
+      Data1: 1193214283
+      Data2: 1275936659
+      Data3: 896598403
+      Data4: -1012597514
+    Path: event:/SFX/Tasks/EngineShutdown/EngineShutdown
