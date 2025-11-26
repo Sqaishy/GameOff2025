@@ -13,8 +13,6 @@ namespace SubHorror.Interaction
 
 		public override void Execute(GameObject interactor, GameObject target)
 		{
-			Debug.Log($"{interactor.name} killed {target.name}");
-
 			//I want to do a few things with this
 			//First disable player input, this includes the cinemachine camera pan tilt <- so long as this
 			//is active you cannot manually rotate the camera
