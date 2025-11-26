@@ -19,6 +19,7 @@ namespace SubHorror
 		private float repairTime;
 		private float distanceToRepair;
 		private float currentRepairTime;
+		private bool objectiveActive;
 
 		public const string EngineParamName = "Engine";
 
@@ -35,6 +36,7 @@ namespace SubHorror
 
 		public void Initialize(float repairTime, float distanceToRepair)
 		{
+			objectiveActive = true;
 			this.repairTime = repairTime;
 			this.distanceToRepair = distanceToRepair;
 		}
@@ -52,18 +54,29 @@ namespace SubHorror
 			return currentRepairTime >= repairTime;
 		}
 
-		public void ResetEngine() => currentRepairTime = 0;
+		public void ResetEngine()
+		{
+			currentRepairTime = 0;
+			objectiveActive = false;
+
+			engineNoise.ResetNoise();
+			RuntimeManager.StudioSystem.setParameterByName(EngineParamName, 1f);
+			RuntimeManager.PlayOneShot(engineReconnectAudio);
+
+			if (repairCoroutine == null)
+				return;
+
+			StopCoroutine(repairCoroutine);
+			repairCoroutine = null;
+		}
 
 		public bool CanInteract()
 		{
-			return true;
+			return objectiveActive;
 		}
 
 		public void Interact(GameObject interactor, InteractorContext context)
 		{
-			//On interact start a coroutine
-			//TODO Player is able to interact when the task is not active
-
 			this.interactor = interactor;
 
 			if (repairCoroutine == null)
@@ -93,15 +106,6 @@ namespace SubHorror
 
 				yield return null;
 			}
-
-			//TODO Engine task doesn't stop right after the task finishes so audio keeps playing for a little longer
-			Debug.Log("Engine repaired");
-
-			engineNoise.ResetNoise();
-			RuntimeManager.StudioSystem.setParameterByName(EngineParamName, 1f);
-			RuntimeManager.PlayOneShot(engineReconnectAudio);
-
-			Debug.Log("Audio should have stopped by here!");
 		}
 
 		private bool InteractorTooFarFromEngine()

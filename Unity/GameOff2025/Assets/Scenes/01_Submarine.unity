@@ -13376,7 +13376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5970649942150895508, guid: 69e851e02ab41df4abe5be3f03327d8b, type: 3}
       propertyPath: depthMilestones
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6106836354875172861, guid: 69e851e02ab41df4abe5be3f03327d8b, type: 3}
       propertyPath: m_LocalPosition.x
