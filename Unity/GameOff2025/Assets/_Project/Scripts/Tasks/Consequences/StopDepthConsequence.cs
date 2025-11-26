@@ -17,6 +17,7 @@ namespace SubHorror.Tasks
 				return;
 
 			RuntimeManager.PlayOneShotAttached(engineShutdown, failedTask.TaskOwner);
+			RuntimeManager.StudioSystem.setParameterByName(Engine.EngineParamName, 0f);
 		}
 	}
 }

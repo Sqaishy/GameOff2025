@@ -306,6 +306,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538f62c3406d4f3e80b87488d9d136e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactPressAudio:
+    Guid:
+      Data1: 1664833424
+      Data2: 1214551865
+      Data3: -572386926
+      Data4: 1439958827
+    Path: event:/SFX/Tasks/ButtonPress
 --- !u!114 &8671920739209825796
 MonoBehaviour:
   m_ObjectHideFlags: 0

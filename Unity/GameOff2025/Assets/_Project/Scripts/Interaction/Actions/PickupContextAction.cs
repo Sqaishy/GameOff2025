@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 namespace SubHorror.Interaction
@@ -6,6 +7,7 @@ namespace SubHorror.Interaction
 	public class PickupContextAction : ContextAction
 	{
 		[SerializeField] private GameObject pickup;
+		[SerializeField] private EventReference pickupAudio;
 
 		public override void Execute(GameObject interactor, GameObject target)
 		{
@@ -16,6 +18,7 @@ namespace SubHorror.Interaction
 				return;
 
 			equipment.SetEquipment(Instantiate(pickup));
+			RuntimeManager.PlayOneShotAttached(pickupAudio, interactor.gameObject);
 		}
 	}
 }

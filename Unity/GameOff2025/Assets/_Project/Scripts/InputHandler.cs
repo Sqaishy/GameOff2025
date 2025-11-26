@@ -1,4 +1,5 @@
 using System;
+using FMODUnity;
 using SubHorror.Interaction;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,6 +10,8 @@ namespace SubHorror
 	[DisallowMultipleComponent]
 	public class InputHandler : MonoBehaviour
 	{
+		[SerializeField] private EventReference interactPressAudio;
+
 		private PlayerContext playerContext;
 		private Interactor interactor;
 		private bool sprintToggle;
@@ -47,6 +50,7 @@ namespace SubHorror
 				return;
 
 			interactor.Interact();
+			RuntimeManager.PlayOneShot(interactPressAudio);
 		}
 
 		public static void EnableCursor()

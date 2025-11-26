@@ -13,3 +13,10 @@ MonoBehaviour:
   m_Name: Pickup_Action
   m_EditorClassIdentifier: 
   pickup: {fileID: 862619038711162486, guid: 021e1971f10ea274cb0f929ed655449e, type: 3}
+  pickupAudio:
+    Guid:
+      Data1: 1500759130
+      Data2: 1088415606
+      Data3: -944577603
+      Data4: -1419084141
+    Path: event:/SFX/Tasks/Pickup

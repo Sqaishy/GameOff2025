@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using FMODUnity;
 using SubHorror.Interaction;
 using SubHorror.Noise;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace SubHorror
 	public class Engine : MonoBehaviour, IInteractable
 	{
 		[SerializeField] private NoiseSettings noiseSettings;
+		[SerializeField] private EventReference engineReconnectAudio;
 
 		private Coroutine repairCoroutine;
 		private NoiseEmitter noiseEmitter;
@@ -17,6 +19,8 @@ namespace SubHorror
 		private float repairTime;
 		private float distanceToRepair;
 		private float currentRepairTime;
+
+		public const string EngineParamName = "Engine";
 
 		private void Awake()
 		{
@@ -58,6 +62,7 @@ namespace SubHorror
 		public void Interact(GameObject interactor, InteractorContext context)
 		{
 			//On interact start a coroutine
+			//TODO Player is able to interact when the task is not active
 
 			this.interactor = interactor;
 
@@ -88,6 +93,15 @@ namespace SubHorror
 
 				yield return null;
 			}
+
+			//TODO Engine task doesn't stop right after the task finishes so audio keeps playing for a little longer
+			Debug.Log("Engine repaired");
+
+			engineNoise.ResetNoise();
+			RuntimeManager.StudioSystem.setParameterByName(EngineParamName, 1f);
+			RuntimeManager.PlayOneShot(engineReconnectAudio);
+
+			Debug.Log("Audio should have stopped by here!");
 		}
 
 		private bool InteractorTooFarFromEngine()

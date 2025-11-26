@@ -48,6 +48,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noiseSettings: {fileID: 11400000, guid: ad83cdd417d0d69498916e37acc4e937, type: 2}
+  engineReconnectAudio:
+    Guid:
+      Data1: 1481769944
+      Data2: 1174426098
+      Data3: 1185555608
+      Data4: 1682013742
+    Path: event:/SFX/Tasks/Reconnect
 --- !u!65 &4029243491333678315
 BoxCollider:
   m_ObjectHideFlags: 0

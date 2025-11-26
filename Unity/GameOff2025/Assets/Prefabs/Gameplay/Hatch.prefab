@@ -141,6 +141,13 @@ MonoBehaviour:
   onHatchInteracted:
     m_PersistentCalls:
       m_Calls: []
+  escapeAudio:
+    Guid:
+      Data1: -1580204502
+      Data2: 1168001249
+      Data3: 464204716
+      Data4: -214343247
+    Path: event:/SFX/OpenHatch
 --- !u!65 &4263232582627807467
 BoxCollider:
   m_ObjectHideFlags: 0
