@@ -9,6 +9,8 @@ namespace SubHorror.Monster
 
 		private MonsterStateMachineController spawnedMonster;
 
+		public MonsterStateMachineController ActiveMonster => spawnedMonster;
+
 		public void DisableMonster() => spawnedMonster.gameObject.SetActive(false);
 
 		public void GameStart()

@@ -10,11 +10,13 @@ namespace SubHorror
 	public class InputHandler : MonoBehaviour
 	{
 		private PlayerContext playerContext;
+		private Interactor interactor;
 		private bool sprintToggle;
 
 		private void Awake()
 		{
 			playerContext = GetComponent<PlayerStateMachineController>().PlayerContext;
+			interactor = GetComponentInChildren<Interactor>();
 
 			DisableCursor();
 		}
@@ -41,7 +43,10 @@ namespace SubHorror
 
 		public void InteractInput(InputAction.CallbackContext context)
 		{
-			GetComponentInChildren<Interactor>().Interact();
+			if (!context.performed)
+				return;
+
+			interactor.Interact();
 		}
 
 		public static void EnableCursor()
