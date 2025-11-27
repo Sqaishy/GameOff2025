@@ -9,7 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10290de6e10941bc948f0923e430bd03, type: 3}
-  m_Name: ContinueClimb
+  m_Script: {fileID: 11500000, guid: 3b89fa644bea4b55a4ab1147490f409d, type: 3}
+  m_Name: UtilityRoom_Location
   m_EditorClassIdentifier: 
-  stopClimb: 0
+  useTimer: 0
+  timerDuration: 0
+  objectiveText: Go to utility room {0}m
+  objectiveData:
+    location: {fileID: 0}
+    distanceToLocation: 2

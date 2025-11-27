@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10290de6e10941bc948f0923e430bd03, type: 3}
-  m_Name: New Stop Depth Consequence
+  m_Name: StopClimb_Consequence
   m_EditorClassIdentifier: 
   stopClimb: 1
   engineShutdown:

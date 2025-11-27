@@ -10,13 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f93bf6bf23164247bd9e2ad9410d7646, type: 3}
-  m_Name: New Task
+  m_Name: Engine_Task
   m_EditorClassIdentifier: 
   taskName: Fix The Engine
   objectives:
+  - {fileID: 11400000, guid: 361755875287ee0419686a5ea619479e, type: 2}
+  - {fileID: 11400000, guid: 72a364fb7428cf640a9542cdf1ae0108, type: 2}
   - {fileID: 11400000, guid: 069f24052a65e6a4cb0d7f86742cf3fc, type: 2}
-  - {fileID: 11400000, guid: 484e9415f7a330c4f824bc9823092805, type: 2}
   - {fileID: 11400000, guid: 57a67651056f22b40bdb48e984962e3f, type: 2}
+  - {fileID: 11400000, guid: 484e9415f7a330c4f824bc9823092805, type: 2}
   consequenceApplication: 0
   consequence: {fileID: 11400000, guid: 55dde38f31458fb4f82a17dd152333c1, type: 2}
-  successAction: {fileID: 11400000, guid: deaccbcecd274d940a03cd062e763018, type: 2}
+  successActions:
+  - {fileID: 11400000, guid: deaccbcecd274d940a03cd062e763018, type: 2}
+  - {fileID: 11400000, guid: 4d5eb9868c8557c4799ef528b39ecfc9, type: 2}

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6c8750c9d1947e2b9627f72992b4cda, type: 3}
-  m_Name: New Interact Objective
+  m_Name: PickupHammer_Interact
   m_EditorClassIdentifier: 
   useTimer: 0
   timerDuration: 0
-  objectiveText: Pickup Hammer
+  objectiveText: Pickup the hammer
   objectiveData:
     interactable: {fileID: 0}
     actions:

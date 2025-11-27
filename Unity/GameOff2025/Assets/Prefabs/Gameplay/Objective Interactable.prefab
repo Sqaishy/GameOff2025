@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 0
   m_Name: Objective Interactable
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75320060b85c4cb68900299d8b4a9332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactorContext: {fileID: 0}
+  interactorContext: {fileID: 11400000, guid: 6343f043395172c45b9055a1672f1e84, type: 2}
   objective: {fileID: 0}
   objectiveData:
     rid: -2

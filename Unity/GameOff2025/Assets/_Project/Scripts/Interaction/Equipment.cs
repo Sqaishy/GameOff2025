@@ -22,5 +22,13 @@ namespace SubHorror.Interaction
 			currentEquipment.transform.SetParent(handSlot);
 			currentEquipment.transform.localPosition = Vector3.zero;
 		}
+
+		public void TryUnEquip(GameObject equipment)
+		{
+			if (currentEquipment != equipment || !currentEquipment)
+				return;
+
+			Destroy(currentEquipment);
+		}
 	}
 }

@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7e25c16305a41caa2e1761c5108b0ec, type: 3}
-  m_Name: New Wait Objective
+  m_Script: {fileID: 11500000, guid: 3b89fa644bea4b55a4ab1147490f409d, type: 3}
+  m_Name: EngineRoom_Location
   m_EditorClassIdentifier: 
-  useTimer: 1
-  timerDuration: 2
-  objectiveText: Wait {0} seconds
+  useTimer: 0
+  timerDuration: 0
+  objectiveText: Go {0}m to reach {1}
+  objectiveData:
+    location: {fileID: 0}
+    distanceToLocation: 2

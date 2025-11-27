@@ -72,6 +72,37 @@ MonoBehaviour:
   - interactorContext: {fileID: 11400000, guid: 2e378d4e953cffa45967ab34f34cc63b, type: 2}
     actions:
     - {fileID: 11400000, guid: dbdf2434c938dfe43916f4fd95f61bb5, type: 2}
+--- !u!1 &1098163955168455964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1313873693156511700}
+  m_Layer: 0
+  m_Name: Hand Slot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1313873693156511700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098163955168455964}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.53, y: 0, z: 0.753}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6199363502881600999}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2398532167263875750
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +118,7 @@ GameObject:
   - component: {fileID: 8660212128370777064}
   - component: {fileID: 8462988482238789954}
   - component: {fileID: 8671920739209825796}
+  - component: {fileID: 4104403918478622244}
   m_Layer: 0
   m_Name: FP_PlayerController
   m_TagString: Creature
@@ -325,6 +357,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c824693f4fc08746b5ed82401652f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4104403918478622244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398532167263875750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce860499460345b89bcda4bac24b2e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handSlot: {fileID: 1313873693156511700}
 --- !u!1 &2498630122852529594
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +505,7 @@ Transform:
   - {fileID: 7521205782639815069}
   - {fileID: 2266678008135163685}
   - {fileID: 7239793905488201046}
+  - {fileID: 1313873693156511700}
   m_Father: {fileID: 7292495669191259294}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1209463610960390252
