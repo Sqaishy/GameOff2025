@@ -80,6 +80,7 @@ namespace SubHorror.Tasks
 		private Status StartObjective()
 		{
 			objectives[currentObjectiveIndex].Owner = taskOwner;
+			objectives[currentObjectiveIndex].Task = this;
 			Status childStatus = objectives[currentObjectiveIndex].Enter();
 
 			OnTaskUpdated?.Invoke(this);
