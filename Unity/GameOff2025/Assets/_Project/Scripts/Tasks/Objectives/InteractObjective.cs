@@ -8,6 +8,8 @@ namespace SubHorror.Tasks
 	[CreateAssetMenu(menuName = "Sub Horror/Tasks/Objectives/Interact Objective")]
 	public class InteractObjective : Objective<InteractData>
 	{
+		[SerializeField] private bool destroyChildren;
+
 		private bool interacted;
 
 		public override Task.Status Enter()
@@ -36,6 +38,14 @@ namespace SubHorror.Tasks
 
 		public override string DisplayObjectiveText() =>
 			string.Format(objectiveText, objectiveData.interactable.name);
+
+		public override void ResetObjective()
+		{
+			base.ResetObjective();
+
+			if (destroyChildren)
+				objectiveData.interactable.transform.DestroyChildren();
+		}
 
 		private void Interact()
 		{

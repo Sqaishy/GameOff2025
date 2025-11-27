@@ -35,6 +35,9 @@ namespace SubHorror.Tasks
 		{
 			taskOwner = owner;
 
+			foreach (Objective objective in objectives)
+				objective.ResetObjective();
+
 			if (consequenceApplication == ConsequenceApplication.Start)
 			{
 				//Apply the consequence that is defined

@@ -20,3 +20,4 @@ MonoBehaviour:
     actions:
     - {fileID: 11400000, guid: 866f25307ff2a18479d616e3714b5f30, type: 2}
     - {fileID: 11400000, guid: 64e33a84aa2e5fa43ba820da267165db, type: 2}
+  destroyChildren: 1
