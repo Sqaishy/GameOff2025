@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskName: Fix oxygen machine
   objectives:
-  - {fileID: 11400000, guid: 4fb368038b75cbf45b79c58dca91fae9, type: 2}
+  - {fileID: 11400000, guid: dfc30f807b306a74595385f0efe4343b, type: 2}
+  - {fileID: 11400000, guid: 413e1f4c7997e5646ba3850de5204ff1, type: 2}
+  - {fileID: 11400000, guid: 7918cf1ec94c35b4db81a6b7de6ca850, type: 2}
+  - {fileID: 11400000, guid: bcb9b5b7821a61a4cb94cb736f3896c9, type: 2}
+  - {fileID: 11400000, guid: 99bc4ad3b2d968346ba680f039a5689d, type: 2}
+  - {fileID: 11400000, guid: 5ce46ffa3baf73f42a96680f62f40441, type: 2}
+  - {fileID: 11400000, guid: 746b1d96093a5f7459ef3fc26d9c9901, type: 2}
   consequenceApplication: 0
   consequence: {fileID: 11400000, guid: 213ed6ebf4631984dbb43543c37b7565, type: 2}
   successActions:

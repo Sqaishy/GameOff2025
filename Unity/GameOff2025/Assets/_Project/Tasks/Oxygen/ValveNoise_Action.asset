@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7e25c16305a41caa2e1761c5108b0ec, type: 3}
-  m_Name: Oxygen_Wait
+  m_Script: {fileID: 11500000, guid: e0030298debc420ea4df9fea0f6072d0, type: 3}
+  m_Name: ValveNoise_Action
   m_EditorClassIdentifier: 
-  useTimer: 1
-  timerDuration: 28.59
-  objectiveText: '{0}s'
+  noiseSettings: {fileID: 11400000, guid: 71211ce4faa23cd4fb0eb7fd9fbb34f6, type: 2}

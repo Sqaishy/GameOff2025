@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7e25c16305a41caa2e1761c5108b0ec, type: 3}
-  m_Name: Oxygen_Wait
+  m_Script: {fileID: 11500000, guid: c994e5f5385348b5bcd31bb38350e15f, type: 3}
+  m_Name: PlaceWire01
   m_EditorClassIdentifier: 
-  useTimer: 1
-  timerDuration: 28.59
-  objectiveText: '{0}s'
+  itemToPlace: {fileID: 974809167354867448, guid: f139344df0a141e4b9a3fa70704253b7, type: 3}
+  placementPosition: {x: 0, y: 0, z: 0}
+  placementRotation: {x: 0, y: 0, z: 0.285588, w: 0.9583525}
