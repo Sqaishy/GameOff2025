@@ -37,7 +37,8 @@ namespace SubHorror.Tasks
 		}
 
 		public override string DisplayObjectiveText() =>
-			string.Format(objectiveText, objectiveData.interactable.name);
+			string.Format(objectiveText, objectiveData.interactable.name,
+				GetObjectiveRemainingTime().ToString("N1"));
 
 		public override void ResetObjective()
 		{

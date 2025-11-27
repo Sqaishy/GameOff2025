@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useTimer: 1
   timerDuration: 3
-  objectiveText: Turn the submarine
+  objectiveText: Turn the submarine {1}s remaining
   objectiveData:
     interactable: {fileID: 0}
     actions: []

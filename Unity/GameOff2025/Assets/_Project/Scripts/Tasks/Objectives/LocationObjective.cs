@@ -35,7 +35,8 @@ namespace SubHorror.Tasks
 		}
 
 		public override string DisplayObjectiveText() =>
-			string.Format(objectiveText, distance.ToString("N0"), objectiveData.location.name);
+			string.Format(objectiveText, distance.ToString("N0"), objectiveData.location.name,
+				GetObjectiveRemainingTime().ToString("N1"));
 	}
 
 	[Serializable]

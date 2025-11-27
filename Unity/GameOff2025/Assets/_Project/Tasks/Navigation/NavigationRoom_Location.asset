@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useTimer: 1
   timerDuration: 10
-  objectiveText: Reach the navigation room {0}m QUICKLY
+  objectiveText: Reach the navigation room {0}m QUICKLY {2}s
   objectiveData:
     location: {fileID: 0}
     distanceToLocation: 2
