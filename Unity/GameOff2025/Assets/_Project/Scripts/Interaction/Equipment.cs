@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SubHorror.Interaction
@@ -7,6 +8,7 @@ namespace SubHorror.Interaction
 	{
 		[SerializeField] private Transform handSlot;
 
+		private Stack<EquipmentSlot> equipmentStack = new();
 		private EquipmentSlot currentEquipment;
 
 		private struct EquipmentSlot
@@ -30,8 +32,11 @@ namespace SubHorror.Interaction
 			//First Destroy the current equipment gameobject
 			if (currentEquipment.itemObject)
 				DestroyCurrentEquipment();
+
 			//Then set and position the new equipment game object
-			currentEquipment = new EquipmentSlot(newEquipment);
+			EquipmentSlot newEquipmentSlot = new EquipmentSlot(newEquipment);
+			currentEquipment = newEquipmentSlot;
+			equipmentStack.Push(currentEquipment);
 			currentEquipment.itemObject.transform.SetParent(handSlot);
 			currentEquipment.itemObject.transform.localPosition = Vector3.zero;
 		}
@@ -42,12 +47,23 @@ namespace SubHorror.Interaction
 				return;
 
 			DestroyCurrentEquipment();
+
+			//TODO The peek may not work as I am destroying the object when unequipping it so may be a null ref
+			//Will come back to this when I have multiple tasks active at once to test
+
+			equipmentStack.Pop();
+
+			if (equipmentStack.TryPeek(out EquipmentSlot slot))
+			{
+				currentEquipment.itemGuid = slot.itemGuid;
+				currentEquipment.itemObject = slot.itemObject;
+			}
 		}
 
 		private void DestroyCurrentEquipment()
 		{
-			currentEquipment.itemGuid = null;
 			Destroy(currentEquipment.itemObject);
+			currentEquipment = default;
 		}
 	}
 }
