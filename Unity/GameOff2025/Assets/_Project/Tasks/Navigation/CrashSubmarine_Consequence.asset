@@ -9,6 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cbb0f6711a349b5b473acfbdde904b1, type: 3}
-  m_Name: New Log Consequence
+  m_Script: {fileID: 11500000, guid: b49e448557484f72b51b5f37ff22d965, type: 3}
+  m_Name: CrashSubmarine_Consequence
   m_EditorClassIdentifier: 
+  crashAudio:
+    Guid:
+      Data1: 2121572191
+      Data2: 1286324668
+      Data3: 107621267
+      Data4: -471672745
+    Path: event:/SFX/Tasks/Navigation/SubmarineCollide
