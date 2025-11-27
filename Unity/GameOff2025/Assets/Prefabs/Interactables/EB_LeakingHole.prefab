@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 6874162301522613865}
   - component: {fileID: 4732784285535176539}
   - component: {fileID: 649778595764512039}
+  - component: {fileID: 5488013900768867887}
+  - component: {fileID: 2124025261316506717}
+  - component: {fileID: 2626388840313665659}
   m_Layer: 0
   m_Name: EB_LeakingHole
   m_TagString: Untagged
@@ -27,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1908578322589086486}
   serializedVersion: 2
   m_LocalRotation: {x: 0.84084064, y: 0.5412829, z: -0.00000078767044, w: -0.0000011846523}
-  m_LocalPosition: {x: 20.292, y: 0.7092412, z: 3.3783}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7506507, y: 0.7506507, z: 0.7506507}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -88,6 +91,76 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5488013900768867887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908578322589086486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0f349183abbdf47817cfa84207d9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  falloffRange:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &2124025261316506717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908578322589086486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef704f66163f40678f35232f37a6da5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noiseSettings: {fileID: 11400000, guid: 3ea2e0703c92ab64cbc40cdfe820b748, type: 2}
+--- !u!135 &2626388840313665659
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908578322589086486}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 8
+  m_Center: {x: -0.0063789007, y: -0.0624361, z: 0.0027954893}
 --- !u!1 &2269160109728775027
 GameObject:
   m_ObjectHideFlags: 0

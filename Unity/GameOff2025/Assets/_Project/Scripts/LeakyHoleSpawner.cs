@@ -7,6 +7,9 @@ public class LeakyHoleSpawner : MonoBehaviour
 {
     [SerializeField] private List<Transform> holeSpawnPoints;
     [SerializeField] private GameObject leakPrefab;
+    [Tooltip("The amount of holes to spawn at once when the submarine crashes")]
+    [Min(1)]
+    [SerializeField] private int spawnAmount = 1;
 
     private List<Transform> availableSpawnPoints;
 
@@ -17,10 +20,16 @@ public class LeakyHoleSpawner : MonoBehaviour
 
     public void SpawnHole()
     {
-        Transform spawnPoint = availableSpawnPoints[Random.Range(0, availableSpawnPoints.Count)];
+        for (int i = 0; i < spawnAmount; i++)
+        {
+            if (availableSpawnPoints.Count == 0)
+                break;
 
-        Instantiate(leakPrefab, spawnPoint.position, spawnPoint.rotation, spawnPoint);
+            Transform spawnPoint = availableSpawnPoints[Random.Range(0, availableSpawnPoints.Count)];
 
-        availableSpawnPoints.Remove(spawnPoint);
+            Instantiate(leakPrefab, spawnPoint.position, spawnPoint.rotation, spawnPoint);
+
+            availableSpawnPoints.Remove(spawnPoint);
+        }
     }
 }

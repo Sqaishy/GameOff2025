@@ -35,6 +35,11 @@ namespace SubHorror.Noise
 			NoiseEmitter.PlayNoise(this);
 		}
 
+		public void Pause()
+		{
+			NoisePlaying(false);
+		}
+
 		public void NoisePlaying(bool toggle)
 		{
 			isPlaying = toggle;

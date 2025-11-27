@@ -9,6 +9,9 @@ namespace SubHorror.Noise
 	{
 		[SerializeField] private AnimationCurve falloffRange = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
+		public event Action OnNoiseEntered;
+		public event Action OnNoiseExited;
+
 		private List<NoiseEmitter> nearbyEmitters = new();
 		private Dictionary<NoiseSettings, ToggleNoise> noiseMap = new();
 
@@ -20,13 +23,19 @@ namespace SubHorror.Noise
 		private void OnTriggerEnter(Collider other)
 		{
 			if (other.TryGetComponent(out NoiseEmitter noiseEmitter))
+			{
 				nearbyEmitters.Add(noiseEmitter);
+				OnNoiseEntered?.Invoke();
+			}
 		}
 
 		private void OnTriggerExit(Collider other)
 		{
 			if (other.TryGetComponent(out NoiseEmitter noiseEmitter))
+			{
 				nearbyEmitters.Remove(noiseEmitter);
+				OnNoiseExited?.Invoke();
+			}
 		}
 
 		public static NoiseEmitter GetLoudestNoiseEmitter() => NoiseManager.Instance.GetLoudestNoiseEmitter();

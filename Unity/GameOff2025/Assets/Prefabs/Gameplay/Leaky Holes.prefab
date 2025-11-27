@@ -145,3 +145,4 @@ MonoBehaviour:
   - {fileID: 2395761229200852949}
   - {fileID: 3728891198673224260}
   leakPrefab: {fileID: 1908578322589086486, guid: e35df8fda48c45d4985ac9207c351741, type: 3}
+  spawnAmount: 2
