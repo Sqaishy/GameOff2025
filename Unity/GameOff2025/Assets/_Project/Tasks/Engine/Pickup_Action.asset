@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725c0c3e94fb49b99362692e37e40ba0, type: 3}
   m_Name: Pickup_Action
   m_EditorClassIdentifier: 
-  pickup: {fileID: 862619038711162486, guid: 021e1971f10ea274cb0f929ed655449e, type: 3}
+  pickup: {fileID: 6165717924546107844, guid: 021e1971f10ea274cb0f929ed655449e, type: 3}
   pickupAudio:
     Guid:
       Data1: 1500759130

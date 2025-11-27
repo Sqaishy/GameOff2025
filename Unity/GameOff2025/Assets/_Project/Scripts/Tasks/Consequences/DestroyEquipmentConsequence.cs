@@ -6,7 +6,7 @@ namespace SubHorror.Tasks
 	[CreateAssetMenu(menuName = "Sub Horror/Tasks/Consequences/Equipment/Destroy Equipment Consequence")]
 	public class DestroyEquipmentConsequence : Consequence
 	{
-		[SerializeField] private GameObject equipment;
+		[SerializeField] private Item equipment;
 
 		public override void Apply(Task failedTask)
 		{

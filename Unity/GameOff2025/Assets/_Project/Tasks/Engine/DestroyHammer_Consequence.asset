@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece70fba7d774fe3aa09ee3bddf826f0, type: 3}
   m_Name: DestroyHammer_Consequence
   m_EditorClassIdentifier: 
-  equipment: {fileID: 862619038711162486, guid: 021e1971f10ea274cb0f929ed655449e, type: 3}
+  equipment: {fileID: 6165717924546107844, guid: 021e1971f10ea274cb0f929ed655449e, type: 3}

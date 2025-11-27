@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace SubHorror.Interaction
@@ -6,29 +7,47 @@ namespace SubHorror.Interaction
 	{
 		[SerializeField] private Transform handSlot;
 
-		private GameObject currentEquipment;
+		private EquipmentSlot currentEquipment;
+
+		private struct EquipmentSlot
+		{
+			public Item itemGuid;
+			public GameObject itemObject;
+
+			public EquipmentSlot(Item item)
+			{
+				itemGuid = item;
+				itemObject = item.gameObject;
+			}
+		}
 
 		/// <summary>
 		///
 		/// </summary>
 		/// <param name="newEquipment">This GameObject MUST be instantiated prior to this method call</param>
-		public void SetEquipment(GameObject newEquipment)
+		public void SetEquipment(Item newEquipment)
 		{
 			//First Destroy the current equipment gameobject
-			if (currentEquipment)
-				Destroy(currentEquipment);
+			if (currentEquipment.itemObject)
+				DestroyCurrentEquipment();
 			//Then set and position the new equipment game object
-			currentEquipment = newEquipment;
-			currentEquipment.transform.SetParent(handSlot);
-			currentEquipment.transform.localPosition = Vector3.zero;
+			currentEquipment = new EquipmentSlot(newEquipment);
+			currentEquipment.itemObject.transform.SetParent(handSlot);
+			currentEquipment.itemObject.transform.localPosition = Vector3.zero;
 		}
 
-		public void TryUnEquip(GameObject equipment)
+		public void TryUnEquip(Item equipment)
 		{
-			if (currentEquipment != equipment || !currentEquipment)
+			if (currentEquipment.itemGuid != equipment)
 				return;
 
-			Destroy(currentEquipment);
+			DestroyCurrentEquipment();
+		}
+
+		private void DestroyCurrentEquipment()
+		{
+			currentEquipment.itemGuid = null;
+			Destroy(currentEquipment.itemObject);
 		}
 	}
 }
