@@ -60,10 +60,11 @@ namespace SubHorror.Depth
 			currentMilestone -= milestone;
 
 			Debug.Log($"Depth milestone reached, new milestone {currentMilestone:N0}");
-			OnDepthMilestone?.Invoke();
 
 			if (currentDepth <= 0f)
 				OnReachedSurface?.Invoke();
+			else
+				OnDepthMilestone?.Invoke();
 		}
 
 		private void OnDestroy()
