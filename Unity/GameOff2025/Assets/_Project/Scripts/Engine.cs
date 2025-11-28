@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using FMODUnity;
 using SubHorror.Interaction;
 using SubHorror.Noise;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace SubHorror
 	public class Engine : MonoBehaviour, IInteractable
 	{
 		[SerializeField] private NoiseSettings noiseSettings;
+		[SerializeField] private EventReference engineReconnectAudio;
 
 		private Coroutine repairCoroutine;
 		private NoiseEmitter noiseEmitter;
@@ -17,6 +19,9 @@ namespace SubHorror
 		private float repairTime;
 		private float distanceToRepair;
 		private float currentRepairTime;
+		private bool objectiveActive;
+
+		public const string EngineParamName = "Engine";
 
 		private void Awake()
 		{
@@ -24,8 +29,14 @@ namespace SubHorror
 			engineNoise = new ToggleNoise(noiseEmitter, noiseSettings);
 		}
 
+		private void OnDestroy()
+		{
+			engineNoise.Dispose();
+		}
+
 		public void Initialize(float repairTime, float distanceToRepair)
 		{
+			objectiveActive = true;
 			this.repairTime = repairTime;
 			this.distanceToRepair = distanceToRepair;
 		}
@@ -43,17 +54,29 @@ namespace SubHorror
 			return currentRepairTime >= repairTime;
 		}
 
-		public void ResetEngine() => currentRepairTime = 0;
+		public void ResetEngine()
+		{
+			currentRepairTime = 0;
+			objectiveActive = false;
+
+			engineNoise.ResetNoise();
+			/*RuntimeManager.StudioSystem.setParameterByName(EngineParamName, 1f);
+			RuntimeManager.PlayOneShot(engineReconnectAudio);*/
+
+			if (repairCoroutine == null)
+				return;
+
+			StopCoroutine(repairCoroutine);
+			repairCoroutine = null;
+		}
 
 		public bool CanInteract()
 		{
-			return true;
+			return objectiveActive;
 		}
 
 		public void Interact(GameObject interactor, InteractorContext context)
 		{
-			//On interact start a coroutine
-
 			this.interactor = interactor;
 
 			if (repairCoroutine == null)

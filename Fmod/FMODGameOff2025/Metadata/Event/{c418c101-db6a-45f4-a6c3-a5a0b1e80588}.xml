@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{c418c101-db6a-45f4-a6c3-a5a0b1e80588}">
 		<property name="color">
-			<value>Yellow</value>
+			<value>Green</value>
 		</property>
 		<property name="name">
 			<value>HammerHit</value>
@@ -136,7 +136,7 @@
 			<value>0.040000000000000001</value>
 		</property>
 		<property name="length">
-			<value>0.76000000000000001</value>
+			<value>0.66000000000000003</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{a9bc1949-5343-4a8a-87e5-726b0c0bcc9b}</destination>

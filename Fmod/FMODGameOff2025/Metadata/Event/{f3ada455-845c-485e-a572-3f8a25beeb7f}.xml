@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{f3ada455-845c-485e-a572-3f8a25beeb7f}">
 		<property name="color">
-			<value>Yellow</value>
+			<value>Green</value>
 		</property>
 		<property name="name">
 			<value>Footsteps</value>
@@ -134,7 +134,6 @@
 		<property name="length">
 			<value>0.42349465500485906</value>
 		</property>
-		<property name="name" />
 		<relationship name="timeline">
 			<destination>{6332d44b-c353-409f-a59d-461fe377fa7d}</destination>
 		</relationship>

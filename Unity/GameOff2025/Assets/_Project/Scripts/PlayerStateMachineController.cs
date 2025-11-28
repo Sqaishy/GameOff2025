@@ -30,8 +30,6 @@ namespace SubHorror
 			playerContext.isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundMask);
 
 			machine.Update();
-
-			//Debug.Log(string.Join(" > ", machine.Root.PathToActiveChild()));
 		}
 	}
 

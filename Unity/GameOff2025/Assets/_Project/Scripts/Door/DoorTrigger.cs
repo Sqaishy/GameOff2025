@@ -1,14 +1,18 @@
 using System;
+using FMODUnity;
 using UnityEngine;
 /// <summary>
 /// This class is responsible for triggering door-related events. This is a temporary solution for opening and closing the doors.
-/// 
+///
 /// Contains events for door open and close actions to which other scripts can subscribe and react to the event.
 /// </summary>
 public class DoorTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject _doorObject;
     [SerializeField] private GameObject _doorframeObject;
+
+    [SerializeField] private EventReference doorOpenAudio;
+    [SerializeField] private EventReference doorCloseAudio;
     // todo: add locked doors functionality
     private Animator _doorAnimator;
     // Events for subscribing to door open/close actions
@@ -28,6 +32,8 @@ public class DoorTrigger : MonoBehaviour
             _doorAnimator.SetTrigger("openDoor");
             _doorObject.GetComponent<Collider>().enabled = false;
             OnDoorOpened?.Invoke();
+
+            RuntimeManager.PlayOneShotAttached(doorOpenAudio, gameObject);
         }
     }
 
@@ -38,6 +44,8 @@ public class DoorTrigger : MonoBehaviour
             _doorAnimator.SetTrigger("closeDoor");
             _doorObject.GetComponent<Collider>().enabled = true;
             OnDoorClosed?.Invoke();
+
+            RuntimeManager.PlayOneShotAttached(doorCloseAudio, gameObject);
         }
     }
 }

@@ -20,6 +20,7 @@ namespace SubHorror.Tasks
 		/// The GameObject that currently owns this objective
 		/// </summary>
 		public GameObject Owner { get; set; }
+		public Task Task { get; set; }
 
 		protected float currentTime;
 

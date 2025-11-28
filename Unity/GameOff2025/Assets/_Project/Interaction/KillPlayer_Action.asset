@@ -13,3 +13,10 @@ MonoBehaviour:
   m_Name: KillPlayer_Action
   m_EditorClassIdentifier: 
   rotationTime: 0.35
+  killPlayerAudio:
+    Guid:
+      Data1: -397252993
+      Data2: 1312088722
+      Data3: -33944189
+      Data4: 1110685188
+    Path: event:/SFX/Monster/CatchPlayer

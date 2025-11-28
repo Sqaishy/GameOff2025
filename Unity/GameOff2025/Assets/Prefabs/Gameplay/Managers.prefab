@@ -47,6 +47,8 @@ MonoBehaviour:
   taskHandler: {fileID: 0}
   allTasks:
   - {fileID: 11400000, guid: 3bc4934a484054f4ab1a46e897553c16, type: 2}
+  - {fileID: 11400000, guid: a71be8a492b69e943a8f8ddaf1af3a31, type: 2}
+  - {fileID: 11400000, guid: 95d2471b86aeec44ba13bbee4d49a2c2, type: 2}
 --- !u!1 &2787202301670187886
 GameObject:
   m_ObjectHideFlags: 0

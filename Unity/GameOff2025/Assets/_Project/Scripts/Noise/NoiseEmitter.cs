@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,11 @@ namespace SubHorror.Noise
 	{
 		[SerializeField] private AnimationCurve falloffRange = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
+		public event Action OnNoiseEntered;
+		public event Action OnNoiseExited;
+
 		private List<NoiseEmitter> nearbyEmitters = new();
+		private Dictionary<NoiseSettings, ToggleNoise> noiseMap = new();
 
 		private void OnDestroy()
 		{
@@ -18,13 +23,19 @@ namespace SubHorror.Noise
 		private void OnTriggerEnter(Collider other)
 		{
 			if (other.TryGetComponent(out NoiseEmitter noiseEmitter))
+			{
 				nearbyEmitters.Add(noiseEmitter);
+				OnNoiseEntered?.Invoke();
+			}
 		}
 
 		private void OnTriggerExit(Collider other)
 		{
 			if (other.TryGetComponent(out NoiseEmitter noiseEmitter))
+			{
 				nearbyEmitters.Remove(noiseEmitter);
+				OnNoiseExited?.Invoke();
+			}
 		}
 
 		public static NoiseEmitter GetLoudestNoiseEmitter() => NoiseManager.Instance.GetLoudestNoiseEmitter();
@@ -36,6 +47,30 @@ namespace SubHorror.Noise
 		public void PlayNoise(INoise noise)
 		{
 			NoiseManager.Instance.PlayNoise(this, noise);
+		}
+
+		public void AddNoise(NoiseSettings noiseSettings)
+		{
+			if (noiseMap.ContainsKey(noiseSettings))
+				StopNoise(noiseSettings);
+
+			noiseMap[noiseSettings] = new ToggleNoise(this, noiseSettings);
+			noiseMap[noiseSettings].Play();
+		}
+
+		public void StopNoise(NoiseSettings noiseSettings)
+		{
+			noiseMap[noiseSettings].NoisePlaying(false);
+
+			StartCoroutine(ReleaseNoise(noiseMap[noiseSettings]));
+		}
+
+		private IEnumerator ReleaseNoise(ToggleNoise noise)
+		{
+			while (noise.NoiseActive)
+				yield return null;
+
+			noise.Dispose();
 		}
 
 		/// <returns>The total noise level this emitter is making</returns>

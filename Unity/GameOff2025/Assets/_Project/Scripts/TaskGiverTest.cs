@@ -11,8 +11,7 @@ public class TaskGiverTest : MonoBehaviour
 	{
 		taskHandler.AddTask((Task)taskToGive.Clone());
 	}
-}
 
-namespace SubHorror.Core
-{
+	[ContextMenu("Give Task")]
+	private void GiveTask() => taskHandler.AddTask((Task)taskToGive.Clone());
 }
