@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using SubHorror.Core;
 using UnityEngine;
 
 namespace SubHorror.Tasks
 {
-	public class TaskHandler : MonoBehaviour
+	public class TaskHandler : MonoBehaviour, IGameEnd
 	{
 		public event Action<Task> OnObjectiveChanged;
 		public event Action<Task> OnTaskCompleted;
@@ -61,6 +62,12 @@ namespace SubHorror.Tasks
 		private void OnTaskUpdated(Task task)
 		{
 			OnObjectiveChanged?.Invoke(task);
+		}
+
+		public void GameEnd()
+		{
+			for (int i = activeTasks.Count - 1; i >= 0; i--)
+				RemoveTask(activeTasks[i]);
 		}
 	}
 }

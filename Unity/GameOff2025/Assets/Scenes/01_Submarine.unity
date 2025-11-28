@@ -19306,7 +19306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
       propertyPath: onHatchInteracted.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 360711920327102533, guid: 79f9b2a6604344c478195853f8da38b3, type: 3}
       propertyPath: onHatchUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_Mode

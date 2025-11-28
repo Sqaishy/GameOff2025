@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 namespace SubHorror.Depth
 {
-	public class DepthController : MonoBehaviour, IGameStart
+	public class DepthController : MonoBehaviour, IGameStart, IGameEnd
 	{
 		[SerializeField] private GameDifficulty difficulty;
 		[Tooltip("How many milestones the depth should have, at each milestone an event shoots out so " +
@@ -96,6 +96,11 @@ namespace SubHorror.Depth
 		{
 			depthContributors.Add(new InfiniteDepth(
 				difficulty.StartingDepth / (difficulty.SurfaceTime * 60f)));
+		}
+
+		public void GameEnd()
+		{
+			depthContributors.Clear();
 		}
 	}
 }

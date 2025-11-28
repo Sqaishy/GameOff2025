@@ -35,6 +35,8 @@ namespace SubHorror.Monster
 			monsterSound.release();
 			monsterContext.movementSoundInstance.stop(STOP_MODE.IMMEDIATE);
 			monsterContext.movementSoundInstance.release();
+
+			machine.Exit();
 		}
 
 		private void Update()
