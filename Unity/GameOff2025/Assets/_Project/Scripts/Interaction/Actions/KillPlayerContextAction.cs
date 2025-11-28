@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Threading.Tasks;
 using FMODUnity;
+using SubHorror.Core;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -53,7 +54,7 @@ namespace SubHorror.Interaction
 
 			FindFirstObjectByType<GameOverUI>().ShowGameOverUI();
 
-			interactor.transform.root.gameObject.SetActive(false);
+			GameControl.GameEnd();
 		}
 	}
 }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93bf6bf23164247bd9e2ad9410d7646, type: 3}
+  m_Name: Navigation_Task
+  m_EditorClassIdentifier: 
+  taskName: Stop the collision
+  objectives:
+  - {fileID: 11400000, guid: 806c0eb078ca9b0439063c9ed86d260c, type: 2}
+  - {fileID: 11400000, guid: 93e4e1bf133a35740a061883fef1569d, type: 2}
+  - {fileID: 11400000, guid: d3015e47dcfa07847be2666429a2ad3b, type: 2}
+  - {fileID: 11400000, guid: 940d566f59ea0d841a875ccc28ec0073, type: 2}
+  - {fileID: 11400000, guid: 20d5f1d0e88ed87499ee7f2d1f426eb6, type: 2}
+  - {fileID: 11400000, guid: dda8f060d89ab3340bdb3d1671fc3f74, type: 2}
+  consequenceApplication: 1
+  consequence: {fileID: 11400000, guid: 90f740ba3bb8c6e489a260027663e108, type: 2}
+  successActions: []

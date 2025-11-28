@@ -6,7 +6,7 @@ namespace SubHorror.Interaction
 	[CreateAssetMenu(menuName = "Sub Horror/Interaction/Actions/Pickup Action")]
 	public class PickupContextAction : ContextAction
 	{
-		[SerializeField] private GameObject pickup;
+		[SerializeField] private Item pickup;
 		[SerializeField] private EventReference pickupAudio;
 
 		public override void Execute(GameObject interactor, GameObject target)
@@ -17,7 +17,7 @@ namespace SubHorror.Interaction
 			if (!interactor.TryGetComponent(out Equipment equipment))
 				return;
 
-			equipment.SetEquipment(Instantiate(pickup));
+			equipment.SetEquipment(pickup.Clone());
 			RuntimeManager.PlayOneShotAttached(pickupAudio, interactor.gameObject);
 		}
 	}

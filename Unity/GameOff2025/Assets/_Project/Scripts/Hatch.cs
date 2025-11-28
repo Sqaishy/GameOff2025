@@ -1,5 +1,6 @@
 using System;
 using FMODUnity;
+using SubHorror.Core;
 using SubHorror.Depth;
 using SubHorror.Interaction;
 using UnityEngine;
@@ -36,6 +37,8 @@ namespace SubHorror
 		{
 			if (context != interactorContext)
 				return;
+
+			GameControl.GameEnd();
 
 			RuntimeManager.PlayOneShotAttached(escapeAudio, gameObject);
 

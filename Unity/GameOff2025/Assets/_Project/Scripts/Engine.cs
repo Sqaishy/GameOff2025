@@ -60,8 +60,8 @@ namespace SubHorror
 			objectiveActive = false;
 
 			engineNoise.ResetNoise();
-			RuntimeManager.StudioSystem.setParameterByName(EngineParamName, 1f);
-			RuntimeManager.PlayOneShot(engineReconnectAudio);
+			/*RuntimeManager.StudioSystem.setParameterByName(EngineParamName, 1f);
+			RuntimeManager.PlayOneShot(engineReconnectAudio);*/
 
 			if (repairCoroutine == null)
 				return;

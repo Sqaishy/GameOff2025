@@ -104,7 +104,10 @@ namespace SubHorror.Monster
 		{
 			canLeaveRage = false;
 			currentRageTime = 0;
-			context.agent.GetComponent<MonoBehaviour>().StartCoroutine(RageCooldown());
+			MonoBehaviour behaviour = context.agent.GetComponent<MonoBehaviour>();
+
+			if (behaviour.enabled)
+				behaviour.StartCoroutine(RageCooldown());
 
 			context.movementSoundInstance.stop(STOP_MODE.ALLOWFADEOUT);
 		}

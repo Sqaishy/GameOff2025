@@ -1,6 +1,7 @@
 using System;
 using SubHorror.Interaction;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace SubHorror.Tasks
 {
@@ -77,5 +78,18 @@ namespace SubHorror.Tasks
 #endif
 
 		#endregion
+	}
+
+	public static class TransformExtensions
+	{
+		/// <summary>
+		/// Destroys all children under this transform
+		/// </summary>
+		/// <param name="transform"></param>
+		public static void DestroyChildren(this Transform transform)
+		{
+			foreach (Transform child in transform)
+				Object.Destroy(child.gameObject);
+		}
 	}
 }
