@@ -8,11 +8,6 @@ using UnityEngine;
 /// </summary>
 public class DoorTrigger : MonoBehaviour
 {
-    // 1) Spieler geht in den Trigger
-    // 2) Tür öffnen
-    // 3) Spieler verlässte den Trigger
-    // 4) Tür schließen
-
     [SerializeField] private GameObject _doorObject;
     [SerializeField] private GameObject _doorframeObject;
 
