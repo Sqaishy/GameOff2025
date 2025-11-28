@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{471f014b-3f93-4c0d-8301-7135f6fca4c3}">
 		<property name="color">
-			<value>Yellow</value>
+			<value>Green</value>
 		</property>
 		<property name="name">
 			<value>EngineShutdown</value>
@@ -108,7 +108,6 @@
 		<property name="timelockedOffset">
 			<value>0.68053373063509182</value>
 		</property>
-		<property name="name" />
 		<property name="pitch">
 			<value>-2.79999995</value>
 		</property>
@@ -149,7 +148,6 @@
 		<property name="timelockedOffset">
 			<value>3.5975510204081633</value>
 		</property>
-		<property name="name" />
 		<property name="pitch">
 			<value>-9.5</value>
 		</property>

@@ -10,11 +10,7 @@ namespace SubHorror.Tasks
 	{
 		public override void Apply(Task failedTask)
 		{
-			IEnumerable<IGameStart> gameStarts = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None)
-				.OfType<IGameStart>();
-
-			foreach (IGameStart gameStart in gameStarts)
-				gameStart.GameStart();
+			GameControl.GameStart();
 		}
 	}
 }

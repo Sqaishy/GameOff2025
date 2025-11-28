@@ -1,4 +1,5 @@
 using System;
+using FMODUnity;
 using SubHorror.Interaction;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,12 +10,16 @@ namespace SubHorror
 	[DisallowMultipleComponent]
 	public class InputHandler : MonoBehaviour
 	{
+		[SerializeField] private EventReference interactPressAudio;
+
 		private PlayerContext playerContext;
+		private Interactor interactor;
 		private bool sprintToggle;
 
 		private void Awake()
 		{
 			playerContext = GetComponent<PlayerStateMachineController>().PlayerContext;
+			interactor = GetComponentInChildren<Interactor>();
 
 			DisableCursor();
 		}
@@ -41,7 +46,11 @@ namespace SubHorror
 
 		public void InteractInput(InputAction.CallbackContext context)
 		{
-			GetComponentInChildren<Interactor>().Interact();
+			if (!context.performed)
+				return;
+
+			interactor.Interact();
+			RuntimeManager.PlayOneShot(interactPressAudio);
 		}
 
 		public static void EnableCursor()

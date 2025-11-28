@@ -1,4 +1,6 @@
 using System;
+using FMODUnity;
+using SubHorror.Core;
 using SubHorror.Depth;
 using SubHorror.Interaction;
 using UnityEngine;
@@ -12,6 +14,7 @@ namespace SubHorror
 		[SerializeField] private InteractorContext interactorContext;
 		[SerializeField] private UnityEvent onHatchUnlocked;
 		[SerializeField] private UnityEvent onHatchInteracted;
+		[SerializeField] private EventReference escapeAudio;
 
 		private bool hatchUnlocked;
 
@@ -34,6 +37,10 @@ namespace SubHorror
 		{
 			if (context != interactorContext)
 				return;
+
+			GameControl.GameEnd();
+
+			RuntimeManager.PlayOneShotAttached(escapeAudio, gameObject);
 
 			onHatchInteracted?.Invoke();
 		}

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Threading.Tasks;
+using FMODUnity;
+using SubHorror.Core;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -10,6 +12,7 @@ namespace SubHorror.Interaction
 	{
 		[Tooltip("How long it should take for the player to face the monster")]
 		[SerializeField] private float rotationTime;
+		[SerializeField] private EventReference killPlayerAudio;
 
 		public override void Execute(GameObject interactor, GameObject target)
 		{
@@ -45,9 +48,11 @@ namespace SubHorror.Interaction
 				yield return null;
 			}
 
+			RuntimeManager.PlayOneShotAttached(killPlayerAudio, camera.gameObject);
+
 			FindFirstObjectByType<GameOverUI>().ShowGameOverUI();
 
-			interactor.transform.root.gameObject.SetActive(false);
+			GameControl.GameEnd();
 		}
 	}
 }

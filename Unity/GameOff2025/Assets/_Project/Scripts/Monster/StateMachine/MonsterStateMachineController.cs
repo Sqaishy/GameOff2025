@@ -1,8 +1,11 @@
 using System;
+using FMOD.Studio;
+using FMODUnity;
 using SubHorror.Noise;
 using SubHorror.States;
 using UnityEngine;
 using UnityEngine.AI;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace SubHorror.Monster
 {
@@ -10,12 +13,30 @@ namespace SubHorror.Monster
 	{
 		[SerializeField] private MonsterContext monsterContext;
 		private StateMachine machine;
+		private EventInstance monsterSound;
 
 		private void Awake()
 		{
 			monsterContext.agent = GetComponent<NavMeshAgent>();
 
 			machine = new StateMachineBuilder<MonsterRootState>(monsterContext).Build();
+			monsterSound = RuntimeManager.CreateInstance(monsterContext.monsterAudio);
+		}
+
+		private void OnEnable()
+		{
+			monsterSound.start();
+			RuntimeManager.AttachInstanceToGameObject(monsterSound, gameObject);
+		}
+
+		private void OnDisable()
+		{
+			monsterSound.stop(STOP_MODE.IMMEDIATE);
+			monsterSound.release();
+			monsterContext.movementSoundInstance.stop(STOP_MODE.IMMEDIATE);
+			monsterContext.movementSoundInstance.release();
+
+			machine.Exit();
 		}
 
 		private void Update()
@@ -53,12 +74,19 @@ namespace SubHorror.Monster
 		public float rageEscapeTime;
 		[Header("Extras")]
 		public GameDifficulty gameDifficulty;
+		public EventReference monsterAudio;
 		[Tooltip("How often the monster checks for the loudest noise in seconds")]
 		public float checkNoiseInterval;
 		public float loudestNoiseLevel;
 		public float forceIdleTime;
+		[Header("Audio")]
+		public EventReference movementSound;
+		public EventReference rageSound;
 		[Header("Values")]
 		public bool enraged;
 		public bool hasLOS;
+
+		[HideInInspector]
+		public EventInstance movementSoundInstance;
 	}
 }

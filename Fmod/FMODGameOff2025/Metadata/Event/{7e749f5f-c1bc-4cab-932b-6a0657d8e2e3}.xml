@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{7e749f5f-c1bc-4cab-932b-6a0657d8e2e3}">
 		<property name="color">
-			<value>Blue</value>
+			<value>Yellow</value>
 		</property>
 		<property name="name">
 			<value>SubmarineCollide</value>
@@ -95,7 +95,6 @@
 		<property name="length">
 			<value>11.467755102040817</value>
 		</property>
-		<property name="name" />
 		<property name="playlistMode">
 			<value>1</value>
 		</property>

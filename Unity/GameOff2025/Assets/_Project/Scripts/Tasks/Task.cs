@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SubHorror.Tasks
 {
@@ -14,12 +15,14 @@ namespace SubHorror.Tasks
 		         "\nEnd -> Only applies the consequence if the task has failed")]
 		[SerializeField] private ConsequenceApplication consequenceApplication;
 		[SerializeField] private Consequence consequence;
-		[Tooltip("On task success perform this action if any is defined")]
-		[SerializeField] private Consequence successAction;
+		[FormerlySerializedAs("successAction")]
+		[Tooltip("On task success perform these actions if any are defined")]
+		[SerializeField] private List<Consequence> successActions;
 
 		public event Action<Task> OnTaskUpdated;
 		public string TaskName => taskName;
 		public Objective CurrentObjective => objectives[currentObjectiveIndex];
+		public GameObject TaskOwner => taskOwner;
 
 		private int currentObjectiveIndex;
 		/// <summary>
@@ -31,6 +34,9 @@ namespace SubHorror.Tasks
 		public Status Enter(GameObject owner)
 		{
 			taskOwner = owner;
+
+			foreach (Objective objective in objectives)
+				objective.ResetObjective();
 
 			if (consequenceApplication == ConsequenceApplication.Start)
 			{
@@ -64,13 +70,17 @@ namespace SubHorror.Tasks
 				consequence.Apply(this);
 			}
 
-			if (currentChildStatus == Status.Success && successAction)
-				successAction.Apply(this);
+			if (currentChildStatus != Status.Success)
+				return;
+
+			foreach (Consequence success in successActions)
+				success.Apply(this);
 		}
 
 		private Status StartObjective()
 		{
 			objectives[currentObjectiveIndex].Owner = taskOwner;
+			objectives[currentObjectiveIndex].Task = this;
 			Status childStatus = objectives[currentObjectiveIndex].Enter();
 
 			OnTaskUpdated?.Invoke(this);
