@@ -8,7 +8,6 @@ namespace SubHorror.Tasks
 	{
 		public override Task.Status Enter()
 		{
-			Debug.Log($"Wait time {timerDuration} seconds");
 			currentTime = timerDuration;
 
 			return Task.Status.Running;

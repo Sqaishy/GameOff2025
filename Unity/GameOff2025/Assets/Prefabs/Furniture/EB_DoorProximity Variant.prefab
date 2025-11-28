@@ -68,6 +68,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doorObject: {fileID: 252533017467235585}
   _doorframeObject: {fileID: 6908329985619195161}
+  doorOpenAudio:
+    Guid:
+      Data1: -1228423364
+      Data2: 1081327512
+      Data3: 712602281
+      Data4: -1267305197
+    Path: event:/SFX/DoorOpen
+  doorCloseAudio:
+    Guid:
+      Data1: 1569141109
+      Data2: 1236668976
+      Data3: -17503609
+      Data4: 995139923
+    Path: event:/SFX/DoorClose
 --- !u!1001 &214402272874557330
 PrefabInstance:
   m_ObjectHideFlags: 0

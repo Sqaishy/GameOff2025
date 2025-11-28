@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
+
 /**
 * This class handles the Teleportation of the Player between two points. Mostly used for transitioning in the submarine.
 */
@@ -41,7 +43,7 @@ public class LevelTransition : MonoBehaviour
         yield return new WaitForSeconds(3);
         teleport(sourceObject, destination);
     }
-    
+
     private void teleport(GameObject sourceObject, GameObject destination)
     {
         sourceObject.transform.position = destination.transform.position;

@@ -16,6 +16,6 @@ MonoBehaviour:
   objectives:
   - {fileID: 11400000, guid: b1044e4ed78500841bbcf8cdb80aec5a, type: 2}
   - {fileID: 11400000, guid: f63214a7afb47014da74bdbe81aeecab, type: 2}
-  consequenceApplication: 0
-  consequence: {fileID: 11400000, guid: cc91a98ed796afa48bb51c5033e6deae, type: 2}
+  consequenceApplication: 1
+  consequence: {fileID: 0}
   successAction: {fileID: 0}

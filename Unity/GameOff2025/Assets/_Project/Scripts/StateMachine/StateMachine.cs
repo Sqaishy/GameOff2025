@@ -19,6 +19,11 @@ namespace SubHorror.States
 			Root?.Tick();
 		}
 
+		public void Exit()
+		{
+			Root?.Exit();
+		}
+
 		public void RequestTransition(State from, State to)
 		{
 			if (from == to || from == null || to == null)

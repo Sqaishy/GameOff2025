@@ -41,8 +41,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   audioEvent:
     Guid:
-      Data1: 1193214283
-      Data2: 1275936659
-      Data3: 896598403
-      Data4: -1012597514
-    Path: event:/SFX/Tasks/EngineShutdown/EngineShutdown
+      Data1: -1005010687
+      Data2: 1173674858
+      Data3: -1599749210
+      Data4: -2012878671
+    Path: event:/SFX/Tasks/EngineShutdown/HammerHit

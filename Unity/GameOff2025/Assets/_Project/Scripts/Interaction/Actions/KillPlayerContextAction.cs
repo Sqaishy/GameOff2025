@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Threading.Tasks;
+using FMODUnity;
+using SubHorror.Core;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -10,11 +12,10 @@ namespace SubHorror.Interaction
 	{
 		[Tooltip("How long it should take for the player to face the monster")]
 		[SerializeField] private float rotationTime;
+		[SerializeField] private EventReference killPlayerAudio;
 
 		public override void Execute(GameObject interactor, GameObject target)
 		{
-			Debug.Log($"{interactor.name} killed {target.name}");
-
 			//I want to do a few things with this
 			//First disable player input, this includes the cinemachine camera pan tilt <- so long as this
 			//is active you cannot manually rotate the camera
@@ -47,9 +48,11 @@ namespace SubHorror.Interaction
 				yield return null;
 			}
 
+			RuntimeManager.PlayOneShotAttached(killPlayerAudio, camera.gameObject);
+
 			FindFirstObjectByType<GameOverUI>().ShowGameOverUI();
 
-			interactor.transform.root.gameObject.SetActive(false);
+			GameControl.GameEnd();
 		}
 	}
 }

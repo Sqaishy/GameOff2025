@@ -208,15 +208,36 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    rageMovementSpeed: 9
+    rageMovementSpeed: 4
     exitRageDistance: 6
     rageCooldown: 8
     minRageTime: 4
     rageEscapeTime: 3
     gameDifficulty: {fileID: 11400000, guid: f5a88f38a367b604094c58061994462d, type: 2}
+    monsterAudio:
+      Guid:
+        Data1: -869078676
+        Data2: 1259494788
+        Data3: 712054166
+        Data4: -481486166
+      Path: event:/SFX/Monster/Sounds
     checkNoiseInterval: 2
     loudestNoiseLevel: 0
     forceIdleTime: 45
+    movementSound:
+      Guid:
+        Data1: -206724011
+        Data2: 1214153820
+        Data3: -1975553371
+        Data4: 2146156069
+      Path: event:/SFX/Monster/Footsteps
+    rageSound:
+      Guid:
+        Data1: 95965906
+        Data2: 1176543408
+        Data3: -1744154723
+        Data4: -170595731
+      Path: event:/SFX/Monster/Scream
     enraged: 0
     hasLOS: 0
 --- !u!114 &8461517638327291178

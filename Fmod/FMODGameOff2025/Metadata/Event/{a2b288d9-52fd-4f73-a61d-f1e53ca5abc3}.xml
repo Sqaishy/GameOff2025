@@ -118,6 +118,10 @@
 		<property name="length">
 			<value>15.936</value>
 		</property>
+		<property name="name" />
+		<property name="pitch">
+			<value>1.39999998</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{3c7d7f7d-f718-4821-8e98-9e0702b7ef13}</destination>
 		</relationship>
@@ -148,7 +152,7 @@
 	</object>
 	<object class="NamedMarker" id="{0e0edf8d-9f94-403b-afe2-f2959132ac46}">
 		<property name="position">
-			<value>2</value>
+			<value>3</value>
 		</property>
 		<property name="name">
 			<value>Marker A</value>
@@ -162,7 +166,7 @@
 	</object>
 	<object class="TransitionMarker" id="{13d2b427-1431-444a-9607-6a844d02ea12}">
 		<property name="position">
-			<value>14.4</value>
+			<value>13.600000000000001</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{e62b84e7-8645-4e55-a215-8563813887f6}</destination>
