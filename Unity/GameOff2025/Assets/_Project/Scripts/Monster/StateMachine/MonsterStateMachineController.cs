@@ -42,8 +42,6 @@ namespace SubHorror.Monster
 		private void Update()
 		{
 			machine.Update();
-
-			Debug.Log(string.Join(" > ", machine.Root.PathToActiveChild()));
 		}
 	}
 

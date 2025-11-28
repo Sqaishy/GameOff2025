@@ -24,8 +24,6 @@ namespace SubHorror.Tasks
 
 				Task.Status status = task.Process();
 
-				Debug.Log($"{task.TaskName}: {status}");
-
 				if (status is Task.Status.Success or Task.Status.Failure)
 				{
 					RemoveTask(task);

@@ -19,8 +19,6 @@ namespace SubHorror.Tasks
 
 		private void Awake()
 		{
-			Debug.Log("Objective Holder Awake");
-
 			objective.OverrideDataType(objectiveData);
 		}
 

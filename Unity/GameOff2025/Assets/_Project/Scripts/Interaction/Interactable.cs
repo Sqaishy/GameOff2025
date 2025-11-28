@@ -24,8 +24,6 @@ namespace SubHorror.Interaction
 
 		public void Interact(GameObject interactor, InteractorContext context)
 		{
-			Debug.Log($"{interactor.name}-{context.name} is interacting with {name}", gameObject);
-
 			if (!contextActions.ContainsKey(context))
 				return;
 
