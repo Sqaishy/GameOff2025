@@ -21,7 +21,6 @@ namespace SubHorror.Interaction
 			if (targetObject)
 			{
 				targetObject.SetActive(true);
-				Debug.Log($"Found target object {targetObject.name}");
 			}
 		}
 	}

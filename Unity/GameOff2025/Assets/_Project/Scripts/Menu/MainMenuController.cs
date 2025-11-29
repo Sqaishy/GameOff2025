@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using FMODUnity;
+using UnityEngine.EventSystems;
 using static UserSettingsJSON;
 
 /// <summary>
@@ -12,6 +13,8 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _optionsMenu;
     [SerializeField] private GameObject _creditsMenu;
+    [Tooltip("The gameObject that is first selected when the UI is enabled -> for controller support")]
+    [SerializeField] private GameObject firstSelected;
     private SceneManager _sceneManager;
     [SerializeField] private List<Button> _hoverableButtons;
     [SerializeField] private bool _debugMode = false;
@@ -23,6 +26,8 @@ public class MainMenuController : MonoBehaviour
         _sceneManager = GetComponent<SceneManager>();
         InitializeDefaultUserPrefs(_userSettings);
         InitializeHoverableButtons(_hoverableButtons);
+
+        EventSystem.current.SetSelectedGameObject(firstSelected);
     }
 
     private void InitializeHoverableButtons(List<Button> hoverableButtons)

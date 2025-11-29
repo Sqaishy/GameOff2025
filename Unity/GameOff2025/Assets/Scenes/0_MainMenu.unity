@@ -5781,6 +5781,7 @@ MonoBehaviour:
   _mainMenu: {fileID: 707958705}
   _optionsMenu: {fileID: 1028709656}
   _creditsMenu: {fileID: 1531025630}
+  firstSelected: {fileID: 295898649}
   _hoverableButtons:
   - {fileID: 641769682}
   - {fileID: 588597528}

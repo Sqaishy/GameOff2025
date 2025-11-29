@@ -53,9 +53,9 @@ namespace SubHorror.Interaction
 
 			RuntimeManager.PlayOneShotAttached(killPlayerAudio, camera.gameObject);
 
-			FindFirstObjectByType<GameOverUI>().ShowGameOverUI();
-
 			GameControl.GameEnd();
+
+			FindFirstObjectByType<GameOverUI>().ShowGameOverUI();
 		}
 	}
 }
