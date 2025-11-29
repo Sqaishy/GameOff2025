@@ -22,4 +22,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dda8f060d89ab3340bdb3d1671fc3f74, type: 2}
   consequenceApplication: 1
   consequence: {fileID: 11400000, guid: 90f740ba3bb8c6e489a260027663e108, type: 2}
-  successActions: []
+  successActions:
+  - {fileID: 11400000, guid: 7cabc06792382ed4cb6f99796716b0ca, type: 2}
