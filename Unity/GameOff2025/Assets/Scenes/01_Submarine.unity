@@ -14467,14 +14467,6 @@ PrefabInstance:
       propertyPath: taskHandler
       value: 
       objectReference: {fileID: 754962510}
-    - target: {fileID: 8682108600841461876, guid: 69e851e02ab41df4abe5be3f03327d8b, type: 3}
-      propertyPath: allTasks.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8682108600841461876, guid: 69e851e02ab41df4abe5be3f03327d8b, type: 3}
-      propertyPath: 'allTasks.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: a71be8a492b69e943a8f8ddaf1af3a31, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
