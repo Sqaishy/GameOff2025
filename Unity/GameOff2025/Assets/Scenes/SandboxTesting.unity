@@ -1496,7 +1496,7 @@ PrefabInstance:
     - target: {fileID: 589763941912248646, guid: f6ac21f0720b48d4d9696312cf4624e7, type: 3}
       propertyPath: taskToGive
       value: 
-      objectReference: {fileID: 11400000, guid: a71be8a492b69e943a8f8ddaf1af3a31, type: 2}
+      objectReference: {fileID: 11400000, guid: 95d2471b86aeec44ba13bbee4d49a2c2, type: 2}
     - target: {fileID: 589763941912248646, guid: f6ac21f0720b48d4d9696312cf4624e7, type: 3}
       propertyPath: taskHandler
       value: 
