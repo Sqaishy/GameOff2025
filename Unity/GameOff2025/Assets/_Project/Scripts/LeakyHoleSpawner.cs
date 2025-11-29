@@ -27,7 +27,7 @@ public class LeakyHoleSpawner : MonoBehaviour
 
             Transform spawnPoint = availableSpawnPoints[Random.Range(0, availableSpawnPoints.Count)];
 
-            Instantiate(leakPrefab, spawnPoint.position, spawnPoint.rotation, spawnPoint);
+            Instantiate(leakPrefab, spawnPoint.localPosition, spawnPoint.localRotation, spawnPoint);
 
             availableSpawnPoints.Remove(spawnPoint);
         }

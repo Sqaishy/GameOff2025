@@ -4,6 +4,7 @@ using FMODUnity;
 using SubHorror.Core;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace SubHorror.Interaction
 {
@@ -31,6 +32,8 @@ namespace SubHorror.Interaction
 
 		private IEnumerator GameOverSequence(GameObject interactor, GameObject target, CinemachineCamera camera)
 		{
+			interactor.GetComponentInParent<NavMeshAgent>().enabled = false;
+
 			Vector3 lookPosition = interactor.transform.position - target.transform.position;
 			lookPosition.y = 0f;
 

@@ -97,7 +97,7 @@ MonoBehaviour:
   monsterContext:
     agent: {fileID: 0}
     loudestEmitter: {fileID: 0}
-    movementSpeed: 1.5
+    movementSpeed: 1
     minSpeedMultiplier: 1
     maxSpeedMultiplier: 5
     movementSpeedRamp:
@@ -124,7 +124,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    rageMovementSpeed: 4
+    rageMovementSpeed: 6
     exitRageDistance: 6
     rageCooldown: 8
     minRageTime: 4
