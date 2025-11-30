@@ -77,16 +77,21 @@ namespace SubHorror.Noise
 
 			NoiseEmitter loudestEmitter = null;
 			float noiseLevel = 0f;
+			int priority = -1;
 
 			foreach (KeyValuePair<NoiseEmitter,List<INoise>> keyValuePair in activeNoisesDic)
 			{
 				float noiseToCompare = GetNoiseLevel(keyValuePair.Key);
 
-				if (noiseToCompare <= noiseLevel)
+				if (keyValuePair.Key.Priority <= priority)
+					continue;
+
+				if (noiseToCompare < noiseLevel)
 					continue;
 
 				loudestEmitter = keyValuePair.Key;
 				noiseLevel = noiseToCompare;
+				priority = keyValuePair.Key.Priority;
 			}
 
 			return loudestEmitter;
