@@ -86,7 +86,7 @@ namespace SubHorror.Monster
 
 		private void CheckExitConditions()
 		{
-			float distanceToEmitter = Vector3.Distance(context.loudestEmitter.transform.position,
+			float distanceToEmitter = Vector3.Distance(previousEmitter.transform.position,
 				context.agent.transform.position);
 
 			isFarEnough = distanceToEmitter >= context.exitRageDistance;

@@ -1470,10 +1470,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8536930356327866021, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.276
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536930356327866021, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.783
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536930356327866021, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 9184422485130865466, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
       propertyPath: destination
       value: 
-      objectReference: {fileID: 1249405172}
+      objectReference: {fileID: 1249405170}
     - target: {fileID: 9184422485130865466, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
       propertyPath: monsterSpawner
       value: 
@@ -1492,9 +1504,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 675146529837182377, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
   m_PrefabInstance: {fileID: 51259964}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &51259968 stripped
+--- !u!4 &51259966 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4716290393583671161, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8536930356327866021, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
   m_PrefabInstance: {fileID: 51259964}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &53128203
@@ -14102,7 +14114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4716290393583671161, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.662
+      value: 2.446
       objectReference: {fileID: 0}
     - target: {fileID: 4716290393583671161, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14172,10 +14184,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8536930356327866021, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536930356327866021, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.821
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536930356327866021, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.093
+      objectReference: {fileID: 0}
     - target: {fileID: 9184422485130865466, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
       propertyPath: destination
       value: 
-      objectReference: {fileID: 51259968}
+      objectReference: {fileID: 51259966}
     - target: {fileID: 9184422485130865466, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
       propertyPath: monsterSpawner
       value: 
@@ -14194,9 +14218,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 675146529837182377, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
   m_PrefabInstance: {fileID: 1249405168}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1249405172 stripped
+--- !u!4 &1249405170 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4716290393583671161, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8536930356327866021, guid: 2a8242ce5463bba4d8a5ebc6640dbc0c, type: 3}
   m_PrefabInstance: {fileID: 1249405168}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1257430573
