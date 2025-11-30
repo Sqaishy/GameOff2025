@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using SubHorror.Depth;
+using SubHorror.Interaction;
 using UnityEngine;
 
 namespace SubHorror.Tasks
@@ -24,10 +25,15 @@ namespace SubHorror.Tasks
 
 		private Task GetRandomTask()
 		{
-			possibleTasks = new List<Task>(allTasks);
+			possibleTasks = new List<Task>();
 
-			foreach (Task activeTask in taskHandler.ActiveTasks)
-				possibleTasks.Remove(activeTask);
+			foreach (Task task in allTasks)
+			{
+				if (taskHandler.ActiveTasks.Find(activeTask => activeTask.TaskName == task.TaskName))
+					continue;
+
+				possibleTasks.Add(task);
+			}
 
 			return possibleTasks[Random.Range(0, possibleTasks.Count)];
 		}

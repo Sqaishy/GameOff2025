@@ -50,8 +50,8 @@ namespace SubHorror.Monster
 
 			RuntimeManager.PlayOneShotAttached(context.monsterAudio, context.agent.gameObject);
 			context.movementSoundInstance.start();
-			RuntimeManager.AttachInstanceToGameObject(context.movementSoundInstance, context.agent.gameObject);
 			RuntimeManager.PlayOneShotAttached(context.rageSound, context.agent.gameObject);
+			RuntimeManager.AttachInstanceToGameObject(context.movementSoundInstance, context.agent.gameObject);
 		}
 
 		protected override void OnTick()
@@ -86,7 +86,7 @@ namespace SubHorror.Monster
 
 		private void CheckExitConditions()
 		{
-			float distanceToEmitter = Vector3.Distance(context.loudestEmitter.transform.position,
+			float distanceToEmitter = Vector3.Distance(previousEmitter.transform.position,
 				context.agent.transform.position);
 
 			isFarEnough = distanceToEmitter >= context.exitRageDistance;

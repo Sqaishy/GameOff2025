@@ -64,6 +64,9 @@ namespace SubHorror.Tasks
 
 		public void GameEnd()
 		{
+			foreach (Task task in activeTasks)
+				task.Dispose();
+
 			for (int i = activeTasks.Count - 1; i >= 0; i--)
 				RemoveTask(activeTasks[i]);
 		}

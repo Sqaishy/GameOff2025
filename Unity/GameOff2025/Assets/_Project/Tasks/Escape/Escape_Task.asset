@@ -18,4 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f63214a7afb47014da74bdbe81aeecab, type: 2}
   consequenceApplication: 1
   consequence: {fileID: 0}
-  successAction: {fileID: 0}
+  successActions: []

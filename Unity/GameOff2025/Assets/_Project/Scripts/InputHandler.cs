@@ -1,5 +1,6 @@
 using System;
 using FMODUnity;
+using SubHorror.Core;
 using SubHorror.Interaction;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,7 +9,7 @@ namespace SubHorror
 {
 	[RequireComponent(typeof(PlayerInput))]
 	[DisallowMultipleComponent]
-	public class InputHandler : MonoBehaviour
+	public class InputHandler : MonoBehaviour, IGameEnd
 	{
 		[SerializeField] private EventReference interactPressAudio;
 
@@ -63,6 +64,13 @@ namespace SubHorror
 		{
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Locked;
+		}
+
+		public void GameEnd()
+		{
+			enabled = false;
+
+			GetComponent<PlayerInput>().enabled = false;
 		}
 	}
 }

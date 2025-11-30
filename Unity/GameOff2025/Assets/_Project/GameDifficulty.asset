@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxNoiseThreshold: 75
   startingDepth: 1000
-  surfaceTime: 0.1
+  surfaceTime: 3.5

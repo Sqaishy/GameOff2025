@@ -14,8 +14,29 @@ namespace SubHorror.Interaction
 			return clone;
 		}
 
+		protected bool Equals(Item other)
+		{
+			return base.Equals(other) && ItemGuid.Equals(other.ItemGuid);
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (obj is null) return false;
+			if (ReferenceEquals(this, obj)) return true;
+			if (obj.GetType() != GetType()) return false;
+			return Equals((Item)obj);
+		}
+
+		public override int GetHashCode()
+		{
+			return base.GetHashCode();
+		}
+
 		public static bool operator ==(Item a, Item b)
 		{
+			if (a == null || b == null)
+				return false;
+
 			return a.ItemGuid == b.ItemGuid;
 		}
 

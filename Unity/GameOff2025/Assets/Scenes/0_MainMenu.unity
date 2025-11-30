@@ -1041,7 +1041,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.8901961, g: 0.2901961, b: 0.105882354, a: 0.7372549}
     m_HighlightedColor: {r: 0.8773585, g: 0.37235615, b: 0.21933962, a: 1}
     m_PressedColor: {r: 0.6981132, g: 0.19680539, b: 0.042808846, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.69803923, g: 0.19607845, b: 0.043137256, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2508,7 +2508,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.8901961, g: 0.2901961, b: 0.105882354, a: 0.7372549}
     m_HighlightedColor: {r: 0.8773585, g: 0.37235615, b: 0.21933962, a: 1}
     m_PressedColor: {r: 0.6981132, g: 0.19680539, b: 0.042808846, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.69803923, g: 0.19607845, b: 0.043137256, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2641,7 +2641,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.8901961, g: 0.2901961, b: 0.105882354, a: 0.7372549}
     m_HighlightedColor: {r: 0.8773585, g: 0.37235615, b: 0.21933962, a: 1}
     m_PressedColor: {r: 0.6981132, g: 0.19680539, b: 0.042808846, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.69803923, g: 0.19607845, b: 0.043137256, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2668,6 +2668,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1304922259}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: SetActiveUISelection
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1067848976}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4227,7 +4239,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.8901961, g: 0.2901961, b: 0.105882354, a: 0.7372549}
     m_HighlightedColor: {r: 0.8773585, g: 0.37235615, b: 0.21933962, a: 1}
     m_PressedColor: {r: 0.6981132, g: 0.19680539, b: 0.042808846, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.69803923, g: 0.19607845, b: 0.043137256, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4254,6 +4266,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1304922259}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: SetActiveUISelection
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2075077091}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4435,7 +4459,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.8901961, g: 0.2901961, b: 0.105882354, a: 0.7372549}
     m_HighlightedColor: {r: 0.8773585, g: 0.37235615, b: 0.21933962, a: 1}
     m_PressedColor: {r: 0.6981132, g: 0.19680539, b: 0.042808846, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.69803923, g: 0.19607845, b: 0.043137256, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4451,7 +4475,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 588597529}
+  m_TargetGraphic: {fileID: 1067848979}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -4462,6 +4486,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1304922259}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: SetActiveUISelection
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 641769680}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4480,7 +4516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8901961, g: 0.2901961, b: 0.105882354, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5781,6 +5817,7 @@ MonoBehaviour:
   _mainMenu: {fileID: 707958705}
   _optionsMenu: {fileID: 1028709656}
   _creditsMenu: {fileID: 1531025630}
+  firstSelected: {fileID: 295898649}
   _hoverableButtons:
   - {fileID: 641769682}
   - {fileID: 588597528}
@@ -6632,7 +6669,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.8901961, g: 0.2901961, b: 0.105882354, a: 0.7372549}
     m_HighlightedColor: {r: 0.8773585, g: 0.37235615, b: 0.21933962, a: 1}
     m_PressedColor: {r: 0.6981132, g: 0.19680539, b: 0.042808846, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.69803923, g: 0.19607845, b: 0.043137256, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -6648,7 +6685,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 588597529}
+  m_TargetGraphic: {fileID: 1588556789}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -6665,7 +6702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8901961, g: 0.2901961, b: 0.105882354, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7755,7 +7792,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.8901961, g: 0.2901961, b: 0.105882354, a: 0.7372549}
     m_HighlightedColor: {r: 0.8773585, g: 0.37235615, b: 0.21933962, a: 1}
     m_PressedColor: {r: 0.6981132, g: 0.19680539, b: 0.042808846, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.69803923, g: 0.19607845, b: 0.043137256, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -7771,7 +7808,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 588597529}
+  m_TargetGraphic: {fileID: 2075077094}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -7787,13 +7824,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1304922259}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: SetActiveUISelection
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgument: {fileID: 1040453015}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7812,7 +7849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8901961, g: 0.2901961, b: 0.105882354, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -30,7 +30,8 @@ public class FloorTransition : MonoBehaviour, IInteractable
 
 	private void TeleportToFloor(GameObject interactor)
 	{
-		interactor.transform.root.position = destination.transform.position;
+		Transform interactorRoot = interactor.transform.root;
+		interactorRoot.localPosition = destination.transform.position;
 
 		if (!monsterSpawner.ActiveMonster)
 			return;

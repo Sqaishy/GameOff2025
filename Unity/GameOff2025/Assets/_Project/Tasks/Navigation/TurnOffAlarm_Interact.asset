@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useTimer: 0
   timerDuration: 0
-  objectiveText: Turn off alarm
+  objectiveText: 'Turn off alarm '
   objectiveData:
     interactable: {fileID: 0}
     actions: []

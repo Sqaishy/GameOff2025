@@ -77,6 +77,12 @@ namespace SubHorror.Tasks
 				success.Apply(this);
 		}
 
+		public void Dispose()
+		{
+			foreach (Consequence success in successActions)
+				success.Apply(this);
+		}
+
 		private Status StartObjective()
 		{
 			objectives[currentObjectiveIndex].Owner = taskOwner;

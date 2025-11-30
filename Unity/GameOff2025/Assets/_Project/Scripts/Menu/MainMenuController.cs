@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using FMODUnity;
+using UnityEditor;
+using UnityEngine.EventSystems;
 using static UserSettingsJSON;
 
 /// <summary>
@@ -12,6 +14,8 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _optionsMenu;
     [SerializeField] private GameObject _creditsMenu;
+    [Tooltip("The gameObject that is first selected when the UI is enabled -> for controller support")]
+    [SerializeField] private GameObject firstSelected;
     private SceneManager _sceneManager;
     [SerializeField] private List<Button> _hoverableButtons;
     [SerializeField] private bool _debugMode = false;
@@ -23,6 +27,8 @@ public class MainMenuController : MonoBehaviour
         _sceneManager = GetComponent<SceneManager>();
         InitializeDefaultUserPrefs(_userSettings);
         InitializeHoverableButtons(_hoverableButtons);
+
+        EventSystem.current.SetSelectedGameObject(firstSelected);
     }
 
     private void InitializeHoverableButtons(List<Button> hoverableButtons)
@@ -47,6 +53,9 @@ public class MainMenuController : MonoBehaviour
         _userSettings.sfxVolume = 1f;
         _userSettings.ambienceVolume = 1f;
     }
+
+    public void SetActiveUISelection(GameObject selection) => EventSystem.current.SetSelectedGameObject(selection,
+        new BaseEventData(EventSystem.current));
 
     public void StartGame()
     {
@@ -73,5 +82,14 @@ public class MainMenuController : MonoBehaviour
     public void PlayHoveringSound()
     {
         AudioManager.Instance.PlayOneShot2D(FMODEvents.Instance.menuHover);
+    }
+}
+
+public static class EventLogger
+{
+    [MenuItem("Tools/UI/Log Current Selection")]
+    private static void LogCurrentUISelection()
+    {
+        Debug.Log($"Current UI element selected {EventSystem.current.currentSelectedGameObject.name}", EventSystem.current.currentSelectedGameObject);
     }
 }

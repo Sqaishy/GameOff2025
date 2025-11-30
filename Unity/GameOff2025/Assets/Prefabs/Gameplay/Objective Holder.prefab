@@ -44,12 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce5cf280bea4f71ba245a477376a63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objective: {fileID: 0}
+  objective: {fileID: 11400000, guid: 7f109090721862a4f9a73f7f0ccf1394, type: 2}
   objectiveData:
-    rid: -2
-  previousObjective: {fileID: 0}
+    rid: 6958021409905311850
+  previousObjective: {fileID: 11400000, guid: 7f109090721862a4f9a73f7f0ccf1394, type: 2}
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6958021409905311850
+      type: {class: LocationData, ns: SubHorror.Tasks, asm: Assembly-CSharp}
+      data:
+        location: {fileID: 2715821772750411368}
+        distanceToLocation: 2

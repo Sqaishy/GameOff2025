@@ -18,3 +18,4 @@ MonoBehaviour:
   objectiveData:
     interactable: {fileID: 0}
     actions: []
+  destroyChildren: 0
