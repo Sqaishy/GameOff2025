@@ -20,8 +20,23 @@
 	<object class="MixerBusEffectChain" id="{234ee251-d7e4-45c3-9926-6aa47be40dba}">
 		<relationship name="effects">
 			<destination>{7bf6334e-fc0b-4db6-895c-5704726be09a}</destination>
+			<destination>{10216e63-b02e-42de-95e9-1be8e8280a39}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{68f84915-8ecc-43be-865a-a6beee371fd2}" />
 	<object class="MixerBusFader" id="{7bf6334e-fc0b-4db6-895c-5704726be09a}" />
+	<object class="ConvolutionReverbEffect" id="{10216e63-b02e-42de-95e9-1be8e8280a39}">
+		<property name="endFrame">
+			<value>280853</value>
+		</property>
+		<property name="wetLevel">
+			<value>-40</value>
+		</property>
+		<property name="dryLevel">
+			<value>0</value>
+		</property>
+		<relationship name="referenceableData">
+			<destination>{469001c2-1cbe-46c7-a466-e5080ef18270}</destination>
+		</relationship>
+	</object>
 </objects>
