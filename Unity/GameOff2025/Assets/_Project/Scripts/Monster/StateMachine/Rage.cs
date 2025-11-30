@@ -22,7 +22,6 @@ namespace SubHorror.Monster
 		{
 			this.context = context;
 			context.movementSoundInstance = RuntimeManager.CreateInstance(context.movementSound);
-			RuntimeManager.AttachInstanceToGameObject(context.movementSoundInstance, context.agent.gameObject);
 		}
 
 		protected override bool GetTransition(out State transitionState)
@@ -52,6 +51,7 @@ namespace SubHorror.Monster
 			RuntimeManager.PlayOneShotAttached(context.monsterAudio, context.agent.gameObject);
 			context.movementSoundInstance.start();
 			RuntimeManager.PlayOneShotAttached(context.rageSound, context.agent.gameObject);
+			RuntimeManager.AttachInstanceToGameObject(context.movementSoundInstance, context.agent.gameObject);
 		}
 
 		protected override void OnTick()

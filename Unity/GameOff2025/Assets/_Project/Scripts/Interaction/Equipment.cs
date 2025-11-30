@@ -43,6 +43,9 @@ namespace SubHorror.Interaction
 
 		public void TryUnEquip(Item equipment)
 		{
+			if (!currentEquipment.itemGuid)
+				return;
+
 			if (currentEquipment.itemGuid != equipment)
 				return;
 

@@ -21,22 +21,22 @@ namespace SubHorror.Monster
 
 			machine = new StateMachineBuilder<MonsterRootState>(monsterContext).Build();
 			monsterSound = RuntimeManager.CreateInstance(monsterContext.monsterAudio);
-		}
 
-		private void OnEnable()
-		{
 			monsterSound.start();
 			RuntimeManager.AttachInstanceToGameObject(monsterSound, gameObject);
 		}
 
 		private void OnDisable()
 		{
+			machine.Exit();
+		}
+
+		private void OnDestroy()
+		{
 			monsterSound.stop(STOP_MODE.IMMEDIATE);
 			monsterSound.release();
 			monsterContext.movementSoundInstance.stop(STOP_MODE.IMMEDIATE);
 			monsterContext.movementSoundInstance.release();
-
-			machine.Exit();
 		}
 
 		private void Update()
