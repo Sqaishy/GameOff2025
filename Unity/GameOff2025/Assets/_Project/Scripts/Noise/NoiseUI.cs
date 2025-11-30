@@ -7,12 +7,18 @@ namespace SubHorror.Noise.UI
 	public class NoiseUI : MonoBehaviour
 	{
 		[SerializeField] private NoiseEmitter emitter;
+		[SerializeField] private GameDifficulty difficulty;
 		[Header("UI References")]
 		[SerializeField] private Slider noiseSlider;
+		[SerializeField] private Image warningImage;
 
 		private void Update()
 		{
-			noiseSlider.value = emitter.TotalNoiseLevelCombined();
+			float noiseLevel = emitter.TotalNoiseLevelCombined();
+
+			noiseSlider.value = noiseLevel;
+
+			warningImage.enabled = noiseLevel >= difficulty.MaxNoiseThreshold;
 		}
 	}
 }
