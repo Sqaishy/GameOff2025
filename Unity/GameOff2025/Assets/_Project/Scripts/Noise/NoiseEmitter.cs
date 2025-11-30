@@ -7,10 +7,15 @@ namespace SubHorror.Noise
 {
 	public class NoiseEmitter : MonoBehaviour
 	{
-		[SerializeField] private AnimationCurve falloffRange = AnimationCurve.Linear(0f, 0f, 1f, 1f);
+		[SerializeField] private AnimationCurve falloffRange = AnimationCurve.Linear(0f, 0f,
+			1f, 1f);
+		[Tooltip("A higher priority noise is chosen over a lower equal noise")]
+		[Min(0)]
+		[SerializeField] private int priority;
 
 		public event Action OnNoiseEntered;
 		public event Action OnNoiseExited;
+		public int Priority => priority;
 
 		private List<NoiseEmitter> nearbyEmitters = new();
 		private Dictionary<NoiseSettings, ToggleNoise> noiseMap = new();

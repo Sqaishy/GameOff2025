@@ -622,6 +622,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6199363502881600999}
     m_Modifications:
+    - target: {fileID: 5440752730125503, guid: aa87757cf65143246b5b6c4f445650e5, type: 3}
+      propertyPath: priority
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4215498798414656498, guid: aa87757cf65143246b5b6c4f445650e5, type: 3}
       propertyPath: m_Name
       value: Noise Emitter
