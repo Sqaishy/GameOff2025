@@ -59,6 +59,10 @@ namespace SubHorror.Monster
 		[Tooltip("The maximum movement speed multiplier of this monster based on the noise level" +
 		         "\nMovement Speed * Multiplier")]
 		public float maxSpeedMultiplier;
+		[Tooltip("If the monster has 'line of sight' with the noise emitter its chasing multiply " +
+		         "the movement speed" +
+		         "\nThis is multiplicative with the other movement speed modifiers")]
+		public float losSpeedMultiplier;
 		[Tooltip("Controls how quickly the movement speed ramps between min and max multiplier")]
 		public AnimationCurve movementSpeedRamp;
 		[Header("Rage Settings")]

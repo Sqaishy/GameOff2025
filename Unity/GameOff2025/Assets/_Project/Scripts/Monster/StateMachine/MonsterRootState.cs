@@ -11,6 +11,7 @@ namespace SubHorror.Monster
 		private float checkNoiseTime;
 		private float idleTime;
 		private bool canForceIdle;
+		private Ray losRay;
 
 		public MonsterRootState(StateMachine machine, MonsterContext context) : base(machine)
 		{
@@ -48,6 +49,7 @@ namespace SubHorror.Monster
 		{
 			CheckLoudestNoise();
 			canForceIdle = CanForceIdle();
+			HasLineOfSight();
 		}
 
 		protected override void OnExit()
@@ -76,7 +78,7 @@ namespace SubHorror.Monster
 			if (idleTime < context.forceIdleTime)
 				return false;
 
-			if (context.enraged || HasLineOfSight())
+			if (context.enraged || context.hasLOS)
 				return false;
 
 			idleTime = 0;
@@ -89,13 +91,15 @@ namespace SubHorror.Monster
 				return false;
 
 			Vector3 rayOrigin = context.agent.transform.position;
+			rayOrigin += Vector3.up * context.agent.height;
 			Vector3 rayDirection = context.loudestEmitter.transform.position - rayOrigin;
 
-			Ray ray = new Ray(rayOrigin, rayDirection);
+			losRay.origin = rayOrigin;
+			losRay.direction = rayDirection;
 
 			Debug.DrawRay(rayOrigin, rayDirection, Color.red);
 
-			if (Physics.Raycast(ray, out RaycastHit hit))
+			if (Physics.Raycast(losRay, out RaycastHit hit, Mathf.Infinity))
 				context.hasLOS = hit.collider.gameObject == context.loudestEmitter.gameObject;
 
 			return context.hasLOS;

@@ -47,6 +47,10 @@ namespace SubHorror.Monster
 
 			float speedMultiplier = Mathf.Lerp(context.minSpeedMultiplier, context.maxSpeedMultiplier,
 				movementRamp);
+
+			if (context.hasLOS)
+				speedMultiplier *= context.losSpeedMultiplier;
+
 			context.agent.speed = context.movementSpeed * speedMultiplier;
 		}
 	}
