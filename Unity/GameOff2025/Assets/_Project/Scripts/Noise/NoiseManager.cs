@@ -83,10 +83,10 @@ namespace SubHorror.Noise
 			{
 				float noiseToCompare = GetNoiseLevel(keyValuePair.Key);
 
-				if (keyValuePair.Key.Priority <= priority)
+				if (noiseToCompare < noiseLevel)
 					continue;
 
-				if (noiseToCompare < noiseLevel)
+				if (keyValuePair.Key.Priority <= priority)
 					continue;
 
 				loudestEmitter = keyValuePair.Key;
