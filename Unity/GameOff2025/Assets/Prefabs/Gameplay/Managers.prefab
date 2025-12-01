@@ -173,3 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: {fileID: 11400000, guid: f5a88f38a367b604094c58061994462d, type: 2}
   depthMilestones: 5
+  depthOffset: 100
