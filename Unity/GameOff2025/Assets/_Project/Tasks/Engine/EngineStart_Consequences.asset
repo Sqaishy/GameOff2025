@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f732a8107b04dcdb0b39f6e329213fc, type: 3}
-  m_Name: EngineParamter_Consequence
+  m_Script: {fileID: 11500000, guid: 3e5ba55d9c254f53982b69e8087e4064, type: 3}
+  m_Name: EngineStart_Consequences
   m_EditorClassIdentifier: 
-  studioParameterName: Engine
-  value: 1
+  consequences:
+  - {fileID: 11400000, guid: 6569e0ece3ea8b841acc9ff2c37bff34, type: 2}
+  - {fileID: 11400000, guid: d4b4e9b0402d5334c8f3f414d10592ed, type: 2}

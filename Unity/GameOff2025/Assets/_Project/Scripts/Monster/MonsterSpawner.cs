@@ -13,6 +13,7 @@ namespace SubHorror.Monster
 
 		public void DisableMonster()
 		{
+			spawnedMonster.Exit();
 			spawnedMonster.gameObject.SetActive(false);
 		}
 
