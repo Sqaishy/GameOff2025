@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a67a92947d24079a4d61e7493fa85c3, type: 3}
   m_Name: ReduceDepth_Consequence
   m_EditorClassIdentifier: 
-  depthPerSecond: 8
-  depthToggle: 0
+  depthPerSecond: 3

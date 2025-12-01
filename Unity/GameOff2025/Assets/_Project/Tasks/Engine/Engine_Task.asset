@@ -20,9 +20,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 57a67651056f22b40bdb48e984962e3f, type: 2}
   - {fileID: 11400000, guid: 484e9415f7a330c4f824bc9823092805, type: 2}
   consequenceApplication: 0
-  consequence: {fileID: 11400000, guid: 55dde38f31458fb4f82a17dd152333c1, type: 2}
+  consequence: {fileID: 11400000, guid: 76ef0ad0a21f5b7458fb472c120c9b74, type: 2}
   successActions:
-  - {fileID: 11400000, guid: deaccbcecd274d940a03cd062e763018, type: 2}
   - {fileID: 11400000, guid: 4d5eb9868c8557c4799ef528b39ecfc9, type: 2}
   - {fileID: 11400000, guid: c12d327982e88bd40b042149f88b87d1, type: 2}
   - {fileID: 11400000, guid: 149956cd0032d564b9a9fcdb18780db7, type: 2}
+  - {fileID: 11400000, guid: 89f7062046538e844a6362f1eb5f5e0f, type: 2}

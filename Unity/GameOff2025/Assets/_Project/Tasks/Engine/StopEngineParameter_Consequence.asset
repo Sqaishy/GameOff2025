@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10290de6e10941bc948f0923e430bd03, type: 3}
-  m_Name: ContinueClimb_Consequence
+  m_Script: {fileID: 11500000, guid: 1f732a8107b04dcdb0b39f6e329213fc, type: 3}
+  m_Name: StopEngineParameter_Consequence
   m_EditorClassIdentifier: 
-  stopClimb: 0
+  studioParameterName: Engine
+  value: 0
