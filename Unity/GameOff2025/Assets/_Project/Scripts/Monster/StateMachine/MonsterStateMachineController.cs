@@ -26,11 +26,6 @@ namespace SubHorror.Monster
 			RuntimeManager.AttachInstanceToGameObject(monsterSound, gameObject);
 		}
 
-		private void OnDisable()
-		{
-			machine.Exit();
-		}
-
 		private void OnDestroy()
 		{
 			monsterSound.stop(STOP_MODE.IMMEDIATE);
@@ -42,6 +37,11 @@ namespace SubHorror.Monster
 		private void Update()
 		{
 			machine.Update();
+		}
+
+		public void Exit()
+		{
+			machine.Exit();
 		}
 	}
 
