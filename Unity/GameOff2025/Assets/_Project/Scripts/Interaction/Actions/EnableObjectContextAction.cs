@@ -16,7 +16,11 @@ namespace SubHorror.Interaction
 			GameObject targetObject = null;
 
 			for (int i = 1; i < objectPath.Length; i++)
+			{
 				targetObject = foundObject.transform.Find(objectPath[i]).gameObject;
+
+				foundObject = targetObject;
+			}
 
 			if (targetObject)
 			{

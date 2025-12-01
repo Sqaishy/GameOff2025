@@ -34,9 +34,6 @@ namespace SubHorror.Interaction
 
 		public static bool operator ==(Item a, Item b)
 		{
-			if (a == null || b == null)
-				return false;
-
 			return a.ItemGuid == b.ItemGuid;
 		}
 

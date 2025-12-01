@@ -4,8 +4,10 @@ namespace SubHorror.Depth
 {
 	public class InfiniteDepth : IDepth
 	{
-		public bool Active => true;
+		public bool Active => active;
 		public float DepthPerSecond { get; }
+
+		private bool active = true;
 
 		public InfiniteDepth(float depthPerSecond)
 		{
@@ -16,5 +18,9 @@ namespace SubHorror.Depth
 		{
 			return DepthPerSecond * Time.deltaTime;
 		}
+
+		public void Start() => active = true;
+
+		public void Stop() => active = false;
 	}
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tutorial_Wait
   m_EditorClassIdentifier: 
   useTimer: 1
-  timerDuration: 3
-  objectiveText: It's attracted to noise...
+  timerDuration: 4.5
+  objectiveText: The watch provides useful information

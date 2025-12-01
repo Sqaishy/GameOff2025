@@ -13,6 +13,8 @@ namespace SubHorror.Depth
 		         "objects can react to it" +
 		         "\nMilestone depths are calculated as starting depth / depthMilestone (1000/10 = 100 meters")]
 		[SerializeField] private float depthMilestones;
+		[Tooltip("The offset in meters for the starting depth milestone")]
+		[SerializeField] private float depthOffset;
 
 		public static event Action OnDepthMilestone;
 		public static event Action OnReachedSurface;
@@ -32,7 +34,7 @@ namespace SubHorror.Depth
 
 			milestone = difficulty.StartingDepth / depthMilestones;
 			currentDepth = difficulty.StartingDepth;
-			currentMilestone = currentDepth - milestone;
+			currentMilestone = currentDepth - milestone + depthOffset;
 		}
 
 		private void Update()
@@ -54,6 +56,12 @@ namespace SubHorror.Depth
 					RemoveDepth(depthContributor);
 			}
 
+			if (currentDepth <= 0f)
+			{
+				OnReachedSurface?.Invoke();
+				canMove = false;
+			}
+
 			if (currentDepth > currentMilestone)
 				return;
 
@@ -61,10 +69,7 @@ namespace SubHorror.Depth
 
 			Debug.Log($"Depth milestone reached, new milestone {currentMilestone:N0}");
 
-			if (currentDepth <= 0f)
-				OnReachedSurface?.Invoke();
-			else
-				OnDepthMilestone?.Invoke();
+			OnDepthMilestone?.Invoke();
 		}
 
 		private void OnDestroy()
