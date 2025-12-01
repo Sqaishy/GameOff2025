@@ -72,6 +72,13 @@ MonoBehaviour:
   destination: {fileID: 8536930356327866021}
   monsterDestination: {fileID: 7817014241958326998}
   monsterSpawner: {fileID: 0}
+  climbAudio:
+    Guid:
+      Data1: 1609316927
+      Data2: 1183307602
+      Data3: 1649733001
+      Data4: 1976118984
+    Path: event:/SFX/ClimbLadder
 --- !u!1 &762969610615943140
 GameObject:
   m_ObjectHideFlags: 0

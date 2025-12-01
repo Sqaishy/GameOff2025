@@ -1,3 +1,4 @@
+using FMODUnity;
 using SubHorror.Interaction;
 using SubHorror.Monster;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class FloorTransition : MonoBehaviour, IInteractable
 	[SerializeField] private Transform destination;
 	[SerializeField] private Transform monsterDestination;
 	[SerializeField] private MonsterSpawner monsterSpawner;
+	[SerializeField] private EventReference climbAudio;
 
 	public bool CanInteract()
 	{
@@ -32,6 +34,8 @@ public class FloorTransition : MonoBehaviour, IInteractable
 	{
 		Transform interactorRoot = interactor.transform.root;
 		interactorRoot.localPosition = destination.transform.position;
+
+		RuntimeManager.PlayOneShot(climbAudio);
 
 		if (!monsterSpawner.ActiveMonster)
 			return;
