@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useTimer: 0
   timerDuration: 0
-  objectiveText: Pickup the watch
+  objectiveText: Interact with the computer
   objectiveData:
     interactable: {fileID: 0}
-    actions: []
+    actions:
+    - {fileID: 11400000, guid: 45a1c232b54e54f4d9571192c51c0c2f, type: 2}
+    - {fileID: 11400000, guid: 5314668a1a0372e4f9896cb2fcb3f9e9, type: 2}
   destroyChildren: 0
