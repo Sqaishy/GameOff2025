@@ -3,7 +3,17 @@ guid: e196c8262ffe9174c9bd346af4b3fd5f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: submarineGroundMat.001
+    second: {fileID: 2100000, guid: 3dfc45a610e3d9e4f9690831afd7fb9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: submarineHullMatLvl2.002
+    second: {fileID: 2100000, guid: 856138be8189d53438c03b80cb76a3e4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
