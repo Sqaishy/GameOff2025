@@ -25,14 +25,11 @@ namespace SubHorror.Depth
 
 			RectTransform sliderTransform = slider.GetComponent<RectTransform>();
 			sliderTransform.sizeDelta = new Vector2(height, sliderTransform.sizeDelta.y);
-		}
 
-		private void OnEnable()
-		{
 			DepthController.OnReachedSurface += ReachedSurface;
 		}
 
-		private void OnDisable()
+		private void OnDestroy()
 		{
 			DepthController.OnReachedSurface -= ReachedSurface;
 		}

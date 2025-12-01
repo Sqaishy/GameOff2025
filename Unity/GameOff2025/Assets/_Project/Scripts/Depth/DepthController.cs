@@ -56,6 +56,12 @@ namespace SubHorror.Depth
 					RemoveDepth(depthContributor);
 			}
 
+			if (currentDepth <= 0f)
+			{
+				OnReachedSurface?.Invoke();
+				canMove = false;
+			}
+
 			if (currentDepth > currentMilestone)
 				return;
 
@@ -63,10 +69,7 @@ namespace SubHorror.Depth
 
 			Debug.Log($"Depth milestone reached, new milestone {currentMilestone:N0}");
 
-			if (currentDepth <= 0f)
-				OnReachedSurface?.Invoke();
-			else
-				OnDepthMilestone?.Invoke();
+			OnDepthMilestone?.Invoke();
 		}
 
 		private void OnDestroy()
