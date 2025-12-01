@@ -19,6 +19,8 @@ namespace SubHorror.Depth
 			return DepthPerSecond * Time.deltaTime;
 		}
 
+		public void Start() => active = true;
+
 		public void Stop() => active = false;
 	}
 }

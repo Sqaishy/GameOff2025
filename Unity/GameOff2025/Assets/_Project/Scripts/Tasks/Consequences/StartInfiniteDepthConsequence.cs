@@ -15,6 +15,7 @@ namespace SubHorror.Tasks
 		public override void Apply(Task failedTask)
 		{
 			InfiniteDepth ??= new InfiniteDepth(-depthPerSecond);
+			InfiniteDepth.Start();
 
 			Depth.Depth.AddDepth(InfiniteDepth);
 		}
