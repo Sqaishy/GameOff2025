@@ -12,6 +12,8 @@ namespace SubHorror.Depth
 		[SerializeField] private Image depthImage;
 		[SerializeField] private TMP_Text depthText;
 
+		private bool surfaceReached;
+
 		private void Start()
 		{
 			//This is not smart but whatever for now
@@ -25,10 +27,32 @@ namespace SubHorror.Depth
 			sliderTransform.sizeDelta = new Vector2(height, sliderTransform.sizeDelta.y);
 		}
 
+		private void OnEnable()
+		{
+			DepthController.OnReachedSurface += ReachedSurface;
+		}
+
+		private void OnDisable()
+		{
+			DepthController.OnReachedSurface -= ReachedSurface;
+		}
+
 		private void Update()
 		{
+			if (surfaceReached)
+				return;
+
 			slider.value = depthController.GetDepthPercentage01();
-			depthText.text = $"{depthController.CurrentDepth:N0}m";
+			SetDepthText($"{depthController.CurrentDepth:N0}m");
+		}
+
+		private void SetDepthText(string text) => depthText.text = text;
+
+		private void ReachedSurface()
+		{
+			surfaceReached = true;
+
+			SetDepthText("0m (Surface)");
 		}
 	}
 }
