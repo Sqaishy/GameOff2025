@@ -3,7 +3,12 @@ guid: 409dc527cef9949458c02e79883df2f4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: polishedSteelMat.001
+    second: {fileID: 2100000, guid: e96414a8b369aea47b18d07b2a5c6a74, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

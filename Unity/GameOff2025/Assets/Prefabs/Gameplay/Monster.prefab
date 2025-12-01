@@ -70,7 +70,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -99,8 +99,8 @@ MonoBehaviour:
     loudestEmitter: {fileID: 0}
     movementSpeed: 1
     minSpeedMultiplier: 1
-    maxSpeedMultiplier: 5
-    losSpeedMultiplier: 1.5
+    maxSpeedMultiplier: 3
+    losSpeedMultiplier: 2
     movementSpeedRamp:
       serializedVersion: 2
       m_Curve:
@@ -113,6 +113,15 @@ MonoBehaviour:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
+      - serializedVersion: 3
+        time: 0.6121052
+        value: 0.13111287
+        inSlope: 0.6163554
+        outSlope: 0.6163554
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.38772058
       - serializedVersion: 3
         time: 1
         value: 1
@@ -129,7 +138,7 @@ MonoBehaviour:
     exitRageDistance: 6
     rageCooldown: 8
     minRageTime: 4
-    rageEscapeTime: 3
+    rageEscapeTime: 2
     gameDifficulty: {fileID: 11400000, guid: f5a88f38a367b604094c58061994462d, type: 2}
     monsterAudio:
       Guid:
